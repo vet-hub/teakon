@@ -5,6 +5,9 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
+      <h1 class="text-9xl font-bold underline">
+        Hello world!
+      </h1>
     </div>
   );
 }
