@@ -1,13 +1,12 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import Navbar from './Components/Navbar';
-import LandingPage from "./Components/LandingPage";
-import ErgebnisseSeite from "./Components/ErgebnisseSeite";
-import TeeArtDetail from "./Components/TeeArtDetail";
-import TeeSorteDetail from "./Components/TeeSorteDetail";
-import Zubehör from "./Components/Zubehör";
-import ErrorPage from './Components/ErrorPage';
-
+import Navbar from './components/Navbar';
+import LandingPage from "./components/LandingPage";
+import ErgebnisseSeite from "./components/ErgebnisseSeite";
+import TeeArtDetail from "./components/TeeArtDetail";
+import TeeSorteDetail from "./components/TeeSorteDetail";
+import Zubehör from "./components/Zubehör";
+import ErrorPage from './components/ErrorPage';
 
 import CriteriaSelection from './components/CriteriaSelection';
 import Infosection from './components/Infosection';
@@ -19,11 +18,9 @@ function App() {
 
     <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
       <Navbar/>
-      <Infosection />
-      <CriteriaSelection/>
+
 
         
-        <Footer />
       <Routes>
         <Route path='/' element={<LandingPage/>} />
         <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite/>} />
@@ -32,6 +29,7 @@ function App() {
         <Route path='/zubehör' element={<Zubehör/>} />
         <Route path='*' element={<ErrorPage/>} />
       </Routes>
+      <Footer />
     </div>
   );
 } 
