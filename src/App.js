@@ -9,10 +9,21 @@ import Zubehör from "./Components/Zubehör";
 import ErrorPage from './Components/ErrorPage';
 
 
+import CriteriaSelection from './components/CriteriaSelection';
+import Infosection from './components/Infosection';
+import Footer from './components/Footer'
+
+
 function App() {
   return (
-    <div className="App">
+
+    <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
       <Navbar/>
+      <Infosection />
+      <CriteriaSelection/>
+
+        
+        <Footer />
       <Routes>
         <Route path='/' element={<LandingPage/>} />
         <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite/>} />
@@ -26,3 +37,4 @@ function App() {
 } 
 
 export default App;
+
