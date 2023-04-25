@@ -1,13 +1,10 @@
 import './App.css';
+import CriteriaSelection from './components/CriteriaSelection';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
-      <h1 class="text-9xl font-bold underline">
-        Hello world!
-      </h1>
+      <CriteriaSelection/>
     </div>
   );
 }
