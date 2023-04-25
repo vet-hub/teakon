@@ -1,4 +1,6 @@
 import './App.css';
+
+import CriteriaSelection from './components/CriteriaSelection';
 import Infosection from './components/Infosection';
 import Footer from './components/Footer'
 
@@ -10,7 +12,7 @@ function App() {
 
 
         <Infosection />
-
+   <CriteriaSelection/>
 
         
         <Footer />
