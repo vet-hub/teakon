@@ -2,8 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.criteriaSelector {
-    width: 18vw;
-    padding: 8vw 0;
-}
-

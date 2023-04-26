@@ -1,5 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import LandingPage from "./components/LandingPage";
 import ErgebnisseSeite from "./components/ErgebnisseSeite";
@@ -7,13 +8,11 @@ import TeeArtDetail from "./components/TeeArtDetail";
 import TeeSorteDetail from "./components/TeeSorteDetail";
 import Zubehör from "./components/Zubehör";
 import ErrorPage from './components/ErrorPage';
-
-import CriteriaSelection from './components/CriteriaSelection';
-import Infosection from './components/Infosection';
 import Footer from './components/Footer'
 
 
 function App() {
+  const [chosenCriterias,setChosenCriterias] = useState([]);
   return (
 
     <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
@@ -22,7 +21,7 @@ function App() {
 
         
       <Routes>
-        <Route path='/' element={<LandingPage/>} />
+        <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}/>} />
         <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite/>} />
         <Route path='/teeart' element={<TeeArtDetail/>} />
         <Route path='/teesorte' element={<TeeSorteDetail/>} />
