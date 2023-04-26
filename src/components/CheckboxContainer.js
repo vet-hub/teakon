@@ -15,7 +15,7 @@ useEffect(() => {
             fetchedSubCriteriaArray=["origin1","origin2"];
             break;
         case "coffein":
-            fetchedSubCriteriaArray=["coffein1","coffein2"];
+            fetchedSubCriteriaArray=["koffeeinhaltig","koffeeinarm","koffeeinfrei"];
             break;
         case "flavour":
             fetchedSubCriteriaArray=["flavour1","flavour2","flavour3"];
@@ -24,7 +24,7 @@ useEffect(() => {
             fetchedSubCriteriaArray=["effect2","effect1"];
             break;
         default:
-            fetchedSubCriteriaArray = ["tee1", "tee2", "tee3"];
+            fetchedSubCriteriaArray = ["schwarz Tee", "grün Tee", "Mate"];
             break;
     }
     
@@ -43,7 +43,7 @@ console.log(chosenCriterias.includes(entry))
 
 
 }
-, [selectedCategory]);
+, [selectedCategory,chosenCriterias]);
 
 const handleCheck=(e)=>{
     const subCriteriaArrayTemp=[...subCriteriaArray];
@@ -65,11 +65,11 @@ const handleCheck=(e)=>{
 }
 
     return (
-    <fieldset className="checkboxContainer flex flex-col flex-wrap shadow border my-5 w-3/4 px-5 py-2 max-h-32 ">
+    <fieldset className="checkboxContainer flex flex-col flex-wrap shadow border rounded-xl my-5 w-3/4 px-5 py-2 max-h-32 ">
         {subCriteriaArray.map(entry=>{return( 
             <div >
-                <input type="checkbox" id={entry.name} className={entry.name} value={entry.name} checked={entry.checked} onChange={handleCheck}/>
-                <label htmlFor={entry.name} className="m-2 text-gray-500">{entry.name}</label>
+                <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
+                <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500">{entry.name}</label>
             </div>
         )})}
     </fieldset>
