@@ -2,9 +2,10 @@ import CheckboxContainer from "./CheckboxContainer";
 import SelectedCriterias from "./SelectedCriterias";
 import { useState } from "react";
 
-export default function CriteriaSelection () {
+export default function CriteriaSelection ({chosenCriterias, setChosenCriterias}) {
     const [selectedCategory,setSelectedCategory] = useState("teas");
-    const [chosenCriterias,setChosenCriterias] = useState(["test"])
+    
+    
     const setToTeas=()=>{setSelectedCategory("teas")};
     const setToOrigin=()=>{setSelectedCategory("origin")};
     const setToCoffein=()=>{setSelectedCategory("coffein")};
@@ -13,34 +14,39 @@ export default function CriteriaSelection () {
 
 
 return(
-<div className="criteriaSelection flex flex-col items-center w-full">
-<h2>Kriterien Auswahl</h2>
-<div className=" mainCriterias my-5 flex justify-evenly w-full ">
-    <div className="criteriaSelector shadow border  flex justify-center content-center "  onClick={setToTeas }>
-        <img className="criteriaImage" src="" alt="" />
-        <h3 className="criteriaName">Teeart</h3>
-    </div>
-    <div className="criteriaSelector shadow border  flex justify-center content-center " onClick={setToOrigin}>
-        <img className="criteriaImage" src="" alt="" />
-        <h3 className="criteriaName">Anbaugebiet</h3>
-    </div>
-    <div className="criteriaSelector shadow border  flex justify-center content-center " onClick={setToCoffein}>
-        <img className="criteriaImage" src="" alt="" />
-        <h3 className="criteriaName">Koffeingehalt</h3>
-    </div>
-    <div className="criteriaSelector shadow border  flex justify-center content-center " onClick={setToFlavour}>
-        <img className="criteriaImage" src="" alt="" />
-        <h3 className="criteriaName">Geschmacksrichtung</h3>
-    </div>
-    <div className="criteriaSelector shadow border  flex justify-center content-center " onClick={setToEffect}>
-        <img className="criteriaImage" src="" alt="" />
-        <h3 className="criteriaName">Wirkung</h3>
-    </div>
-</div>
+<div className="criteriaSelection flex flex-col items-center w-full p-5 ">
+    <h2 className="font-bold m-5 text-2xl text-gray-500" >Kriterien Auswahl</h2>
+    <div className=" mainCriterias flex justify-evenly w-full ">
 
-<CheckboxContainer selectedCategory={selectedCategory} setChosenCriterias={setChosenCriterias} />
-<SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />
-<button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full">Ergebnisse anzeigen</button>
+        <div  className="criteriaSelector shadow border rounded-xl flex justify-center w-1/7 aspect-square  hover:cursor-pointer bg-teas-bg bg-cover"  onClick={setToTeas } >
+            <h3  className="criteriaName self-center text-white ">Teeart</h3>
+        </div>
+
+        <div className="criteriaSelector shadow border rounded-xl flex justify-center w-1/7 aspect-square hover:cursor-pointer bg-origin-bg bg-cover" onClick={setToOrigin}>
+            <h3 className="criteriaName self-center text-white">Anbaugebiet</h3>
+        </div>
+
+        <div className="criteriaSelector shadow border rounded-xl flex justify-center w-1/7 aspect-square hover:cursor-pointer bg-coffein-bg bg-cover" onClick={setToCoffein}>
+            <h3 className="criteriaName self-center text-gray-400 drop-shadow-lg shadow-black ">Koffeingehalt</h3>
+        </div>
+
+        <div className="criteriaSelector shadow border rounded-xl flex justify-center w-1/7 aspect-square hover:cursor-pointer bg-flavour-bg bg-cover" onClick={setToFlavour}>
+            <h3 className="criteriaName self-center text-black">Geschmacksrichtung</h3>
+        </div>
+
+        <div className="criteriaSelector shadow border rounded-xl flex justify-center w-1/7 aspect-square hover:cursor-pointer bg-effect-bg bg-cover" onClick={setToEffect}>
+
+            <h3 className="criteriaName self-center text-white">Wirkung</h3>
+        </div>
+    </div>
+
+
+    <CheckboxContainer selectedCategory={selectedCategory} chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />
+    <p className="text-gray-500">Ausgewählte Kriterien:</p>
+    <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />
+
+
+    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full">Ergebnisse anzeigen</button>
 
 </div>
 )}
