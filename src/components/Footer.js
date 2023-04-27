@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export default function Footer() {
     return (
         <>
@@ -9,12 +10,15 @@ export default function Footer() {
                 </div>
                 <div>
                     <span className="footer-title">Teeart</span>
-                    <a className="link link-hover">Schwarzer Tee</a>
-                    <a className="link link-hover">Grüner Tee</a>
-                    <a className="link link-hover">Oolong Tee</a>
-                    <a className="link link-hover">Kräutertee</a>
-                    <a className="link link-hover">Früchtetee</a>
-                    <a className="link link-hover">Rooiboistee</a>
+                    <a className="link link-hover"><Link to="/ergebnisse/schwarztee">Schwarzer Tee</Link></a>
+                    <a className="link link-hover"><Link to="/ergebnisse/weissertee">Weißer Tee</Link></a>
+                    <a className="link link-hover"><Link to="/ergebnisse/gruenertee">Grüner Tee</Link></a>
+                    <a className="link link-hover"><Link to="/ergebnisse/gelbertee">Gelber Tee</Link></a>
+                    <a className="link link-hover"><Link to="/ergebnisse/oolongtee">Oolong Tee</Link></a>
+                    <a className="link link-hover"><Link to="/ergebnisse/fruechtetee">Früchtetee</Link></a>
+                    <a className="link link-hover"><Link to="/ergebnisse/krautertee">Kräuter Tee</Link></a>
+                    <a className="link link-hover"><Link to="/ergebnisse/eistee">Eistee</Link></a>
+                    
                 </div>
                 <div>
                     <span className="footer-title">Anbaugebiet</span>
