@@ -1,26 +1,41 @@
 import './App.css';
 
+import { Routes, Route, Switch, BrowserRouter } from "react-router-dom";
+
+
+import { useState } from 'react';
+
+import Navbar from './components/Navbar';
+import LandingPage from "./components/LandingPage";
+import ErgebnisseSeite from "./components/ErgebnisseSeite";
+import TeeArtDetail from "./components/TeeArtDetail";
+import TeeSorteDetail from "./components/TeeSorteDetail";
+import Zubehör from "./components/Zubehör";
+import ErrorPage from './components/ErrorPage';
+import Footer from './components/Footer'
+
+
 function App() {
+  const [chosenCriterias,setChosenCriterias] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-      <h1 class="text-9xl font-bold underline">
-        Hello world!
-      </h1>
 
-		<div class="collapse">
-  <input type="checkbox" class="peer" />
-  <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-    Click me to show/hide content
-  </div>
-  <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-    <p>hello</p>
-  </div>
-</div>
 
+    <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
+      <Navbar/>
+
+        
+      <Routes>
+        <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}/>} />
+        <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite/>} />
+        <Route path='/teeart' element={<TeeArtDetail/>} />
+        <Route path='/teesorte' element={<TeeSorteDetail/>} />
+        <Route path='/zubehör' element={<Zubehör/>} />
+        <Route path='*' element={<ErrorPage/>} />        
+      </Routes>
+      <Footer />
     </div>
   );
 }
 
 export default App;
+
