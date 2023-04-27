@@ -18,12 +18,8 @@ import Footer from './components/Footer'
 function App() {
   const [chosenCriterias,setChosenCriterias] = useState([]);
   return (
-
-
     <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
       <Navbar/>
-
-        
       <Routes>
         <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}/>} />
         <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite/>} />
