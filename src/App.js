@@ -17,6 +17,9 @@ import Footer from './components/Footer'
 
 function App() {
   const [chosenCriterias,setChosenCriterias] = useState([]);
+  const searchFunktion=()=>{
+    
+  }
   return (
 
 
