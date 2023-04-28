@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
 
 export default function Navbar() {
+    /* TODO responsiveness (burgermenu) */
+    const resolveSearchBar=()=>{
+        /* chosenCriterias,setChosenCriterias,searchFunktion */
+    }
     return (
         <div className="navbar p-7 bg-base-200 rounded-box">
             {/* ---------------- Logo section -------------- */}

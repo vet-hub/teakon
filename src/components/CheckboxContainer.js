@@ -31,12 +31,12 @@ useEffect(() => {
     fetchedSubCriteriaArray.map(entry=>{
 console.log("entry: ",entry)
 console.log("chosenCriterias: ", chosenCriterias)
-console.log(chosenCriterias.includes(entry))
+console.log(chosenCriterias.find(criteria=>criteria.name===entry))
         let obj={};
-        if (chosenCriterias.includes(entry)){
-            obj={name: entry, checked: true};
+        if (chosenCriterias.find(criteria=>criteria.name===entry)){
+            obj={name: entry, checked: true, category: selectedCategory};
         }else{
-            obj={name: entry, checked: false};}
+            obj={name: entry, checked: false, category: selectedCategory};}
     subCriteriaArrayTemp.push(obj);
     setSubCriteriaArray(subCriteriaArrayTemp)
     });
@@ -51,14 +51,14 @@ const handleCheck=(e)=>{
     subCriteriaArrayTemp[index].checked=!subCriteriaArrayTemp[index].checked;
     const chosenCriteriasTemp=[...chosenCriterias];
 
-    if (chosenCriteriasTemp.includes(subCriteriaArrayTemp[index].name) && (subCriteriaArrayTemp[index].checked === false)){
+    if (chosenCriteriasTemp.find(criteria=>criteria.name===subCriteriaArrayTemp[index].name) && (subCriteriaArrayTemp[index].checked === false)){
         const indexToDelete = chosenCriteriasTemp.findIndex((criteria)=>criteria === subCriteriaArrayTemp[index].name)
         chosenCriteriasTemp.splice(indexToDelete,1);
         setChosenCriterias(chosenCriteriasTemp);
         }
 
-    else if(!chosenCriteriasTemp.includes(subCriteriaArrayTemp[index].name) && subCriteriaArrayTemp[index].checked === true){
-        chosenCriteriasTemp.push(subCriteriaArrayTemp[index].name);
+    else if(!chosenCriteriasTemp.find(criteria=>criteria.name===subCriteriaArrayTemp[index].name) && subCriteriaArrayTemp[index].checked === true){
+        chosenCriteriasTemp.push(subCriteriaArrayTemp[index]);
         setChosenCriterias(chosenCriteriasTemp);
         }
     setSubCriteriaArray(subCriteriaArrayTemp);
