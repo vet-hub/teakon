@@ -43,6 +43,7 @@ useEffect(() => {
 , [selectedCategory,chosenCriterias]);
 
 const handleCheck=(e)=>{
+    /* TODO löschenvia uncheck fixen */
     const subCriteriaArrayTemp=[...subCriteriaArray];
     const index = subCriteriaArrayTemp.findIndex((criteria)=>criteria.name === e.target.value);
     subCriteriaArrayTemp[index].checked=!subCriteriaArrayTemp[index].checked;

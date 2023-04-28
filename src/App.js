@@ -16,7 +16,32 @@ import Footer from './components/Footer'
 
 
 function App() {
-  const [allTeas,setAllTeas] = useState([]);/* mit useEffect und fetch/axios füllen */
+  const [allTeas,setAllTeas] = useState([
+    {id:1,
+    name:"Darjeeling",
+    teeart:"Schwarzer Tee",
+    anbaugebiet:"Nordindien",
+    aromen:["vollmundig","süßlich"],
+    benefits:[""],
+    coffein:true
+    },
+    {id:2,
+      name:"Macha",
+      teeart:"Grüner Tee",
+      anbaugebiet:"Japan",
+      aromen:["süßlich"],
+      benefits:["kann Cholesterienspiegel senken"],
+      coffein:true
+      },
+      {id:3,
+        name:"Schwarzer Japaner",
+        teeart:"Schwarzer Tee",
+        anbaugebiet:"Japan",
+        aromen:["vollmundig"],
+        benefits:["Immunsystem stärken"],
+        coffein:true
+        }
+  ]);/* mit useEffect und fetch/axios füllen */
   const [allTeearten,setAllTeearten]=useState(["Schwarzer Tee","Grüner Tee"]);/* mit useEffect und fetch/axios füllen */
   const [allAnbaugebiete,setAllAnbaugebiete]=useState(["Nordindien","Japan"]);/* mit useEffect und fetch/axios füllen */
   const [allBenefits,setAllBenefits]=useState(["kann Cholesterienspiegel senken","Immunsystem stärken"]);/* mit useEffect und fetch/axios füllen */
@@ -30,39 +55,46 @@ function App() {
   const searchFunktion=()=>{
     /* variablen anpassen? */
     let foundTeas =[...allTeas];
+
     const chosenCriteriasTemp=[...chosenCriterias];
+
     const nameSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="name");
+
     const teeartSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="teas");
+
     const originSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="origin");
-    const flavourSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="coffein");
-    const benefitSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="flavour");
-    const coffeinSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="effect");
+
+    const flavourSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="flavour");
+
+    const benefitSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="effect");
+
+    const coffeinSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="coffein");
+
     if (nameSearch.length>0){
-      foundTeas=foundTeas.filter(tea=>tea.name===nameSearch[0]) 
+      foundTeas=foundTeas.filter(tea=>tea.name===nameSearch[0]);
     }else /* wenn kein tee namentlich gesucht wird */
     {
     if (teeartSearch.length>0){
       const foundInCategory=[]
       teeartSearch.map(criteria=>{
-        const foundByCriteria=foundTeas.filter(tea=>tea.teeart===criteria)
+        const foundByCriteria=foundTeas.filter(tea=>tea.teeart===criteria.name)
         foundInCategory.push(...foundByCriteria)
-      })
-      foundTeas=foundInCategory 
+      });
+      foundTeas=foundInCategory;
     }
     if (originSearch.length>0){
       const foundInCategory=[]
       originSearch.map(criteria=>{
-        const foundByCriteria=foundTeas.filter(tea=>tea.anbaugebiet===criteria)
+        const foundByCriteria=foundTeas.filter(tea=>tea.anbaugebiet===criteria.name)
         foundInCategory.push(...foundByCriteria)
       })
-      foundTeas=foundInCategory
+      foundTeas=foundInCategory;
     }
     if (flavourSearch.length>0){
-      teeartSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.aromen===criteria)})/* bei und */
-      
+      flavourSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.aromen.includes(criteria.name))})/* TODO über  */
     }
     if (benefitSearch.length>0){
-      teeartSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.benefits===criteria)})
+      benefitSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.benefits.includes(criteria.name))})
     }
     if (coffeinSearch.length>0){
       foundTeas=foundTeas.filter(tea=>tea.coffein===coffeinSearch[0].name)
@@ -91,4 +123,3 @@ function App() {
 }
 
 export default App;
-
