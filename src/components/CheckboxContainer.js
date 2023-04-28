@@ -1,37 +1,30 @@
 
 import { useState,useEffect } from "react";
 
-export default function CheckboxContainer ({selectedCategory,chosenCriterias, setChosenCriterias}) {
-    /* TODO wann fetchen? arrayquellen anpassen */
+export default function CheckboxContainer ({selectedCategory,chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
 const [subCriteriaArray,setSubCriteriaArray]=useState([])
     const subCriteriaArrayTemp=[]
     let fetchedSubCriteriaArray=[]
-    /* fetchsimulation */
-
-
 useEffect(() => {
     switch(selectedCategory){
         case "origin":
-            fetchedSubCriteriaArray=["origin1","origin2"];
+            fetchedSubCriteriaArray=[...allAnbaugebiete];
             break;
         case "coffein":
-            fetchedSubCriteriaArray=["koffeeinhaltig","koffeeinarm","koffeeinfrei"];
+            fetchedSubCriteriaArray=[...allCoffein];
             break;
         case "flavour":
-            fetchedSubCriteriaArray=["flavour1","flavour2","flavour3"];
+            fetchedSubCriteriaArray=[...allAromen];
             break;
         case "effect":
-            fetchedSubCriteriaArray=["effect2","effect1"];
+            fetchedSubCriteriaArray=[...allBenefits];
             break;
         default:
-            fetchedSubCriteriaArray = ["schwarz Tee", "grün Tee", "Mate"];
+            fetchedSubCriteriaArray = [...allTeearten];
             break;
     }
     
     fetchedSubCriteriaArray.map(entry=>{
-console.log("entry: ",entry)
-console.log("chosenCriterias: ", chosenCriterias)
-console.log(chosenCriterias.find(criteria=>criteria.name===entry))
         let obj={};
         if (chosenCriterias.find(criteria=>criteria.name===entry)){
             obj={name: entry, checked: true, category: selectedCategory};
@@ -46,13 +39,14 @@ console.log(chosenCriterias.find(criteria=>criteria.name===entry))
 , [selectedCategory,chosenCriterias]);
 
 const handleCheck=(e)=>{
+    /* TODO löschenvia uncheck fixen */
     const subCriteriaArrayTemp=[...subCriteriaArray];
     const index = subCriteriaArrayTemp.findIndex((criteria)=>criteria.name === e.target.value);
     subCriteriaArrayTemp[index].checked=!subCriteriaArrayTemp[index].checked;
     const chosenCriteriasTemp=[...chosenCriterias];
 
     if (chosenCriteriasTemp.find(criteria=>criteria.name===subCriteriaArrayTemp[index].name) && (subCriteriaArrayTemp[index].checked === false)){
-        const indexToDelete = chosenCriteriasTemp.findIndex((criteria)=>criteria === subCriteriaArrayTemp[index].name)
+        const indexToDelete = chosenCriteriasTemp.findIndex((criteria)=>criteria.name === subCriteriaArrayTemp[index].name)
         chosenCriteriasTemp.splice(indexToDelete,1);
         setChosenCriterias(chosenCriteriasTemp);
         }
