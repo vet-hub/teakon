@@ -50,7 +50,7 @@ const handleCheck=(e)=>{
     const chosenCriteriasTemp=[...chosenCriterias];
 
     if (chosenCriteriasTemp.find(criteria=>criteria.name===subCriteriaArrayTemp[index].name) && (subCriteriaArrayTemp[index].checked === false)){
-        const indexToDelete = chosenCriteriasTemp.findIndex((criteria)=>criteria === subCriteriaArrayTemp[index].name)
+        const indexToDelete = chosenCriteriasTemp.findIndex((criteria)=>criteria.name === subCriteriaArrayTemp[index].name)
         chosenCriteriasTemp.splice(indexToDelete,1);
         setChosenCriterias(chosenCriteriasTemp);
         }
