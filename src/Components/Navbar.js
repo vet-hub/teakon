@@ -2,45 +2,53 @@ import { Link } from "react-router-dom"
 import { useState } from "react";
 
 export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
-    const [userInput,setUserInput] = useState("")
+    const [userInput,setUserInput] = useState("Schwarzer Tee")
     /* TODO responsiveness (burgermenu) */
     const inputHandler=()=>{}
-    const resolveSearchBar=()=>{
+    const resolveSearchBar=(e)=>{
+        e.preventDefault();
+        let userInputTemp=userInput;
         /* default verhindern */
         const foundCriterias=[];
         allTeearten.map((teeart)=>{
-            if (userInput.indexOf(teeart.name)>=0){
-                foundCriterias.push(teeart);
-                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+            if (userInputTemp.indexOf(teeart)>=0){
+                const criteriaObj={name:teeart,checked:true,category:"teas"};
+                foundCriterias.push(criteriaObj);
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(teeart))+userInputTemp.slice(userInputTemp.indexOf(teeart)+teeart.length)
+                console.log(userInputTemp)
             }
         })
-        allAnbaugebiete.map((teeart)=>{
-            if (userInput.indexOf(teeart.name)>=0){
-                foundCriterias.push(teeart);
-                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+        allAnbaugebiete.map((origin)=>{
+            if (userInput.indexOf(origin)>=0){
+                const criteriaObj={name:origin,checked:true,category:"origin"};
+                foundCriterias.push(criteriaObj);
+                userInput=userInput.slice(0,userInput.indexOf(origin))+userInput.slice(userInput.indexOf(origin)+origin.length)
             }
         })
-        allBenefits.map((teeart)=>{
-            if (userInput.indexOf(teeart.name)>=0){
-                foundCriterias.push(teeart);
-                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+        allBenefits.map((benefit)=>{
+            if (userInput.indexOf(benefit)>=0){
+                const criteriaObj={name:benefit,checked:true,category:"effect"};
+                foundCriterias.push(criteriaObj);
+                userInput=userInput.slice(0,userInput.indexOf(benefit))+userInput.slice(userInput.indexOf(benefit)+benefit.length)
             }
         })
-        allAromen.map((teeart)=>{
-            if (userInput.indexOf(teeart.name)>=0){
-                foundCriterias.push(teeart);
-                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+        allAromen.map((aroma)=>{
+            if (userInput.indexOf(aroma)>=0){
+                const criteriaObj={name:aroma,checked:true,category:"flavour"};
+                foundCriterias.push(criteriaObj);
+                userInput=userInput.slice(0,userInput.indexOf(aroma))+userInput.slice(userInput.indexOf(aroma)+aroma.length)
             }
         })
-        allCoffein.map((teeart)=>{
-            if (userInput.indexOf(teeart.name)>=0){
-                foundCriterias.push(teeart);
-                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+        allCoffein.map((coffein)=>{
+            if (userInput.indexOf(coffein)>=0){
+                const criteriaObj={name:coffein,checked:true,category:"coffein"};
+                foundCriterias.push(criteriaObj);
+                userInput=userInput.slice(0,userInput.indexOf(coffein))+userInput.slice(userInput.indexOf(coffein)+coffein.length)
             }
         })
-        /* chosenCriterias,setChosenCriterias,searchFunktion */
         setChosenCriterias(foundCriterias);
-        searchFunktion();
+        /* search funktion to fast? nutzt nicht den aktuellen state von chosenCriteria */
+        searchFunktion();/* in ergebnissseite? */
     }
     return (
         <div className="navbar p-7 bg-base-200 rounded-box">
@@ -51,9 +59,9 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
     <div className="flex justify-end flex-1 px-2">
         <div className="flex items-stretch">
             {/* ----------------- Searchbar ---------------- */}
-            <div className="form-control">
-                <input type="text" placeholder="Search" className="input input-bordered" onChange={inputHandler} onSubmit={resolveSearchBar} />
-            </div>
+            <form className="form-control" onSubmit={resolveSearchBar}>
+                <input type="search" placeholder="Search" className="input input-bordered" onChange={inputHandler}  />
+            </form>
             {/* ------------------ zubehör ----------------- */}
             <a className="btn btn-ghost rounded-btn"><Link to="/zubehör">Zubehör</Link></a>
             {/* ---------------- Dropdown menü ------------- */}
