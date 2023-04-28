@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function Navbar() {
     return (
-        <div className="navbar p-7 bg-base-200 rounded-box">
+        <div className="tile col-start-1 row-start-1 col-span-full navbar p-7 bg-base-200 rounded-box">
             {/* ---------------- Logo section -------------- */}
     <div className="flex-1 px-2 lg:flex-none">
         <a className="text-lg font-bold"><img></img><Link to="/"></Link></a>
