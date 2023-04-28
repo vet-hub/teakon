@@ -2,10 +2,11 @@ import CheckboxContainer from "./CheckboxContainer";
 import SelectedCriterias from "./SelectedCriterias";
 import { useState } from "react";
 
-export default function CriteriaSelection ({chosenCriterias, setChosenCriterias}) {
+
+export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [selectedCategory,setSelectedCategory] = useState("teas");
     
-    
+    /* category bezeichnung anpassen */
     const setToTeas=()=>{setSelectedCategory("teas")};
     const setToOrigin=()=>{setSelectedCategory("origin")};
     const setToCoffein=()=>{setSelectedCategory("coffein")};
@@ -41,12 +42,12 @@ return(
     </div>
 
 
-    <CheckboxContainer selectedCategory={selectedCategory} chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />
+    <CheckboxContainer selectedCategory={selectedCategory} chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />
     <p className="text-gray-500">Ausgewählte Kriterien:</p>
     <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />
 
 
-    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full">Ergebnisse anzeigen</button>
+    <button onClick={searchFunktion} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full">Ergebnisse anzeigen</button>
 
 </div>
 )}

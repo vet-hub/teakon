@@ -1,9 +1,46 @@
 import { Link } from "react-router-dom"
+import { useState } from "react";
 
-export default function Navbar() {
+export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
+    const [userInput,setUserInput] = useState("")
     /* TODO responsiveness (burgermenu) */
+    const inputHandler=()=>{}
     const resolveSearchBar=()=>{
+        /* default verhindern */
+        const foundCriterias=[];
+        allTeearten.map((teeart)=>{
+            if (userInput.indexOf(teeart.name)>=0){
+                foundCriterias.push(teeart);
+                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+            }
+        })
+        allAnbaugebiete.map((teeart)=>{
+            if (userInput.indexOf(teeart.name)>=0){
+                foundCriterias.push(teeart);
+                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+            }
+        })
+        allBenefits.map((teeart)=>{
+            if (userInput.indexOf(teeart.name)>=0){
+                foundCriterias.push(teeart);
+                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+            }
+        })
+        allAromen.map((teeart)=>{
+            if (userInput.indexOf(teeart.name)>=0){
+                foundCriterias.push(teeart);
+                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+            }
+        })
+        allCoffein.map((teeart)=>{
+            if (userInput.indexOf(teeart.name)>=0){
+                foundCriterias.push(teeart);
+                userInput=userInput.slice(0,userInput.indexOf(teeart.name))+userInput.slice(userInput.indexOf(teeart.name)+teeart.length)
+            }
+        })
         /* chosenCriterias,setChosenCriterias,searchFunktion */
+        setChosenCriterias(foundCriterias);
+        searchFunktion();
     }
     return (
         <div className="navbar p-7 bg-base-200 rounded-box">
@@ -15,7 +52,7 @@ export default function Navbar() {
         <div className="flex items-stretch">
             {/* ----------------- Searchbar ---------------- */}
             <div className="form-control">
-                <input type="text" placeholder="Search" className="input input-bordered" />
+                <input type="text" placeholder="Search" className="input input-bordered" onChange={inputHandler} onSubmit={resolveSearchBar} />
             </div>
             {/* ------------------ zubehör ----------------- */}
             <a className="btn btn-ghost rounded-btn"><Link to="/zubehör">Zubehör</Link></a>

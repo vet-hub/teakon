@@ -1,7 +1,7 @@
 
 import { useState,useEffect } from "react";
 
-export default function CheckboxContainer ({selectedCategory,chosenCriterias, setChosenCriterias}) {
+export default function CheckboxContainer ({selectedCategory,chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     /* TODO wann fetchen? arrayquellen anpassen */
 const [subCriteriaArray,setSubCriteriaArray]=useState([])
     const subCriteriaArrayTemp=[]
@@ -12,26 +12,23 @@ const [subCriteriaArray,setSubCriteriaArray]=useState([])
 useEffect(() => {
     switch(selectedCategory){
         case "origin":
-            fetchedSubCriteriaArray=["origin1","origin2"];
+            fetchedSubCriteriaArray=[...allAnbaugebiete];
             break;
         case "coffein":
-            fetchedSubCriteriaArray=["koffeeinhaltig","koffeeinarm","koffeeinfrei"];
+            fetchedSubCriteriaArray=[...allCoffein];
             break;
         case "flavour":
-            fetchedSubCriteriaArray=["flavour1","flavour2","flavour3"];
+            fetchedSubCriteriaArray=[...allAromen];
             break;
         case "effect":
-            fetchedSubCriteriaArray=["effect2","effect1"];
+            fetchedSubCriteriaArray=[...allBenefits];
             break;
         default:
-            fetchedSubCriteriaArray = ["schwarz Tee", "grün Tee", "Mate"];
+            fetchedSubCriteriaArray = [...allTeearten];
             break;
     }
     
     fetchedSubCriteriaArray.map(entry=>{
-console.log("entry: ",entry)
-console.log("chosenCriterias: ", chosenCriterias)
-console.log(chosenCriterias.find(criteria=>criteria.name===entry))
         let obj={};
         if (chosenCriterias.find(criteria=>criteria.name===entry)){
             obj={name: entry, checked: true, category: selectedCategory};
