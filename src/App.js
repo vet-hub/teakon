@@ -2,7 +2,6 @@ import './App.css';
 
 import { Routes, Route, Switch, BrowserRouter } from "react-router-dom";
 import { useNavigate } from "react-router";
-
 import { useState } from 'react';
 
 import Navbar from './components/Navbar';
@@ -48,18 +47,18 @@ function App() {
   const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
   const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
   const [chosenCriterias,setChosenCriterias] = useState([]);
-  const [resultTeas, setResultTeas] = useState([]);
+  const [resultTeas, setResultTeas] = useState([]);/* in ergebnisseite mit searchfunktion? */
 
   const navigate=useNavigate();
 
   const searchFunktion=()=>{
-    /* variablen anpassen? */
+    /*TODO variablen anpassen? */
     let foundTeas =[...allTeas];
 
     const chosenCriteriasTemp=[...chosenCriterias];
 
     const nameSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="name");
-console.log(nameSearch)
+
     const teeartSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="teas");
 
     const originSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="origin");
@@ -108,7 +107,7 @@ console.log(nameSearch)
     <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
       <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} searchFunktion={searchFunktion} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein}/>
 
-        
+
       <Routes>
         <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} searchFunktion={searchFunktion} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />} />
         <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite resultTeas={resultTeas} />} />
