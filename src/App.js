@@ -59,7 +59,7 @@ function App() {
     const chosenCriteriasTemp=[...chosenCriterias];
 
     const nameSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="name");
-
+console.log(nameSearch)
     const teeartSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="teas");
 
     const originSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="origin");
@@ -71,7 +71,7 @@ function App() {
     const coffeinSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="coffein");
 
     if (nameSearch.length>0){
-      foundTeas=foundTeas.filter(tea=>tea.name===nameSearch[0]);
+      foundTeas=foundTeas.filter(tea=>tea.name.toLowerCase()===nameSearch[0].name);
     }else /* wenn kein tee namentlich gesucht wird */
     {
     if (teeartSearch.length>0){
@@ -91,7 +91,7 @@ function App() {
       foundTeas=foundInCategory;
     }
     if (flavourSearch.length>0){
-      flavourSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.aromen.includes(criteria.name))})/* TODO über  */
+      flavourSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.aromen.includes(criteria.name))})
     }
     if (benefitSearch.length>0){
       benefitSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.benefits.includes(criteria.name))})

@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [selectedCategory,setSelectedCategory] = useState("teas");
     
-    /* category bezeichnung anpassen */
+    /*TODO category bezeichnung anpassen */
     const setToTeas=()=>{setSelectedCategory("teas")};
     const setToOrigin=()=>{setSelectedCategory("origin")};
     const setToCoffein=()=>{setSelectedCategory("coffein")};

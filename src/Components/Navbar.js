@@ -1,53 +1,60 @@
 import { Link } from "react-router-dom"
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
-    const [userInput,setUserInput] = useState("Schwarzer Tee")
+    const [userInput,setUserInput] = useState("")
     /* TODO responsiveness (burgermenu) */
-    const inputHandler=()=>{}
+    const inputHandler=(e)=>{
+        setUserInput(e.target.value)
+    }
     const resolveSearchBar=(e)=>{
         e.preventDefault();
-        let userInputTemp=userInput;
-        /* default verhindern */
+        let userInputTemp=userInput.toLocaleLowerCase();
         const foundCriterias=[];
         allTeearten.map((teeart)=>{
-            if (userInputTemp.indexOf(teeart)>=0){
+            if (userInputTemp.indexOf(teeart.toLocaleLowerCase())>=0){
                 const criteriaObj={name:teeart,checked:true,category:"teas"};
                 foundCriterias.push(criteriaObj);
-                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(teeart))+userInputTemp.slice(userInputTemp.indexOf(teeart)+teeart.length)
-                console.log(userInputTemp)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(teeart.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(teeart.toLocaleLowerCase())+teeart.length)
             }
         })
         allAnbaugebiete.map((origin)=>{
-            if (userInput.indexOf(origin)>=0){
+            if (userInputTemp.indexOf(origin.toLocaleLowerCase())>=0){
                 const criteriaObj={name:origin,checked:true,category:"origin"};
                 foundCriterias.push(criteriaObj);
-                userInput=userInput.slice(0,userInput.indexOf(origin))+userInput.slice(userInput.indexOf(origin)+origin.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(origin.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(origin.toLocaleLowerCase())+origin.length)
             }
         })
         allBenefits.map((benefit)=>{
-            if (userInput.indexOf(benefit)>=0){
+            if (userInputTemp.indexOf(benefit.toLocaleLowerCase())>=0){
                 const criteriaObj={name:benefit,checked:true,category:"effect"};
                 foundCriterias.push(criteriaObj);
-                userInput=userInput.slice(0,userInput.indexOf(benefit))+userInput.slice(userInput.indexOf(benefit)+benefit.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(benefit.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(benefit.toLocaleLowerCase())+benefit.length)
             }
         })
         allAromen.map((aroma)=>{
-            if (userInput.indexOf(aroma)>=0){
+            if (userInputTemp.indexOf(aroma.toLocaleLowerCase())>=0){
                 const criteriaObj={name:aroma,checked:true,category:"flavour"};
                 foundCriterias.push(criteriaObj);
-                userInput=userInput.slice(0,userInput.indexOf(aroma))+userInput.slice(userInput.indexOf(aroma)+aroma.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(aroma.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(aroma.toLocaleLowerCase())+aroma.length)
             }
         })
         allCoffein.map((coffein)=>{
-            if (userInput.indexOf(coffein)>=0){
+            if (userInputTemp.indexOf(coffein.toLocaleLowerCase())>=0){
                 const criteriaObj={name:coffein,checked:true,category:"coffein"};
                 foundCriterias.push(criteriaObj);
-                userInput=userInput.slice(0,userInput.indexOf(coffein))+userInput.slice(userInput.indexOf(coffein)+coffein.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(coffein.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(coffein.toLocaleLowerCase())+coffein.length)
             }
         })
+        const regex= /[^\w\s]/g ;
+        userInputTemp=userInputTemp.replaceAll(regex,"");
+        userInputTemp=userInputTemp.trim();
+        if(userInputTemp.length>0){
+            const criteriaObj={name:userInputTemp,category:"name"};
+            foundCriterias.push(criteriaObj);
+        }
         setChosenCriterias(foundCriterias);
-        /* search funktion to fast? nutzt nicht den aktuellen state von chosenCriteria */
+        /*TODO search funktion to fast? nutzt nicht den aktuellen state von chosenCriteria */
         searchFunktion();/* in ergebnissseite? */
     }
     return (

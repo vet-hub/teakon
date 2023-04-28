@@ -2,13 +2,9 @@
 import { useState,useEffect } from "react";
 
 export default function CheckboxContainer ({selectedCategory,chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
-    /* TODO wann fetchen? arrayquellen anpassen */
 const [subCriteriaArray,setSubCriteriaArray]=useState([])
     const subCriteriaArrayTemp=[]
     let fetchedSubCriteriaArray=[]
-    /* fetchsimulation */
-
-
 useEffect(() => {
     switch(selectedCategory){
         case "origin":
