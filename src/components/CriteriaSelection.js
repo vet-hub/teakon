@@ -1,10 +1,12 @@
 import CheckboxContainer from "./CheckboxContainer";
 import SelectedCriterias from "./SelectedCriterias";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 
 export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [selectedCategory,setSelectedCategory] = useState("teas");
+    const navigateTo=useNavigate();
     
     /*TODO category bezeichnung anpassen */
     const setToTeas=()=>{setSelectedCategory("teas")};
@@ -12,6 +14,7 @@ export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,
     const setToCoffein=()=>{setSelectedCategory("coffein")};
     const setToFlavour=()=>{setSelectedCategory("flavour")};
     const setToEffect=()=>{setSelectedCategory("effect")};
+    const startSearch=()=>{navigateTo("/ergebnisse/suche")}
 
 /* TODO responsiveness */
 return(
@@ -47,7 +50,7 @@ return(
     <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />
 
 
-    <button onClick={searchFunktion} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full">Ergebnisse anzeigen</button>
+    <button onClick={startSearch} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full">Ergebnisse anzeigen</button>
 
 </div>
 )}

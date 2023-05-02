@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
 import { useState,useEffect } from "react";
+import {useNavigate} from "react-router"
 
 export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
+    const navigateTo = useNavigate()
     /* TODO responsiveness (burgermenu) */
     const inputHandler=(e)=>{
         setUserInput(e.target.value)
@@ -54,8 +56,10 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
             foundCriterias.push(criteriaObj);
         }
         setChosenCriterias(foundCriterias);
-        /*TODO search funktion to fast? nutzt nicht den aktuellen state von chosenCriteria */
-        searchFunktion();/* in ergebnissseite? */
+        navigateTo("/ergebnisse/suche")
+    }
+    const addCategory=(e)=>{console.log('hi')
+
     }
     return (
         <div className="navbar p-7 bg-base-200 rounded-box">
@@ -82,7 +86,7 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
                     <li><a><Link to="/ergebnisse/gelbertee">Gelber Tee</Link></a></li>
                     <li><a><Link to="/ergebnisse/oolongtee">Oolong Tee</Link></a></li>
                     <li><a><Link to="/ergebnisse/fruechtetee">Früchtetee</Link></a></li>
-                    <li><a><Link to="/ergebnisse/krautertee">Kräutertee</Link></a></li>
+                    <li><a><Link to="/ergebnisse/kraeutertee">Kräutertee</Link></a></li>
                     <li><a><Link to="/ergebnisse/eistee">Eistee</Link></a></li>
                 </ul>
 
