@@ -19,8 +19,8 @@ export default function AlleTees() {
     return (
         <>
             <div className='flex  flex-col gap-x-3  gap-y-3 mt-10 mb-7'>
+                <p className='text-5xl text-gray-900 bg-grey-600 text-center font-bold my-6'>Die Welt des Tee</p>
                 <div className=' flex flex-wrap justify-center  gap-x-4  gap-y-4 mt-10 mb-7'>
-                    <p className='text-5xl text-gray-900 bg-grey-600 text-center font-bold my-6'>Die Welt des Tee</p>
 
                     {/* <PaginateTeas citiesPerPage={2} /> */}
 
