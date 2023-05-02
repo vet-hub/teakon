@@ -1,18 +1,22 @@
-import wrldmap from '../img/61752.jpg';
+
+import infoPic from "../img/infoBild.jpg";
 import { useNavigate } from 'react-router-dom';
 
 export default function Infosection() {
     const navigate = useNavigate();
     return (
         <>
-            <div className="flex flex-col justify-center items-center container mx-auto bg-gray-200 rounded-xl shadow border p-4 m-3">
-                <p className="text-gray-500 text-lg text-center pt-3">jede Teeart hat mehrere Teesorten.</p>
-
-                <img src={wrldmap} alt='wimage' className='w-full h-80 my-4 rounded-lg'/>
-                <button onClick={() => navigate("/ergebnisse/alle")} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full ">
-                    zeige alle Tees
-                </button>
+        <div className="hero min-h-max rounded-box">
+        <img src={infoPic} alt='paul-vincent-unsplash' className='w-full h-3/4 rounded-box'></img>
+            <div className="min bg-opacity-60 rounded-box"></div>
+            <div className="hero-content text-center text-neutral-content">
+                <div className="max-w-md">
+                    <h1 className="mb-5 text-5xl font-bold">TEAKON MASALA</h1>
+                    <p className="mb-5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+                    <button onClick={() => navigate("/ergebnisse/alle")} className="btn btn-primary">Zeige alle Tees</button>
+                </div>
             </div>
-        </>
+        </div>
+      </>
     )
 };

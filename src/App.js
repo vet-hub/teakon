@@ -48,9 +48,86 @@ function App() {
   const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
   const [chosenCriterias,setChosenCriterias] = useState([]);
   const [resultTeas, setResultTeas] = useState([]);/* in ergebnisseite mit searchfunktion? */
-
   const navigate=useNavigate();
 
+  const urlAllArten ="test";
+  const urlAllSorten="test";
+  const urlAllAnbau="test";
+  const urlAllBenefits="test";
+  const urlAllAromen="test";
+  const urlCoffein="test";
+
+//----------------------------------------------Fetch-Area-start-----------------------------------------------------------------------
+//-------------fetch für alle Teearten---------------- 
+  const fetchDataArten = async () => {
+    try {
+      const getallArten = await fetch(urlAllArten);
+      if(!getallArten.ok) throw new Error(`Request failed with a status of ${getallArten.status}`);
+      const parseData = await getallArten.json();
+      setAllTeearten(parseData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  //--------------fetch für alle Sorten--------------------
+  const fetchDataSorten = async () => {
+    try {
+      const getAllSorten = await fetch(urlAllSorten);
+      if(!getAllSorten.ok) throw new Error(`Request failed with a status of ${getAllSorten.status}`);
+      const parseData = await getAllSorten.json();
+      setAllTeas(parseData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  //------------fetch für alle Anbau------------------
+  const fetchDataAnbau = async () => {
+    try {
+      const getAllAnbau = await fetch(urlAllAnbau);
+      if(!getAllAnbau.ok) throw new Error(`Request failed with a status of ${getAllAnbau.status }`);
+      const parseData = await getAllAnbau.json();
+      setAllAnbaugebiete(parseData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  //-------fetch für alle Benefits--------------------
+  const fetchDataBenefits = async () => {
+    try {
+      const getAllBenefits = await fetch(urlAllBenefits);
+      if(!getAllBenefits.ok) throw new Error(`Request failed with a status of ${getAllBenefits.status}`);
+      const parseData = await getAllBenefits.json();
+      setAllBenefits(parseData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  //-----------fetch für alle Aromen------------------
+  const fetchDataAromen = async () => {
+    try {
+      const getAllAromen = await fetch(urlAllAromen);
+      if(!getAllAromen.ok) throw new Error(`Request failed with a status of ${getAllAromen.status}`);
+      const parseData = await getAllAromen.json();
+      setAllAromen(parseData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  //------------fetch für Koffeein---------------------------
+  const fetchDataKoffeein = async () => {
+    try {
+      const getKoffein = await fetch(urlCoffein);
+      if(!getKoffein.ok) throw new Error(`Request failed with a status of ${getKoffein.status}`);
+      const parseData = await getKoffein.json();
+      setAllCoffein(parseData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  //----------------------------------------Fetch-Area-End--------------------------------------------------------------------------------
+  
   const searchFunktion=()=>{
     /*TODO variablen anpassen? */
     let foundTeas =[...allTeas];
@@ -111,7 +188,7 @@ function App() {
         <Route path='/teeart' element={<TeeArtDetail/>} />
         <Route path='/teesorte' element={<TeeSorteDetail/>} />
         <Route path='/zubehör' element={<Zubehör/>} />
-        <Route path='*' element={<ErrorPage/>} />        
+        <Route path='*' element={<ErrorPage/>} />
       </Routes>
       <Footer />
     </div>
