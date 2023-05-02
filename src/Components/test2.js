@@ -6,52 +6,36 @@ export default function PaginateTeas({ teasPerPage }) {
   //   "https://gist.githubusercontent.com/ReaganS94/533436d2e8272d39af2626c2c6adee1a/raw/4a09375a147cc69e64f70b4c1dee91051d558803/DEcities.json";
 
 
-  const db = [
+  const [db, setDb] = useState([
     {
-      "city": "Berlin",
-      "lat": "52.5167",
-      "lng": "13.3833",
-      "country": "Germany",
-      "iso2": "DE",
-      "admin_name": "Berlin",
-      "capital": "primary",
-      "population": "3644826",
-      "population_proper": "3644826"
+      id: 1,
+      name: "Darjeeling",
+      teeart: "Schwarzer Tee",
+      anbaugebiet: "Nordindien",
+      aromen: ["vollmundig", "süßlich"],
+      benefits: [""],
+      coffein: true
     },
     {
-      "city": "Hamburg",
-      "lat": "53.5500",
-      "lng": "10.0000",
-      "country": "Germany",
-      "iso2": "DE",
-      "admin_name": "Hamburg",
-      "capital": "admin",
-      "population": "1841179",
-      "population_proper": "1841179"
+      id: 2,
+      name: "Macha",
+      teeart: "Grüner Tee",
+      anbaugebiet: "Japan",
+      aromen: ["süßlich"],
+      benefits: ["kann Cholesterienspiegel senken"],
+      coffein: true
     },
     {
-      "city": "Munich",
-      "lat": "48.1372",
-      "lng": "11.5755",
-      "country": "Germany",
-      "iso2": "DE",
-      "admin_name": "Bavaria",
-      "capital": "admin",
-      "population": "1471508",
-      "population_proper": "1471508"
-    },
-    {
-      "city": "Cologne",
-      "lat": "50.9422",
-      "lng": "6.9578",
-      "country": "Germany",
-      "iso2": "DE",
-      "admin_name": "North Rhine-Westphalia",
-      "capital": "",
-      "population": "1085664",
-      "population_proper": "1085664"
+      id: 3,
+      name: "Schwarzer Japaner",
+      teeart: "Schwarzer Tee",
+      anbaugebiet: "Japan",
+      aromen: ["vollmundig"],
+      benefits: ["Immunsystem stärken"],
+      coffein: true
     }
-  ];
+    
+  ]);
 
   const [teas, setTeas] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -63,11 +47,11 @@ export default function PaginateTeas({ teasPerPage }) {
     const endOffset = itemOffset + teasPerPage;
     fetch(db)
       .then((response) => response)
-      .then((tea) => {
-        setTeas(tea.slice(itemOffset, endOffset));
-        setTotalPages(Math.ceil(tea.length / teasPerPage));
+      .then((teeart) => {
+        setTeas(teeart.slice(itemOffset, endOffset));
+        setTotalPages(Math.ceil(teeart.length / teasPerPage));
         setLoading(false);
-        console.log(tea);
+        console.log(teeart);
       })
       .catch((error) => {
         setError(error);
@@ -89,11 +73,11 @@ export default function PaginateTeas({ teasPerPage }) {
       {loading ? <h3>Loading...</h3> : null}
       {error ? <h3>Error: {error.message}</h3> : null}
       {teas &&
-        teas.map((tea) => (
-          <div key={tea.lat}>
-            <h3>{tea.city}</h3>
-            <p>Population: {tea.population}</p>
-            <p>Region: {tea.admin_name}</p>
+        teas.map((teeart) => (
+          <div key={teeart.lat}>
+            <h3>{teeart.city}</h3>
+            <p>Population: {teeart.population}</p>
+            <p>Region: {teeart.admin_name}</p>
           </div>
         ))}
       <ReactPaginate
