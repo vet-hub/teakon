@@ -1,7 +1,6 @@
 import wrldmap from '../img/61752.jpg';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import PaginateTeas from './test2';
 import { useParams } from "react-router-dom"
 
 
@@ -23,7 +22,7 @@ export default function AlleTees() {
                 <div className=' flex flex-wrap justify-center  gap-x-4  gap-y-4 mt-10 mb-7'>
                     <p className='text-5xl text-gray-900 bg-grey-600 text-center font-bold my-6'>Die Welt des Tee</p>
 
-                    <PaginateTeas citiesPerPage={2} />
+                    {/* <PaginateTeas citiesPerPage={2} /> */}
 
 
 
