@@ -8,7 +8,7 @@ export default function ErgebnisseSeite() {
 
     return(
         <div>
-            <Alletees/>
+            <AlleTees/>
         </div>
     )
 }
