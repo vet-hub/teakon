@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 
-export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
+export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [selectedCategory,setSelectedCategory] = useState("teas");
     const navigateTo=useNavigate();
     
