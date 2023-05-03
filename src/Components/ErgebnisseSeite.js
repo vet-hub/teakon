@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Alletees from "./Alletees";
 import { useNavigate } from "react-router";
 import wrldmap from '../img/61752.jpg';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,6 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
     let foundTeas =[...allTeas];
     const searchFunktion=()=>{
         /*TODO variablen anpassen? */
-        console.log("search start: ",foundTeas)
         const chosenCriteriasTemp=[...chosenCriterias];
     
         const nameSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="name");
@@ -72,10 +70,10 @@ useEffect(() => {
                     searchFunktion();
                     navigateTo(`/ergebnisse/${chosenTeeart}`)
                 };
-break;
+            
             default:
-                searchFunktion()
-                if (resultTeas.length=0){navigateTo("*")}
+                searchFunktion();
+                if (!foundTeas.length){navigateTo("/*")}
                 break;
         } 
     }
