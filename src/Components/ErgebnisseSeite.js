@@ -61,8 +61,7 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
 
 useEffect(() => {
     setResultTeas(allTeas)
-    switch (kriteria){
-    case "suche": {
+if (kriteria === "suche") {
                     switch (chosenCriterias.length) {
                         case 0:
                             navigateTo("/ergebnisse/alle");
@@ -80,43 +79,6 @@ useEffect(() => {
                             break;
                         } 
                     }
-    case "schwarztee":
-        setChosenCriterias([{name:"Schwarzer Tee", checked: true, category:"teas"}])
-        searchFunktion();
-        if (!foundTeas.length){navigateTo("/*")}
-        break;
-    case "weissertee":
-        setChosenCriterias([{name:"Weißer Tee", checked: true, category:"teas"}])
-        searchFunktion();
-        if (!foundTeas.length){navigateTo("/*")}
-        break;
-    case "gruenertee":setChosenCriterias([{name:"Grüner Tee", checked: true, category:"teas"}])
-    searchFunktion();
-    if (!foundTeas.length){navigateTo("/*")}
-    break;
-    case "gelbertee":setChosenCriterias([{name:"Gelber Tee", checked: true, category:"teas"}])
-    searchFunktion();
-    if (!foundTeas.length){navigateTo("/*")}
-    break;
-    case "oolongtee":setChosenCriterias([{name:"Oolong Tee", checked: true, category:"teas"}])
-    searchFunktion();
-    if (!foundTeas.length){navigateTo("/*")}
-    break;
-    case "fruechtetee":setChosenCriterias([{name:"Früchtetee", checked: true, category:"teas"}])
-    searchFunktion();
-    if (!foundTeas.length){navigateTo("/*")}
-    break;
-    case "kraeutertee":setChosenCriterias([{name:"Kräutertee", checked: true, category:"teas"}])
-    searchFunktion();
-    if (!foundTeas.length){navigateTo("/*")}
-    break;
-    case "eistee":setChosenCriterias([{name:"Eistee", checked: true, category:"teas"}])
-    searchFunktion();
-    if (!foundTeas.length){navigateTo("/*")}
-    break;
-    default:
-        break;
-}
     
 }, [chosenCriterias])
 
