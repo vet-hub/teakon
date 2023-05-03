@@ -16,38 +16,38 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
         let userInputTemp=userInput.toLocaleLowerCase();
         const foundCriterias=[];
         allTeearten.map((teeart)=>{
-            if (userInputTemp.indexOf(teeart.toLocaleLowerCase())>=0){
-                const criteriaObj={name:teeart,checked:true,category:"teas"};
+            if (userInputTemp.indexOf(teeart.name.toLocaleLowerCase())>=0){
+                const criteriaObj={name:teeart.name,checked:true,category:"teas"};
                 foundCriterias.push(criteriaObj);
-                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(teeart.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(teeart.toLocaleLowerCase())+teeart.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(teeart.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(teeart.name.toLocaleLowerCase())+teeart.name.length)
             }
         })
         allAnbaugebiete.map((origin)=>{
-            if (userInputTemp.indexOf(origin.toLocaleLowerCase())>=0){
-                const criteriaObj={name:origin,checked:true,category:"origin"};
+            if (userInputTemp.indexOf(origin.name.toLocaleLowerCase())>=0){
+                const criteriaObj={name:origin.name,checked:true,category:"origin"};
                 foundCriterias.push(criteriaObj);
-                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(origin.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(origin.toLocaleLowerCase())+origin.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(origin.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(origin.name.toLocaleLowerCase())+origin.name.length)
             }
         })
         allBenefits.map((benefit)=>{
-            if (userInputTemp.indexOf(benefit.toLocaleLowerCase())>=0){
-                const criteriaObj={name:benefit,checked:true,category:"effect"};
+            if (userInputTemp.indexOf(benefit.name.toLocaleLowerCase())>=0){
+                const criteriaObj={name:benefit.name,checked:true,category:"effect"};
                 foundCriterias.push(criteriaObj);
-                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(benefit.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(benefit.toLocaleLowerCase())+benefit.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(benefit.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(benefit.name.toLocaleLowerCase())+benefit.name.length)
             }
         })
         allAromen.map((aroma)=>{
-            if (userInputTemp.indexOf(aroma.toLocaleLowerCase())>=0){
-                const criteriaObj={name:aroma,checked:true,category:"flavour"};
+            if (userInputTemp.indexOf(aroma.name.toLocaleLowerCase())>=0){
+                const criteriaObj={name:aroma.name,checked:true,category:"flavour"};
                 foundCriterias.push(criteriaObj);
-                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(aroma.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(aroma.toLocaleLowerCase())+aroma.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(aroma.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(aroma.name.toLocaleLowerCase())+aroma.name.length)
             }
         })
         allCoffein.map((coffein)=>{
-            if (userInputTemp.indexOf(coffein.toLocaleLowerCase())>=0){
-                const criteriaObj={name:coffein,checked:true,category:"coffein"};
+            if (userInputTemp.indexOf(coffein.name.toLocaleLowerCase())>=0){
+                const criteriaObj={name:coffein.name,checked:true,category:"coffein"};
                 foundCriterias.push(criteriaObj);
-                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(coffein.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(coffein.toLocaleLowerCase())+coffein.length)
+                userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(coffein.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(coffein.name.toLocaleLowerCase())+coffein.name.length)
             }
         })
         const regex= /[^\w\säöüÄÖÜß]/g ;
@@ -106,10 +106,6 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
 
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
-              
-                
-                
-                 
             </div> 
         <div className="flex justify-end flex-1 px-2">
         <div className="flex items-stretch">

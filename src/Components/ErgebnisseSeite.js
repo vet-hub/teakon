@@ -92,13 +92,13 @@ if (kriteria === "suche") {
             
             {/* für einzelne teeart */}
             {chosenCriterias.length===1 && 
-            (allTeearten.includes(chosenCriterias[0].name)) && (
+            (allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)>=0) &&  (
             <div className="mt-6 mb-6">
                 <div className="card card-side bg-base-100 shadow-xl mb-4">
-                    <figure><img className="object-scale-down h-48 w-96" src="" alt={allTeearten.findIndex(teeart=>teeart === chosenCriterias[0].name)}/></figure>
+                    <figure><img className="object-scale-down h-48 w-96" src="" alt={allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)}/></figure>
                     <div className="card-body">
                         <h2 className="card-title">{chosenCriterias[0].name}</h2>
-                        <p>beschreibung für {allTeearten[allTeearten.findIndex(teeart=>teeart === chosenCriterias[0].name)]}</p>
+                        <p>{allTeearten[allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)].beschreibung}</p>
                     </div>
                 </div>
             </div>)} 

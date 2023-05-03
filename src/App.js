@@ -15,7 +15,7 @@ import Footer from './components/Footer'
 
 
 function App() {
-  const [doSearch,setDoSearch] = useState([]);
+  const [doSearch,setDoSearch] = useState();
   const [allTeas,setAllTeas] = useState([
     {id:1,
     name:"Darjeeling",
@@ -43,10 +43,10 @@ function App() {
         }
   ]);/* mit useEffect und fetch/axios füllen */
   const [allTeearten,setAllTeearten]=useState([]);/* mit useEffect und fetch/axios füllen */
-  const [allAnbaugebiete,setAllAnbaugebiete]=useState(["Nordindien","Japan"]);/* mit useEffect und fetch/axios füllen */
-  const [allBenefits,setAllBenefits]=useState(["kann Cholesterienspiegel senken","Immunsystem stärken"]);/* mit useEffect und fetch/axios füllen */
-  const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
-  const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
+  //const [allAnbaugebiete,setAllAnbaugebiete]=useState(["Nordindien","Japan"]);/* mit useEffect und fetch/axios füllen */
+  //const [allBenefits,setAllBenefits]=useState(["kann Cholesterienspiegel senken","Immunsystem stärken"]);/* mit useEffect und fetch/axios füllen */
+  //const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
+  //const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
   const [chosenCriterias,setChosenCriterias] = useState([]);
   const navigate=useNavigate();
 
@@ -72,6 +72,7 @@ function App() {
       if(!getSearch.ok) throw new Error(`Request failed with a status of ${getSearch.status}`);
       const parseData = await getSearch.json();
       setDoSearch(parseData);
+      console.log("suchkriterien: " ,doSearch)
     } catch (error) {
       console.log(error.message);
     }
@@ -88,10 +89,10 @@ function App() {
     <> 
       { allTeearten && doSearch &&
         <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
-          <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein}/>
+          <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
           <Routes>
-              <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />} />
-              <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeas={allTeas} allTeearten={allTeearten}/>} />
+              <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray} />} />
+              <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeas={allTeas} allTeearten={doSearch.teeArtenArray}/>} />
               <Route path='/teeart' element={<TeeArtDetail/>} />
               <Route path='/teesorte' element={<TeeSorteDetail/>} />
               <Route path='/zubehör' element={<Zubehör/>} />

@@ -26,10 +26,10 @@ useEffect(() => {
     
     fetchedSubCriteriaArray.map(entry=>{
         let obj={};
-        if (chosenCriterias.find(criteria=>criteria.name===entry)){
-            obj={name: entry, checked: true, category: selectedCategory};
+        if (chosenCriterias.find(criteria=>criteria.name===entry.name)){
+            obj={name: entry.name, checked: true, category: selectedCategory};
         }else{
-            obj={name: entry, checked: false, category: selectedCategory};}
+            obj={name: entry.name, checked: false, category: selectedCategory};}
     subCriteriaArrayTemp.push(obj);
     setSubCriteriaArray(subCriteriaArrayTemp)
     });
@@ -63,7 +63,7 @@ const handleCheck=(e)=>{
         {subCriteriaArray.map(entry=>{return( 
             <div >
                 <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
-                <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500">{console.log('entry log', entry)}{entry.name.name ?? entry.name}</label>
+                <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500">{entry.name}</label>
             </div>
         )})}
     </fieldset>
