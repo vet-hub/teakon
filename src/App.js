@@ -2,7 +2,7 @@ import './App.css';
 
 import { Routes, Route, Switch, BrowserRouter } from "react-router-dom";
 import { useNavigate } from "react-router";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Navbar from './components/Navbar';
 import LandingPage from "./components/LandingPage";
@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 
 
 function App() {
+  const [doSearch,setDoSearch] = useState([]);
   const [allTeas,setAllTeas] = useState([
     {id:1,
     name:"Darjeeling",
@@ -41,7 +42,7 @@ function App() {
         coffein:true
         }
   ]);/* mit useEffect und fetch/axios füllen */
-  const [allTeearten,setAllTeearten]=useState(["Schwarzer Tee","Grüner Tee"]);/* mit useEffect und fetch/axios füllen */
+  const [allTeearten,setAllTeearten]=useState([]);/* mit useEffect und fetch/axios füllen */
   const [allAnbaugebiete,setAllAnbaugebiete]=useState(["Nordindien","Japan"]);/* mit useEffect und fetch/axios füllen */
   const [allBenefits,setAllBenefits]=useState(["kann Cholesterienspiegel senken","Immunsystem stärken"]);/* mit useEffect und fetch/axios füllen */
   const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
@@ -50,84 +51,92 @@ function App() {
   const [resultTeas, setResultTeas] = useState([]);/* in ergebnisseite mit searchfunktion? */
   const navigate=useNavigate();
 
-  const urlAllArten ="test";
-  const urlAllSorten="test";
-  const urlAllAnbau="test";
-  const urlAllBenefits="test";
-  const urlAllAromen="test";
-  const urlCoffein="test";
+  const urlAllArten ="https://teakon-masala-backend.onrender.com/teeapi/tees";
+  const urlSearch="https://teakon-masala-backend.onrender.com/teeapi/suchkriterien";
+  // const urlAllAnbau="test";
+  // const urlAllBenefits="test";
+  // const urlAllAromen="test";
+  // const urlCoffein="test";
 
 //----------------------------------------------Fetch-Area-start-----------------------------------------------------------------------
-//-------------fetch für alle Teearten---------------- 
+//-------------fetch für alle TeeSorten---------------- 
   const fetchDataArten = async () => {
     try {
       const getallArten = await fetch(urlAllArten);
       if(!getallArten.ok) throw new Error(`Request failed with a status of ${getallArten.status}`);
       const parseData = await getallArten.json();
-      setAllTeearten(parseData);
+      setAllTeearten(parseData.teesArray);
     } catch (error) {
       console.log(error.message);
     }
   }
-  //--------------fetch für alle Sorten--------------------
-  const fetchDataSorten = async () => {
+  // //--------------fetch für Suche--------------------
+  const fetchDataSearch = async () => {
     try {
-      const getAllSorten = await fetch(urlAllSorten);
-      if(!getAllSorten.ok) throw new Error(`Request failed with a status of ${getAllSorten.status}`);
-      const parseData = await getAllSorten.json();
-      setAllTeas(parseData);
+      const getSearch = await fetch(urlSearch);
+      if(!getSearch.ok) throw new Error(`Request failed with a status of ${getSearch.status}`);
+      const parseData = await getSearch.json();
+      setDoSearch(parseData);
     } catch (error) {
       console.log(error.message);
     }
   }
-  //------------fetch für alle Anbau------------------
-  const fetchDataAnbau = async () => {
-    try {
-      const getAllAnbau = await fetch(urlAllAnbau);
-      if(!getAllAnbau.ok) throw new Error(`Request failed with a status of ${getAllAnbau.status }`);
-      const parseData = await getAllAnbau.json();
-      setAllAnbaugebiete(parseData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  //-------fetch für alle Benefits--------------------
-  const fetchDataBenefits = async () => {
-    try {
-      const getAllBenefits = await fetch(urlAllBenefits);
-      if(!getAllBenefits.ok) throw new Error(`Request failed with a status of ${getAllBenefits.status}`);
-      const parseData = await getAllBenefits.json();
-      setAllBenefits(parseData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  // //------------fetch------------------
+  // const fetchDataAnbau = async () => {
+  //   try {
+  //     const getAllAnbau = await fetch(urlAllAnbau);
+  //     if(!getAllAnbau.ok) throw new Error(`Request failed with a status of ${getAllAnbau.status }`);
+  //     const parseData = await getAllAnbau.json();
+  //     setAllAnbaugebiete(parseData);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
+  // //-------fetch für alle Benefits--------------------
+  // const fetchDataBenefits = async () => {
+  //   try {
+  //     const getAllBenefits = await fetch(urlAllBenefits);
+  //     if(!getAllBenefits.ok) throw new Error(`Request failed with a status of ${getAllBenefits.status}`);
+  //     const parseData = await getAllBenefits.json();
+  //     setAllBenefits(parseData);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  //-----------fetch für alle Aromen------------------
-  const fetchDataAromen = async () => {
-    try {
-      const getAllAromen = await fetch(urlAllAromen);
-      if(!getAllAromen.ok) throw new Error(`Request failed with a status of ${getAllAromen.status}`);
-      const parseData = await getAllAromen.json();
-      setAllAromen(parseData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  // //-----------fetch für alle Aromen------------------
+  // const fetchDataAromen = async () => {
+  //   try {
+  //     const getAllAromen = await fetch(urlAllAromen);
+  //     if(!getAllAromen.ok) throw new Error(`Request failed with a status of ${getAllAromen.status}`);
+  //     const parseData = await getAllAromen.json();
+  //     setAllAromen(parseData);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  //------------fetch für Koffeein---------------------------
-  const fetchDataKoffeein = async () => {
-    try {
-      const getKoffein = await fetch(urlCoffein);
-      if(!getKoffein.ok) throw new Error(`Request failed with a status of ${getKoffein.status}`);
-      const parseData = await getKoffein.json();
-      setAllCoffein(parseData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  // //------------fetch für Koffeein---------------------------
+  // const fetchDataKoffeein = async () => {
+  //   try {
+  //     const getKoffein = await fetch(urlCoffein);
+  //     if(!getKoffein.ok) throw new Error(`Request failed with a status of ${getKoffein.status}`);
+  //     const parseData = await getKoffein.json();
+  //     setAllCoffein(parseData);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
   //----------------------------------------Fetch-Area-End--------------------------------------------------------------------------------
   
+  useEffect(() => {
+    fetchDataArten();
+    fetchDataSearch();
+  }, [])
+
+  console.log("Alle Arten:", allTeearten);
+  console.log("Suche:", doSearch);
+
   const searchFunktion=()=>{
     /*TODO variablen anpassen? */
     let foundTeas =[...allTeas];
@@ -178,20 +187,24 @@ function App() {
     setResultTeas(foundTeas)
     navigate("/ergebnisse/suche")
   }
-  return (
-    <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
-      <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} searchFunktion={searchFunktion} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein}/>
 
-      <Routes>
-        <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} searchFunktion={searchFunktion} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />} />
-        <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite resultTeas={resultTeas} />} />
-        <Route path='/teeart' element={<TeeArtDetail/>} />
-        <Route path='/teesorte' element={<TeeSorteDetail/>} />
-        <Route path='/zubehör' element={<Zubehör/>} />
-        <Route path='*' element={<ErrorPage/>} />
-      </Routes>
-      <Footer />
-    </div>
+  return (
+    <> 
+      { allTeearten && doSearch &&
+        <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
+          <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} searchFunktion={searchFunktion} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein}/>
+          <Routes>
+            <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} searchFunktion={searchFunktion} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />} />
+            <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite resultTeas={resultTeas} />} />
+            <Route path='/teeart' element={<TeeArtDetail/>} />
+            <Route path='/teesorte' element={<TeeSorteDetail/>} />
+            <Route path='/zubehör' element={<Zubehör/>} />
+            <Route path='*' element={<ErrorPage/>} />
+          </Routes>
+          <Footer />
+        </div>
+      }
+    </>
   );
 }
 
