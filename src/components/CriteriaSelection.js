@@ -19,7 +19,7 @@ export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,
 /* TODO responsiveness */
 return(
 <div className="criteriaSelection flex flex-col items-center w-full p-5 ">
-    <h2 className="font-bold m-5 text-2xl text-gray-500" >Kriterien Auswahl</h2>
+    <h2 className="font-bold m-5 text-2xl text-white" >Kriterien Auswahl</h2>
     <div className=" mainCriterias flex justify-evenly flex-wrap w-full ">
 
         <div  className="criteriaSelector shadow border rounded-xl flex justify-center w-1/6  aspect-square  hover:cursor-pointer bg-teas-bg bg-cover"  onClick={setToTeas } >
@@ -46,7 +46,7 @@ return(
 
 
     <CheckboxContainer selectedCategory={selectedCategory} chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />
-    <p className="text-gray-500">Ausgewählte Kriterien:</p>
+    <p className="text-white">Ausgewählte Kriterien:</p>
     <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />
 
 
