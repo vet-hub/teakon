@@ -4,15 +4,17 @@ import Alletees from "./Alletees";
 import { useNavigate } from "react-router";
 import wrldmap from '../img/61752.jpg';
 import { Link } from 'react-router-dom';
+import SelectedCriterias from "./SelectedCriterias";
 
-export default function ErgebnisseSeite({chosenCriterias, allTeas, allTeearten}) {
+export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, allTeas, allTeearten}) {
     const { kriteria } = useParams();
     const navigateTo = useNavigate();
+    const [resultTeas,setResultTeas]=useState(allTeas)
 
     let foundTeas =[...allTeas];
     const searchFunktion=()=>{
         /*TODO variablen anpassen? */
-        
+        console.log("search start: ",foundTeas)
         const chosenCriteriasTemp=[...chosenCriterias];
     
         const nameSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="name");
@@ -56,8 +58,9 @@ export default function ErgebnisseSeite({chosenCriterias, allTeas, allTeearten})
         if (coffeinSearch.length>0){
             foundTeas=foundTeas.filter(tea=>tea.coffein===coffeinSearch[0].name)
         }}
+        setResultTeas(foundTeas)
     }
-
+useEffect(() => {
     if (kriteria === "suche"){
         switch (chosenCriterias.length) {
             case 0:
@@ -66,23 +69,30 @@ export default function ErgebnisseSeite({chosenCriterias, allTeas, allTeearten})
             case 1:
                 if (chosenCriterias[0].category==="teas"){
                     const chosenTeeart=chosenCriterias[0].name.toLowerCase().replace(" ","");
+                    searchFunktion();
                     navigateTo(`/ergebnisse/${chosenTeeart}`)
                 };
+break;
             default:
                 searchFunktion()
-                /* if (foundTeas.length=0){navigateTo("*")} */
+                if (resultTeas.length=0){navigateTo("*")}
                 break;
         } 
     }
 
+    
+}, [chosenCriterias])
+
     return(
         <>
             <p className='text-5xl text-gray-900 bg-grey-600 text-center font-bold my-6'>Die Welt des Tee</p>
+            
             {/* für alle tees */}
             {kriteria === "alle" && <p className='text-5xl text-gray-900 bg-grey-600 text-center font-bold my-6'>Alle Tees</p>} 
+            
             {/* für einzelne teeart */}
             {chosenCriterias.length===1 && 
-            allTeearten.findIndex(teeart=>teeart === chosenCriterias[0].name)+1 && 
+            (allTeearten.includes(chosenCriterias[0].name)) && (
             <div className="mt-6 mb-6">
                 <div className="card card-side bg-base-100 shadow-xl mb-4">
                     <figure><img className="object-scale-down h-48 w-96" src="" alt={allTeearten.findIndex(teeart=>teeart === chosenCriterias[0].name)}/></figure>
@@ -91,10 +101,13 @@ export default function ErgebnisseSeite({chosenCriterias, allTeas, allTeearten})
                         <p>beschreibung für {allTeearten[allTeearten.findIndex(teeart=>teeart === chosenCriterias[0].name)]}</p>
                     </div>
                 </div>
-            </div>} 
+            </div>)} 
 
+            {kriteria==="suche" && <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}/>}
+
+            {/* anzeige aller gefundener tees */}
             <div className='flex flex-wrap justify-center items-center gap-x-6  gap-y-6 mt-10 mb-7'>
-                {foundTeas.map(tea=>{return(
+                {resultTeas.map(tea=>{return(
                     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <img src={wrldmap} alt='wimage' className='w-full h-80 my-4 rounded-lg' />

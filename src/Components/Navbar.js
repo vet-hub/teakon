@@ -48,7 +48,7 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
                 userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(coffein.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(coffein.toLocaleLowerCase())+coffein.length)
             }
         })
-        const regex= /[^\w\s]/g ;
+        const regex= /[^\w\säöüÄÖÜß]/g ;
         userInputTemp=userInputTemp.replaceAll(regex,"");
         userInputTemp=userInputTemp.trim();
         if(userInputTemp.length>0){

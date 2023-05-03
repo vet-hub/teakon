@@ -47,7 +47,7 @@ function App() {
   const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
   const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
   const [chosenCriterias,setChosenCriterias] = useState([]);
-  const [resultTeas, setResultTeas] = useState([]);/* in ergebnisseite mit searchfunktion? */
+  /* const [resultTeas, setResultTeas] = useState([]); *//* in ergebnisseite mit searchfunktion? */
 
 
 
@@ -60,7 +60,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />} />
-        <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite chosenCriterias={chosenCriterias} allTeas={allTeas} allTeearten={allTeearten}/>} />
+        <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeas={allTeas} allTeearten={allTeearten}/>} />
         <Route path='/teeart' element={<TeeArtDetail/>} />
         <Route path='/teesorte' element={<TeeSorteDetail/>} />
         <Route path='/zubehör' element={<Zubehör/>} />
