@@ -6,11 +6,10 @@ export default function TeeSorteDetails() {
     return (
         <>
             <div className='container'>
-                <div class="">
-                    <h1 className='tile-marker text-5xl text-gray-900 bg-grey-600 text-center font-bold my-6'>TEESORTE</h1>
-                </div>
+                <h1 className='text-5xl text-white bg-grey-600 text-center font-bold my-6'>TEESORTE</h1>
 
-                <div className='flex justify-between'>
+
+                <div className='flex justify-between sm:flex-col sm:px-0 sm:justify-center'>
                     {/* -------------------------BILD-01--------------------------------- */}
 
 
@@ -28,11 +27,13 @@ export default function TeeSorteDetails() {
                         <p className=' text-gray-500 my-3'>Teeart: LoremseinIpsum----------------</p>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
-                    <div class="flex items-center">
+                    <div class="flex items-center sm:justify-center">
                         <img src={wrldmap} alt='wimage' className='w-96 h-80 ml-300 mx-4 ml-100 my-4 m-30 rounded-lg' />
                     </div>
 
                 </div>
+
+                {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 <div className='flex flex-col'>
