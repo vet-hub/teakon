@@ -58,7 +58,9 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
         }}
         setResultTeas(foundTeas)
     }
+
 useEffect(() => {
+    setResultTeas(allTeas)
     if (kriteria === "suche"){
         switch (chosenCriterias.length) {
             case 0:
