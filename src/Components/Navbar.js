@@ -4,7 +4,7 @@ import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
 
-export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
+export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
     const navigateTo = useNavigate()
     /* TODO responsiveness (burgermenu) */
