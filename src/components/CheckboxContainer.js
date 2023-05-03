@@ -63,7 +63,7 @@ const handleCheck=(e)=>{
         {subCriteriaArray.map(entry=>{return( 
             <div >
                 <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
-                <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500">{entry.name}</label>
+                <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500">{console.log('entry log', entry)}{entry.name.name ?? entry.name}</label>
             </div>
         )})}
     </fieldset>

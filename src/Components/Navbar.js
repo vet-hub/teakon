@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState,useEffect } from "react";
+import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
 export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
@@ -58,13 +59,18 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
         searchFunktion();/* in ergebnissseite? */
     }
     return (
+        
         <div className="navbar p-7 bg-base-200 rounded-box">
             {/* ---------------- Logo section -------------- */}
 
-                <div className="flex-1 px-2 lg:flex-none">
-        <a className="text-lg font-bold"><img></img><Link to="/"></Link></a>
+            <div className="flex-1 px-2 lg:flex-none">
+                <Link to="/"><img src={MyLogo}></img></Link>
+              
+                
+                
+                 
             </div> 
-    <div className="flex justify-end flex-1 px-2">
+        <div className="flex justify-end flex-1 px-2">
         <div className="flex items-stretch">
             {/* ----------------- Searchbar ---------------- */}
             <form className="form-control" onSubmit={resolveSearchBar}>
@@ -86,8 +92,10 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
                     <li><a><Link to="/ergebnisse/eistee">Eistee</Link></a></li>
                 </ul>
 
-                </div>    
+            </div>
+                
         </div>
         </div>
-        </div>)
+        </div>
+    )
 }
