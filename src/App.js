@@ -43,10 +43,10 @@ function App() {
         }
   ]);/* mit useEffect und fetch/axios füllen */
   const [allTeearten,setAllTeearten]=useState([]);/* mit useEffect und fetch/axios füllen */
-  const [allAnbaugebiete,setAllAnbaugebiete]=useState(["Nordindien","Japan"]);/* mit useEffect und fetch/axios füllen */
-  const [allBenefits,setAllBenefits]=useState(["kann Cholesterienspiegel senken","Immunsystem stärken"]);/* mit useEffect und fetch/axios füllen */
-  const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
-  const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
+  //const [allAnbaugebiete,setAllAnbaugebiete]=useState(["Nordindien","Japan"]);/* mit useEffect und fetch/axios füllen */
+  //const [allBenefits,setAllBenefits]=useState(["kann Cholesterienspiegel senken","Immunsystem stärken"]);/* mit useEffect und fetch/axios füllen */
+  //const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
+  //const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
   const [chosenCriterias,setChosenCriterias] = useState([]);
   const navigate=useNavigate();
 
