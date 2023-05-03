@@ -1,7 +1,7 @@
 export default 
 function SelectedCriterias({chosenCriterias,setChosenCriterias}){
     const unselectCriteria =(e)=>{
-        const indexToDelete = chosenCriterias.findIndex((entry)=>entry === e.target.parentNode.id);
+        const indexToDelete = chosenCriterias.findIndex((entry)=>entry.name === e.target.parentNode.id);
         const chosenCriteriasTemp=[...chosenCriterias];
         chosenCriteriasTemp.splice(indexToDelete,1);
         setChosenCriterias(chosenCriteriasTemp);
