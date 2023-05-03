@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"
 import { useState,useEffect } from "react";
+import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
+
 
 export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
+    const navigateTo = useNavigate()
     /* TODO responsiveness (burgermenu) */
     const inputHandler=(e)=>{
         setUserInput(e.target.value)
@@ -47,7 +50,7 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
                 userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(coffein.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(coffein.toLocaleLowerCase())+coffein.length)
             }
         })
-        const regex= /[^\w\s]/g ;
+        const regex= /[^\w\säöüÄÖÜß]/g ;
         userInputTemp=userInputTemp.replaceAll(regex,"");
         userInputTemp=userInputTemp.trim();
         if(userInputTemp.length>0){
@@ -55,8 +58,46 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
             foundCriterias.push(criteriaObj);
         }
         setChosenCriterias(foundCriterias);
-        /*TODO search funktion to fast? nutzt nicht den aktuellen state von chosenCriteria */
-        searchFunktion();/* in ergebnissseite? */
+        navigateTo("/ergebnisse/suche")
+    }
+    const addCategory=(e)=>{
+        switch (e.target.innerHTML){
+            case "Schwarzer Tee":
+                setChosenCriterias([{name:"Schwarzer Tee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            case "Weißer Tee":
+                setChosenCriterias([{name:"Weißer Tee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            case "Grüner Tee":
+                setChosenCriterias([{name:"Grüner Tee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            case "Gelber Tee":
+                setChosenCriterias([{name:"Gelber Tee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            case "Oolong Tee":
+                setChosenCriterias([{name:"Oolong Tee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            case "Früchtetee":
+                setChosenCriterias([{name:"Früchtetee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            case "Kräutertee":
+                setChosenCriterias([{name:"Kräutertee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            case "Eistee":
+                setChosenCriterias([{name:"Eistee", checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+                break;
+            default:
+                break;
+        }
+
     }
     return (
         
@@ -82,14 +123,14 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
             <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
                 <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                    <li><a><Link to="/ergebnisse/schwarztee">Schwarz Tee</Link></a></li> 
-                    <li><a><Link to="/ergebnisse/weissertee">Weißer Tee</Link></a></li> 
-                    <li><a><Link to="/ergebnisse/gruenertee">Grüner Tee</Link></a></li>
-                    <li><a><Link to="/ergebnisse/gelbertee">Gelber Tee</Link></a></li>
-                    <li><a><Link to="/ergebnisse/oolongtee">Oolong Tee</Link></a></li>
-                    <li><a><Link to="/ergebnisse/fruechtetee">Früchtetee</Link></a></li>
-                    <li><a><Link to="/ergebnisse/krautertee">Kräutertee</Link></a></li>
-                    <li><a><Link to="/ergebnisse/eistee">Eistee</Link></a></li>
+                    <li><div onClick={addCategory}>Schwarzer Tee</div></li> 
+                    <li><div onClick={addCategory}>Weißer Tee</div></li> 
+                    <li><div onClick={addCategory}>Grüner Tee</div></li>
+                    <li><div onClick={addCategory}>Gelber Tee</div></li>
+                    <li><div onClick={addCategory}>Oolong Tee</div></li>
+                    <li><div onClick={addCategory}>Früchtetee</div></li>
+                    <li><div onClick={addCategory}>Kräutertee</div></li>
+                    <li><div onClick={addCategory}>Eistee</div></li>
                 </ul>
 
             </div>
