@@ -26,10 +26,10 @@ useEffect(() => {
     
     fetchedSubCriteriaArray.map(entry=>{
         let obj={};
-        if (chosenCriterias.find(criteria=>criteria.name===entry)){
-            obj={name: entry, checked: true, category: selectedCategory};
+        if (chosenCriterias.find(criteria=>criteria.name===entry.name)){
+            obj={name: entry.name, checked: true, category: selectedCategory};
         }else{
-            obj={name: entry, checked: false, category: selectedCategory};}
+            obj={name: entry.name, checked: false, category: selectedCategory};}
     subCriteriaArrayTemp.push(obj);
     setSubCriteriaArray(subCriteriaArrayTemp)
     });
