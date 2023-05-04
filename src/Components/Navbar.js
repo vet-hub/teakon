@@ -4,13 +4,14 @@ import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
 
-export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
+export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
     const navigateTo = useNavigate()
     /* TODO responsiveness (burgermenu) */
     const inputHandler=(e)=>{
         setUserInput(e.target.value)
     }
+
     const resolveSearchBar=(e)=>{
         e.preventDefault();
         let userInputTemp=userInput.toLocaleLowerCase();
@@ -60,45 +61,12 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
         setChosenCriterias(foundCriterias);
         navigateTo("/ergebnisse/suche")
     }
-    const addCategory=(e)=>{
-        switch (e.target.innerHTML){
-            case "Schwarzer Tee":
-                setChosenCriterias([{name:"Schwarzer Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Weißer Tee":
-                setChosenCriterias([{name:"Weißer Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Grüner Tee":
-                setChosenCriterias([{name:"Grüner Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Gelber Tee":
-                setChosenCriterias([{name:"Gelber Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Oolong Tee":
-                setChosenCriterias([{name:"Oolong Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Früchtetee":
-                setChosenCriterias([{name:"Früchtetee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Kräutertee":
-                setChosenCriterias([{name:"Kräutertee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Eistee":
-                setChosenCriterias([{name:"Eistee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            default:
-                break;
-        }
 
+    const addCategory=(e)=>{
+        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
     }
+
     return (
         
         <div className="navbar bg-gray-300 p-3 rounded-box">
@@ -106,30 +74,29 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
             </div> 
-            <div className="flex justify-end flex-1 px-2">
-                <div className="flex items-stretch">
-                {/* ----------------- Searchbar ---------------- */}
-                    <form className="form-control" onSubmit={resolveSearchBar}>
-                        <input type="search" placeholder="Search" className="input input-bordered" onChange={inputHandler}  />
-                    </form>
-                {/* ------------------ zubehör ----------------- */}
-                    <a className="btn btn-ghost rounded-btn"><Link to="/zubehör">Zubehör</Link></a>
-                {/* ---------------- Dropdown menü ------------- */}
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
-                        <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                            <li><div onClick={addCategory}>Schwarzer Tee</div></li> 
-                            <li><div onClick={addCategory}>Weißer Tee</div></li> 
-                            <li><div onClick={addCategory}>Grüner Tee</div></li>
-                            <li><div onClick={addCategory}>Gelber Tee</div></li>
-                            <li><div onClick={addCategory}>Oolong Tee</div></li>
-                            <li><div onClick={addCategory}>Früchtetee</div></li>
-                            <li><div onClick={addCategory}>Kräutertee</div></li>
-                            <li><div onClick={addCategory}>Eistee</div></li>
-                        </ul>
-                    </div>
-                </div>
+
+        <div className="flex justify-end flex-1 px-2">
+        <div className="flex items-stretch">
+            {/* ----------------- Searchbar ---------------- */}
+            <form className="form-control" onSubmit={resolveSearchBar}>
+                <input type="search" placeholder="Search" className="input input-bordered" onChange={inputHandler}  />
+            </form>
+            {/* ------------------ zubehör ----------------- */}
+            <Link className="btn btn-ghost rounded-btn" to="/zubehör">Zubehör</Link>
+            {/* ---------------- Dropdown menü ------------- */}
+            <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
+                <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                    {allTeearten.map((teeart)=>{return(
+                        <li key={teeart.name}><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
+                    )
+                    })}
+                </ul>
+
             </div>
+
+        </div>
+        </div>
         </div>
     )
 }
