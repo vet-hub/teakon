@@ -1,7 +1,18 @@
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
-import { Link } from "react-router-dom"
-export default function Footer() {
+import { Link } from "react-router-dom";
+import {useNavigate} from "react-router"
+
+export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     /* TODO responsiveness */
+    const navigateTo = useNavigate();
+    const addTeasCriteria=(e)=>{
+        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
+    };
+    const addOriginCriteria=(e)=>{
+        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"origin"}])
+                navigateTo("/ergebnisse/suche")
+    };
     return (
         <>
 
@@ -14,24 +25,17 @@ export default function Footer() {
                 </div>
                 <div>
                     <span className="footer-title">Teeart</span>
-                    <a className="link link-hover"><Link to="/ergebnisse/schwarztee">Schwarzer Tee</Link></a>
-                    <a className="link link-hover"><Link to="/ergebnisse/weissertee">Weißer Tee</Link></a>
-                    <a className="link link-hover"><Link to="/ergebnisse/gruenertee">Grüner Tee</Link></a>
-                    <a className="link link-hover"><Link to="/ergebnisse/gelbertee">Gelber Tee</Link></a>
-                    <a className="link link-hover"><Link to="/ergebnisse/oolongtee">Oolong Tee</Link></a>
-                    <a className="link link-hover"><Link to="/ergebnisse/fruechtetee">Früchtetee</Link></a>
-                    <a className="link link-hover"><Link to="/ergebnisse/krautertee">Kräuter Tee</Link></a>
-                    <a className="link link-hover"><Link to="/ergebnisse/eistee">Eistee</Link></a>
-                    
+                    {allTeearten.map((teeart)=>{return(
+                        <a className="hover:cursor-pointer" key={teeart.name} onClick={addTeasCriteria}>{teeart.name}</a>
+                    )
+                    })}
                 </div>
                 <div>
                     <span className="footer-title">Anbaugebiet</span>
-                    <a className="link link-hover">Assam us</a>
-                    <a className="link link-hover">China</a>
-                    <a className="link link-hover">Darjeeling</a>
-                    <a className="link link-hover">Japan</a>
-                    <a className="link link-hover">Nepal</a>
-                    <a className="link link-hover">Südkorea</a>
+                    {allAnbaugebiete.map((anbaugebiet)=>{return(
+                        <a className="hover:cursor-pointer" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
+                    )
+                    })}
 
                 </div>
                 <div>

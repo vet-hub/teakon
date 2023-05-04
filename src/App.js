@@ -98,7 +98,7 @@ function App() {
               <Route path='/zubehör' element={<Zubehör/>} />
               <Route path='*' element={<ErrorPage/>} />        
           </Routes>
-          <Footer />
+          <Footer chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
         </div>
       }
     </>
