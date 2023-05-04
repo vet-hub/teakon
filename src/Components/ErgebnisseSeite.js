@@ -38,13 +38,13 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
         const coffeinSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="coffein");
         
         if (nameSearch.length>0){
-            foundTeas=foundTeas.filter(tea=>tea.name.toLowerCase()===nameSearch[0].name);
+            foundTeas=foundTeas.filter(tea=>tea.teename[0].toLowerCase()===nameSearch[0].name);
         }else /* wenn kein tee namentlich gesucht wird */
         {
             if (teeartSearch.length>0){
             const foundInCategory=[]
             teeartSearch.map(criteria=>{
-            const foundByCriteria=foundTeas.filter(tea=>tea.teeart===criteria.name)
+            const foundByCriteria=foundTeas.filter(tea=>tea.tee_artenname===criteria.name)
             foundInCategory.push(...foundByCriteria)
         });
             foundTeas=foundInCategory;
@@ -52,19 +52,19 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
         if (originSearch.length>0){
             const foundInCategory=[]
             originSearch.map(criteria=>{
-            const foundByCriteria=foundTeas.filter(tea=>tea.anbaugebiet===criteria.name)
+            const foundByCriteria=foundTeas.filter(tea=>tea.anbaugebietename[0]===criteria.name)
             foundInCategory.push(...foundByCriteria)
         })
             foundTeas=foundInCategory;
         }
         if (flavourSearch.length>0){
-            flavourSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.aromen.includes(criteria.name))})
+            flavourSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.aromenname.includes(criteria.name))})
         }
         if (benefitSearch.length>0){
-            benefitSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.benefits.includes(criteria.name))})
+            benefitSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.benefitsname.includes(criteria.name))})
         }
         if (coffeinSearch.length>0){
-            foundTeas=foundTeas.filter(tea=>tea.coffein===coffeinSearch[0].name)
+            coffeinSearch.map(criteria=>{foundTeas=foundTeas.filter(tea=>tea.attributename.includes(criteria.name))})
         }}
         setResultTeas(foundTeas)
     }
@@ -79,6 +79,7 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
         "oolongtee":oolongTee,
         "weißertee":weißerTee
     }
+
 useEffect(() => {
     setResultTeas(allTeas)
 if (kriteria === "suche") {
@@ -127,16 +128,20 @@ if (kriteria === "suche") {
 
             {/* anzeige aller gefundener tees */}
             <div className='flex flex-wrap justify-center items-center gap-x-6  gap-y-6 mt-10 mb-7'>
-                {resultTeas.map(tea=>{return(
-                    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                {resultTeas.map(tea=>{
+                    const image = "../img/teesorten/"+tea.teeimage[0];
+                    console.log(image);
+                    return(
+                    <div id={tea.teeid} key={tea.teeid} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
-                            <img src={wrldmap} alt='wimage' className='w-full h-80 my-4 rounded-lg' />
+                            
+                            <img src={image} alt={tea.teename[0]} className='w-full h-80 my-4 rounded-lg' />{/* path / import/ theme */}
                         </a>
                         <div className="p-5">
                             <a href="#">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tea.name}</h5>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tea.teename[0]}</h5>
                             </a>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tea.anbaugebiet}</p>
+                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tea.teebeschreibung[0]}</p>
                             <button onClick={() => navigateTo("/teesorte")} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full ">anzeigen<svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </button>
                         </div>
