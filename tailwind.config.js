@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'teas-bg': "url(./img/teas-bg-image.jpg)",
-        'origin-bg': "url(./img/origin-bg-image.jpg)",
-        'flavour-bg': "url(./img/flavour-bg-image.jpg)",
-        'effect-bg': "url(./img/effects-bg-image.jpg)",
-        'coffein-bg': "url(./img/coffein-bg-image.jpg)"
+        'teas-bg': "url(./img/bg/teas-bg-image.jpg)",
+        'origin-bg': "url(./img/bg/origin-bg-image.jpg)",
+        'flavour-bg': "url(./img/bg/flavour-bg-image.jpg)",
+        'effect-bg': "url(./img/bg/effects-bg-image.jpg)",
+        'coffein-bg': "url(./img/bg/coffein-bg-image.jpg)"
       }
     },
   },

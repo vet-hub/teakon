@@ -19,7 +19,7 @@ function App() {
   const [allTeas,setAllTeas] = useState([
     {id:1,
     name:"Darjeeling",
-    teeart:"Schwarzer Tee",
+    teeart:"Weißer Tee",
     anbaugebiet:"Nordindien",
     aromen:["vollmundig","süßlich"],
     benefits:[""],
@@ -60,7 +60,7 @@ function App() {
       const getallArten = await fetch(urlAllArten);
       if(!getallArten.ok) throw new Error(`Request failed with a status of ${getallArten.status}`);
       const parseData = await getallArten.json();
-      setAllTeearten(parseData.teesArray);
+      setAllTeearten(parseData.teesObjectsArray);
     } catch (error) {
       console.log(error.message);
     }
@@ -98,7 +98,7 @@ function App() {
               <Route path='/zubehör' element={<Zubehör/>} />
               <Route path='*' element={<ErrorPage/>} />        
           </Routes>
-          <Footer />
+          <Footer chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
         </div>
       }
     </>
