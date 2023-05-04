@@ -59,9 +59,9 @@ const handleCheck=(e)=>{
 }
 
     return (
-    <fieldset className="checkboxContainer flex flex-col flex-wrap shadow border rounded-xl my-5 w-3/4 px-5 py-2 max-h-32 ">
+    <fieldset className="checkboxContainer flex flex-col flex-wrap shadow border border-black overflow-auto rounded-xl mt-10 my-5 w-3/4 px-5 py-2 max-h-32 ">
         {subCriteriaArray.map(entry=>{return( 
-            <div >
+            <div>
                 <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
                 <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500">{entry.name}</label>
             </div>

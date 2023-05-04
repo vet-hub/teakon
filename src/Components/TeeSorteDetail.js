@@ -9,7 +9,7 @@ export default function TeeSorteDetails() {
                 <h1 className='text-5xl text-white bg-grey-600 text-center font-bold my-6'>TEESORTE</h1>
 
 
-                <div className='flex justify-between sm:flex-col sm:px-0 sm:justify-center'>
+                <div className='flex justify-between sm:px-0 sm:justify-center'>
                     {/* -------------------------BILD-01--------------------------------- */}
 
 

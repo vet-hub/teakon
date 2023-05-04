@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
@@ -101,38 +101,35 @@ export default function Navbar({chosenCriterias,setChosenCriterias,searchFunktio
     }
     return (
         
-        <div className="navbar p-7 bg-base-200 rounded-box">
+        <div className="navbar bg-gray-300 p-3 rounded-box">
             {/* ---------------- Logo section -------------- */}
-
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
             </div> 
-        <div className="flex justify-end flex-1 px-2">
-        <div className="flex items-stretch">
-            {/* ----------------- Searchbar ---------------- */}
-            <form className="form-control" onSubmit={resolveSearchBar}>
-                <input type="search" placeholder="Search" className="input input-bordered" onChange={inputHandler}  />
-            </form>
-            {/* ------------------ zubehör ----------------- */}
-            <a className="btn btn-ghost rounded-btn"><Link to="/zubehör">Zubehör</Link></a>
-            {/* ---------------- Dropdown menü ------------- */}
-            <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
-                <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                    <li><div onClick={addCategory}>Schwarzer Tee</div></li> 
-                    <li><div onClick={addCategory}>Weißer Tee</div></li> 
-                    <li><div onClick={addCategory}>Grüner Tee</div></li>
-                    <li><div onClick={addCategory}>Gelber Tee</div></li>
-                    <li><div onClick={addCategory}>Oolong Tee</div></li>
-                    <li><div onClick={addCategory}>Früchtetee</div></li>
-                    <li><div onClick={addCategory}>Kräutertee</div></li>
-                    <li><div onClick={addCategory}>Eistee</div></li>
-                </ul>
-
+            <div className="flex justify-end flex-1 px-2">
+                <div className="flex items-stretch">
+                {/* ----------------- Searchbar ---------------- */}
+                    <form className="form-control" onSubmit={resolveSearchBar}>
+                        <input type="search" placeholder="Search" className="input input-bordered" onChange={inputHandler}  />
+                    </form>
+                {/* ------------------ zubehör ----------------- */}
+                    <a className="btn btn-ghost rounded-btn"><Link to="/zubehör">Zubehör</Link></a>
+                {/* ---------------- Dropdown menü ------------- */}
+                    <div className="dropdown dropdown-end">
+                        <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
+                        <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                            <li><div onClick={addCategory}>Schwarzer Tee</div></li> 
+                            <li><div onClick={addCategory}>Weißer Tee</div></li> 
+                            <li><div onClick={addCategory}>Grüner Tee</div></li>
+                            <li><div onClick={addCategory}>Gelber Tee</div></li>
+                            <li><div onClick={addCategory}>Oolong Tee</div></li>
+                            <li><div onClick={addCategory}>Früchtetee</div></li>
+                            <li><div onClick={addCategory}>Kräutertee</div></li>
+                            <li><div onClick={addCategory}>Eistee</div></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-                
-        </div>
-        </div>
         </div>
     )
 }

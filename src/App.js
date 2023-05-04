@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Routes, Route, Switch, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useState, useEffect } from 'react';
 
@@ -60,7 +60,7 @@ function App() {
       const getallArten = await fetch(urlAllArten);
       if(!getallArten.ok) throw new Error(`Request failed with a status of ${getallArten.status}`);
       const parseData = await getallArten.json();
-      setAllTeearten(parseData.teesArray);
+      setAllTeearten(parseData.teesObjectsArray);
     } catch (error) {
       console.log(error.message);
     }
@@ -72,7 +72,6 @@ function App() {
       if(!getSearch.ok) throw new Error(`Request failed with a status of ${getSearch.status}`);
       const parseData = await getSearch.json();
       setDoSearch(parseData);
-      console.log("suchkriterien: " ,doSearch)
     } catch (error) {
       console.log(error.message);
     }
@@ -88,7 +87,7 @@ function App() {
   return (
     <> 
       { allTeearten && doSearch &&
-        <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
+        <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 rounded-xl shadow border p-5 m-5">
           <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
           <Routes>
               <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray} />} />
