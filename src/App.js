@@ -1,7 +1,6 @@
 import './App.css';
 
-import { Routes, Route, Switch, BrowserRouter } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 import Navbar from './components/Navbar';
@@ -16,39 +15,9 @@ import Footer from './components/Footer'
 
 function App() {
   const [doSearch,setDoSearch] = useState();
-  const [allTeas,setAllTeas] = useState([
-    {id:1,
-    name:"Darjeeling",
-    teeart:"Weißer Tee",
-    anbaugebiet:"Nordindien",
-    aromen:["vollmundig","süßlich"],
-    benefits:[""],
-    coffein:true
-    },
-    {id:2,
-      name:"Macha",
-      teeart:"Grüner Tee",
-      anbaugebiet:"Japan",
-      aromen:["süßlich"],
-      benefits:["kann Cholesterienspiegel senken"],
-      coffein:true
-      },
-      {id:3,
-        name:"Schwarzer Japaner",
-        teeart:"Schwarzer Tee",
-        anbaugebiet:"Japan",
-        aromen:["vollmundig"],
-        benefits:["Immunsystem stärken"],
-        coffein:true
-        }
-  ]);/* mit useEffect und fetch/axios füllen */
-  const [allTeearten,setAllTeearten]=useState([]);/* mit useEffect und fetch/axios füllen */
-  //const [allAnbaugebiete,setAllAnbaugebiete]=useState(["Nordindien","Japan"]);/* mit useEffect und fetch/axios füllen */
-  //const [allBenefits,setAllBenefits]=useState(["kann Cholesterienspiegel senken","Immunsystem stärken"]);/* mit useEffect und fetch/axios füllen */
-  //const [allAromen,setAllAromen]=useState(["süßlich","vollmundig"]);/* mit useEffect und fetch/axios füllen */
-  //const [allCoffein,setAllCoffein]=useState(["koffeinhaltig","koffeinfrei"]);/* mit useEffect und fetch/axios füllen */
+  const [allTeas,setAllTeas] = useState();
   const [chosenCriterias,setChosenCriterias] = useState([]);
-  const navigate=useNavigate();
+
 
   const urlAllArten ="https://teakon-masala-backend.onrender.com/teeapi/tees";
   const urlSearch="https://teakon-masala-backend.onrender.com/teeapi/suchkriterien";
@@ -60,7 +29,7 @@ function App() {
       const getallArten = await fetch(urlAllArten);
       if(!getallArten.ok) throw new Error(`Request failed with a status of ${getallArten.status}`);
       const parseData = await getallArten.json();
-      setAllTeearten(parseData.teesObjectsArray);
+      setAllTeas(parseData.teesObjectsArray);
     } catch (error) {
       console.log(error.message);
     }
@@ -72,7 +41,6 @@ function App() {
       if(!getSearch.ok) throw new Error(`Request failed with a status of ${getSearch.status}`);
       const parseData = await getSearch.json();
       setDoSearch(parseData);
-      console.log("suchkriterien: " ,doSearch)
     } catch (error) {
       console.log(error.message);
     }
@@ -87,7 +55,7 @@ function App() {
 
   return (
     <> 
-      { allTeearten && doSearch &&
+      { allTeas && doSearch &&
         <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
           <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
           <Routes>
@@ -105,4 +73,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;/*TODO fill-rule -> fillRule; clip-rule -> clipRule; class -> className */
