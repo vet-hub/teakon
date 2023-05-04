@@ -9,7 +9,7 @@ export default function TeeSorteDetails() {
                 <h1 className='text-5xl text-white bg-grey-600 text-center font-bold my-6'>TEESORTE</h1>
 
 
-                <div className='flex justify-between sm:flex-col sm:px-0 sm:justify-center'>
+                <div className='flex justify-between sm:px-0 sm:justify-center'>
                     {/* -------------------------BILD-01--------------------------------- */}
 
 
@@ -27,7 +27,7 @@ export default function TeeSorteDetails() {
                         <p className=' text-gray-500 my-3'>Teeart: LoremseinIpsum----------------</p>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
-                    <div class="flex items-center sm:justify-center">
+                    <div class="flex items-center">
                         <img src={wrldmap} alt='wimage' className='w-96 h-80 ml-300 mx-4 ml-100 my-4 m-30 rounded-lg' />
                     </div>
 
