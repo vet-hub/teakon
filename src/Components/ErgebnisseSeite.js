@@ -147,18 +147,18 @@ useEffect(() => {
 if (kriteria === "suche") {
                     switch (chosenCriterias.length) {
                         case 0:
-                            navigateTo("/ergebnisse/alle");
+                            navigateTo("/ergebnisse/alle",{replace:true});
                             break;
                         case 1:
                             if (chosenCriterias[0].category==="teas"){
                                 const chosenTeeart=chosenCriterias[0].name.toLowerCase().replace(" ","");
                                 searchFunktion();
-                                navigateTo(`/ergebnisse/${chosenTeeart}`)
+                                navigateTo(`/ergebnisse/${chosenTeeart}`,{replace:true})
                             };
             
                         default:
                             searchFunktion();
-                            if (!foundTeas.length){navigateTo("/*")}
+                            if (!foundTeas.length){navigateTo("/*",{replace:true})}
                             break;
                         } 
                     }
@@ -194,14 +194,14 @@ if (kriteria === "suche") {
                     return(
                     <div id={tea.teeid} key={tea.teeid} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
-                            
                             <img src={imagesHandler[tea.teeimage[0]]} alt={tea.teename[0]} className='w-full h-80 my-4 rounded-lg' />{/* path / import/ theme */}
                         </a>
                         <div className="p-5">
                             <a href="#">
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tea.teename[0]}</h5>
                             </a>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tea.teebeschreibung[0]}</p>
+                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tea.anbaugebietename[0]}</p>
+                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tea.teebeschreibung[0]}</p>
                             <button onClick={() => navigateTo("/teesorte")} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-7 mt-4 border border-blue-500 hover:border-transparent rounded-full ">anzeigen<svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </button>
                         </div>
