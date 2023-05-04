@@ -114,7 +114,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 <input type="search" placeholder="Search" className="input input-bordered" onChange={inputHandler}  />
             </form>
             {/* ------------------ zubehör ----------------- */}
-            <a className="btn btn-ghost rounded-btn"><Link to="/zubehör">Zubehör</Link></a>
+            <Link className="btn btn-ghost rounded-btn" to="/zubehör">Zubehör</Link>
             {/* ---------------- Dropdown menü ------------- */}
             <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>

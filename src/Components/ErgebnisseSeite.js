@@ -71,11 +71,11 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
 
     const teeArtImmages={
         "schwarzertee":schwarzerTee,
-        "gruenertee":gruenerTee,
+        "grünertee":gruenerTee,
         "eistee":eisTee,
-        "fruechtetee":fruechteTee,
+        "früchtetee":fruechteTee,
         "gelbertee":gelberTee,
-        "kraeutertee":kraeuterTee,
+        "kräutertee":kraeuterTee,
         "oolongtee":oolongTee,
         "weißertee":weißerTee
     }
