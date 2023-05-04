@@ -19,7 +19,6 @@ module.exports = {
     'md': '768px',
     'lg': '992px',
     'xl': '1200px',
-    'print': { 'raw': 'print' }
   },
   colors: {
     'logo-color': '#4B6C58',
