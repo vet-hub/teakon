@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
@@ -88,7 +88,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
                 <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                     {allTeearten.map((teeart)=>{return(
-                        <li><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
+                        <li key={teeart.name}><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
                     )
                     })}
                 </ul>

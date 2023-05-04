@@ -8,7 +8,6 @@ export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,
     const [selectedCategory,setSelectedCategory] = useState("teas");
     const navigateTo=useNavigate();
     
-    /*TODO category bezeichnung anpassen */
     const setToTeas=()=>{setSelectedCategory("teas")};
     const setToOrigin=()=>{setSelectedCategory("origin")};
     const setToCoffein=()=>{setSelectedCategory("coffein")};

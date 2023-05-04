@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+
 import SelectedCriterias from "./SelectedCriterias";
 import schwarzerTee from "../img/teearten/schwarzertee.jpg";
 import gruenerTee from "../img/teearten/gruenertee.jpg";
@@ -52,7 +53,6 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
 
     let foundTeas =[...allTeas];
     const searchFunktion=()=>{
-        /*TODO variablen anpassen? */
         const chosenCriteriasTemp=[...chosenCriterias];
     
         const nameSearch=chosenCriteriasTemp.filter(criteria=>criteria.category==="name");
