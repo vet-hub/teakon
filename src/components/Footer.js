@@ -6,12 +6,16 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
     /* TODO responsiveness */
     const navigateTo = useNavigate();
     const addTeasCriteria=(e)=>{
-        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
+        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}]);
+        navigateTo("/ergebnisse/suche");
     };
     const addOriginCriteria=(e)=>{
-        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"origin"}])
-                navigateTo("/ergebnisse/suche")
+        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"origin"}]);
+        navigateTo("/ergebnisse/suche");
+    };
+    const addAromaCriteria=(e)=>{
+        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"flavour"}]);
+        navigateTo("/ergebnisse/suche");
     };
     return (
         <>
@@ -30,6 +34,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     )
                     })}
                 </div>
+                
                 <div>
                     <span className="footer-title">Anbaugebiet</span>
                     {allAnbaugebiete.map((anbaugebiet)=>{return(
@@ -38,30 +43,15 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     })}
 
                 </div>
-                <div>
-                    <span className="footer-title">Wirkung</span>
-                    <a className="link link-hover">Anregend</a>
-                    <a className="link link-hover">Erfrischend</a>
-                    <a className="link link-hover">Wärmend</a>
-                </div>
+                
                 <div>
                     <span className="footer-title">Geschmack</span>
-                    <a className="link link-hover">Cremig</a>
-                    <a className="link link-hover">Duftig-spritzig</a>
-                    <a className="link link-hover">Kräftig</a>
-                    <a className="link link-hover">Säurearme Früchtetees</a>
-                    <a className="link link-hover">Umami</a>
-                    <a className="link link-hover">Würzig</a>
-                    <a className="link link-hover">Zitronig</a>
+                    {allAromen.map((aroma)=>{return(
+                        <a className="link link-hover" key={aroma.name} onClick={addAromaCriteria}>{aroma.name}</a>
+                    )
+                    })}
                 </div>
-                <div>
-                    <span className="footer-title">Zutaten</span>
-                    <a className="link link-hover">Chai</a>
-                    <a className="link link-hover">Earl Grey / Bergamotte</a>
-                    <a className="link link-hover">Ingwer</a>
-                    <a className="link link-hover">Kamille</a>
-                    <a className="link link-hover">Minze</a>
-                </div>
+                
             </footer>
 
         </>
