@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import wrldmap from '../img/61752.jpg';
-import { Link } from 'react-router-dom';
 import SelectedCriterias from "./SelectedCriterias";
 import schwarzerTee from "../img/teearten/schwarzertee.jpg";
 import gruenerTee from "../img/teearten/gruenertee.jpg";
@@ -12,6 +10,38 @@ import gelberTee from "../img/teearten/gelbertee.jpg";
 import kraeuterTee from "../img/teearten/kraeutertee.jpg";
 import oolongTee from "../img/teearten/oolongtee.jpg";
 import weißerTee from "../img/teearten/weissertee.jpg";
+import darjeelingtee from "../img/teesorten/01_darjeelingtee.jpg";
+import assamtee from "../img/teesorten/02_assamtee.jpg";
+import ceylontee from "../img/teesorten/03_ceylontee.jpg";
+import keemuntee from "../img/teesorten/04_keemuntee.jpg";
+import lapsangsuchongtee from "../img/teesorten/05_lapsangsuchongtee.jpg";
+import senchatee from "../img/teesorten/06_senchatee.jpg";
+import matchatee from "../img/teesorten/07_matchatee.jpg";
+import dragonwelltee from "../img/teesorten/08_dragonwelltee.jpg";
+import gyokurotee from "../img/teesorten/09_gyokurotee.jpg";
+import junshanyinzhentee from "../img/teesorten/10_junshanyinzhentee.jpg";
+import huoshanhuangyatee from "../img/teesorten/11_huoshanhuangyatee.jpg";
+import mengdinghuangyatee from "../img/teesorten/12_mengdinghuangyatee.jpg";
+import baihaoyinzhentee from "../img/teesorten/13_baihaoyinzhentee.jpg";
+import baimudantee from "../img/teesorten/14_baimudantee.jpg";
+import shoumeitee from "../img/teesorten/15_shoumeitee.jpg";
+import darjeelinwhitetee from "../img/teesorten/16_darjeelinwhitetee.jpg";
+import ceylonwhitetee from "../img/teesorten/17_ceylonwhitetee.jpg";
+import tieguanyintee from "../img/teesorten/18_tieguanyintee.jpg";
+import wuyiyanchatee from "../img/teesorten/19_wuyiyanchatee.jpg";
+import dahongpaotee from "../img/teesorten/20_dahongpaotee.jpg";
+import orientalbeautytee from "../img/teesorten/21_orientalbeautytee.jpg";
+import jinxuantee from "../img/teesorten/22_jinxuantee.jpg";
+import hagebuttentee from "../img/teesorten/23_hagebuttentee.jpg";
+import hibiskustee from "../img/teesorten/24_hibiskustee.jpg";
+import holunderbeerentee from "../img/teesorten/25_holunderbeerentee.jpg";
+import heidelbeerentee from "../img/teesorten/26_heidelbeerentee.jpg";
+import erdbeertee from "../img/teesorten/27_erdbeertee.jpg";
+import kamillentee from "../img/teesorten/28_kamillentee.jpg";
+import pfefferminztee from "../img/teesorten/29_pfefferminztee.jpg";
+import ingwertee from "../img/teesorten/30_ingwertee.jpg";
+import zitronnenmelissentee from "../img/teesorten/31_zitronnenmelissentee.jpg";
+import brennnesseltee from "../img/teesorten/32_brennnesseltee.jpeg"
 
 
 
@@ -44,7 +74,7 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
             if (teeartSearch.length>0){
             const foundInCategory=[]
             teeartSearch.map(criteria=>{
-            const foundByCriteria=foundTeas.filter(tea=>tea.tee_artenname===criteria.name)
+            const foundByCriteria=foundTeas.filter(tea=>tea.tee_artenname[0]===criteria.name)
             foundInCategory.push(...foundByCriteria)
         });
             foundTeas=foundInCategory;
@@ -69,7 +99,7 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
         setResultTeas(foundTeas)
     }
 
-    const teeArtImmages={
+    const imagesHandler={
         "schwarzertee":schwarzerTee,
         "grünertee":gruenerTee,
         "eistee":eisTee,
@@ -77,7 +107,39 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
         "gelbertee":gelberTee,
         "kräutertee":kraeuterTee,
         "oolongtee":oolongTee,
-        "weißertee":weißerTee
+        "weißertee":weißerTee,
+        "01_darjeelingtee.jpg":darjeelingtee,
+        "02_assamtee.jpg":assamtee,
+        "03_ceylontee.jpg":ceylontee,
+        "04_keemuntee.jpg":keemuntee,
+        "05_lapsangsuchongtee.jpg":lapsangsuchongtee,
+        "06_senchatee.jpg":senchatee,
+        "07_matchatee.jpg":matchatee,
+        "08_dragonwelltee.jpg":dragonwelltee,
+        "09_gyokurotee.jpg":gyokurotee,
+        "10_junshanyinzhentee.jpg":junshanyinzhentee,
+        "11_huoshanhuangyatee.jpg":huoshanhuangyatee,
+        "12_mengdinghuangyatee.jpg":mengdinghuangyatee,
+        "13_baihaoyinzhentee.jpg":baihaoyinzhentee,
+        "14_baimudantee.jpg":baimudantee,
+        "15_shoumeitee.jpg":shoumeitee,
+        "16_darjeelinwhitetee.jpg":darjeelinwhitetee,
+        "17_ceylonwhitetee.jpg":ceylonwhitetee,
+        "18_tieguanyintee.jpg":tieguanyintee,
+        "19_wuyiyanchatee.jpg":wuyiyanchatee,
+        "20_dahongpaotee.jpg":dahongpaotee,
+        "21_orientalbeautytee.jpg":orientalbeautytee,
+        "22_jinxuantee.jpg":jinxuantee,
+        "23_hagebuttentee.jpg":hagebuttentee,
+        "24_hibiskustee.jpg":hibiskustee,
+        "25_holunderbeerentee.jpg":holunderbeerentee,
+        "26_heidelbeerentee.jpg":heidelbeerentee,
+        "27_erdbeertee.jpg":erdbeertee,
+        "28_kamillentee.jpg":kamillentee,
+        "29_pfefferminztee.jpg":pfefferminztee,
+        "30_ingwertee.jpg":ingwertee,
+        "31_zitronnenmelissentee.jpg":zitronnenmelissentee,
+        "32_brennnesseltee.jpeg":brennnesseltee
     }
 
 useEffect(() => {
@@ -115,7 +177,7 @@ if (kriteria === "suche") {
             (allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)>=0) &&  (
             <div className="mt-6 mb-6">
                 <div className="card card-side bg-base-100 shadow-xl mb-4">
-                    <figure><img className="object-scale-down h-48 w-96" src={teeArtImmages[kriteria]} alt={allTeearten[allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)].name}/></figure>
+                    <figure><img className="object-scale-down h-48 w-96" src={imagesHandler[kriteria]} alt={allTeearten[allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)].name}/></figure>
                     <div className="card-body">
                         <h2 className="card-title">{chosenCriterias[0].name}</h2>
                         <p>{allTeearten[allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)].beschreibung}</p>
@@ -129,13 +191,11 @@ if (kriteria === "suche") {
             {/* anzeige aller gefundener tees */}
             <div className='flex flex-wrap justify-center items-center gap-x-6  gap-y-6 mt-10 mb-7'>
                 {resultTeas.map(tea=>{
-                    const image = "../img/teesorten/"+tea.teeimage[0];
-                    console.log(image);
                     return(
                     <div id={tea.teeid} key={tea.teeid} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             
-                            <img src={image} alt={tea.teename[0]} className='w-full h-80 my-4 rounded-lg' />{/* path / import/ theme */}
+                            <img src={imagesHandler[tea.teeimage[0]]} alt={tea.teename[0]} className='w-full h-80 my-4 rounded-lg' />{/* path / import/ theme */}
                         </a>
                         <div className="p-5">
                             <a href="#">
