@@ -60,7 +60,7 @@ function App() {
       const getallArten = await fetch(urlAllArten);
       if(!getallArten.ok) throw new Error(`Request failed with a status of ${getallArten.status}`);
       const parseData = await getallArten.json();
-      setAllTeearten(parseData.teesArray);
+      setAllTeearten(parseData.teesObjectsArray);
     } catch (error) {
       console.log(error.message);
     }
