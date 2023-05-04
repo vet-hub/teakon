@@ -19,7 +19,7 @@ function App() {
   const [allTeas,setAllTeas] = useState([
     {id:1,
     name:"Darjeeling",
-    teeart:"Schwarzer Tee",
+    teeart:"Weißer Tee",
     anbaugebiet:"Nordindien",
     aromen:["vollmundig","süßlich"],
     benefits:[""],
