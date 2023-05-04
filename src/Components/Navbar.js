@@ -11,6 +11,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
     const inputHandler=(e)=>{
         setUserInput(e.target.value)
     }
+
     const resolveSearchBar=(e)=>{
         e.preventDefault();
         let userInputTemp=userInput.toLocaleLowerCase();
@@ -60,45 +61,12 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
         setChosenCriterias(foundCriterias);
         navigateTo("/ergebnisse/suche")
     }
-    const addCategory=(e)=>{
-        switch (e.target.innerHTML){
-            case "Schwarzer Tee":
-                setChosenCriterias([{name:"Schwarzer Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Weißer Tee":
-                setChosenCriterias([{name:"Weißer Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Grüner Tee":
-                setChosenCriterias([{name:"Grüner Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Gelber Tee":
-                setChosenCriterias([{name:"Gelber Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Oolong Tee":
-                setChosenCriterias([{name:"Oolong Tee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Früchtetee":
-                setChosenCriterias([{name:"Früchtetee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Kräutertee":
-                setChosenCriterias([{name:"Kräutertee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            case "Eistee":
-                setChosenCriterias([{name:"Eistee", checked: true, category:"teas"}])
-                navigateTo("/ergebnisse/suche")
-                break;
-            default:
-                break;
-        }
 
+    const addCategory=(e)=>{
+        setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}])
+                navigateTo("/ergebnisse/suche")
     }
+
     return (
         
         <div className="navbar p-7 bg-base-200 rounded-box">
@@ -119,18 +87,14 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
             <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
                 <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                    <li><div onClick={addCategory}>Schwarzer Tee</div></li> 
-                    <li><div onClick={addCategory}>Weißer Tee</div></li> 
-                    <li><div onClick={addCategory}>Grüner Tee</div></li>
-                    <li><div onClick={addCategory}>Gelber Tee</div></li>
-                    <li><div onClick={addCategory}>Oolong Tee</div></li>
-                    <li><div onClick={addCategory}>Früchtetee</div></li>
-                    <li><div onClick={addCategory}>Kräutertee</div></li>
-                    <li><div onClick={addCategory}>Eistee</div></li>
+                    {allTeearten.map((teeart)=>{return(
+                        <li><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
+                    )
+                    })}
                 </ul>
 
             </div>
-                
+
         </div>
         </div>
         </div>
