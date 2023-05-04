@@ -4,6 +4,15 @@ import { useNavigate } from "react-router";
 import wrldmap from '../img/61752.jpg';
 import { Link } from 'react-router-dom';
 import SelectedCriterias from "./SelectedCriterias";
+import schwarzerTee from "../img/teearten/schwarzertee.jpg";
+import gruenerTee from "../img/teearten/gruenertee.jpg";
+import eisTee from "../img/teearten/eistee.jpg";
+import fruechteTee from "../img/teearten/fruechtetee.jpg";
+import gelberTee from "../img/teearten/gelbertee.jpg";
+import kraeuterTee from "../img/teearten/kraeutertee.jpg";
+import oolongTee from "../img/teearten/oolongtee.jpg";
+import weißerTee from "../img/teearten/weissertee.jpg";
+
 
 
 export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, allTeas, allTeearten}) {
@@ -60,6 +69,16 @@ export default function ErgebnisseSeite({chosenCriterias, setChosenCriterias, al
         setResultTeas(foundTeas)
     }
 
+    const teeArtImmages={
+        "schwarzertee":schwarzerTee,
+        "grünertee":gruenerTee,
+        "eistee":eisTee,
+        "früchtetee":fruechteTee,
+        "gelbertee":gelberTee,
+        "kräutertee":kraeuterTee,
+        "oolongtee":oolongTee,
+        "weißertee":weißerTee
+    }
 useEffect(() => {
     setResultTeas(allTeas)
 if (kriteria === "suche") {
@@ -95,14 +114,15 @@ if (kriteria === "suche") {
             (allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)>=0) &&  (
             <div className="mt-6 mb-6">
                 <div className="card card-side bg-base-100 shadow-xl mb-4">
-                    <figure><img className="object-scale-down h-48 w-96" src="" alt={allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)}/></figure>
+                    <figure><img className="object-scale-down h-48 w-96" src={teeArtImmages[kriteria]} alt={allTeearten[allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)].name}/></figure>
                     <div className="card-body">
                         <h2 className="card-title">{chosenCriterias[0].name}</h2>
                         <p>{allTeearten[allTeearten.findIndex(teeart=>teeart.name === chosenCriterias[0].name)].beschreibung}</p>
                     </div>
                 </div>
-            </div>)} 
-
+            </div>)}
+            
+            {/* für suchergebniss  */}
             {kriteria==="suche" && <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}/>}
 
             {/* anzeige aller gefundener tees */}

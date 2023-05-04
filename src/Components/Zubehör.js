@@ -1,11 +1,11 @@
-import Teedose from "../img/Tee-Dose-Produktbild-scaled.jpg";
-import Aufgusskanne from "../img/Aufgusskanne.jpg";
-import Bambusbesen from "../img/Bambusbesen.jpg";
-import Besenhalter from "../img/Bambusbesenhalter.jpg";
-import Bambusloeffel from "../img/Bambuslöffel.jpg";
-import Teewaage from "../img/Teewaage.jpg";
-import Wasserkocher from "../img/Wasserkocher.jpg";
-import Stoevchen from "../img/Stövchen.jpg";
+import Teedose from "../img/zubehör/Tee-Dose-Produktbild-scaled.jpg";
+import Aufgusskanne from "../img/zubehör/Aufgusskanne.jpg";
+import Bambusbesen from "../img/zubehör/Bambusbesen.jpg";
+import Besenhalter from "../img/zubehör/Bambusbesenhalter.jpg";
+import Bambusloeffel from "../img/zubehör/Bambuslöffel.jpg";
+import Teewaage from "../img/zubehör/Teewaage.jpg";
+import Wasserkocher from "../img/zubehör/Wasserkocher.jpg";
+import Stoevchen from "../img/zubehör/Stövchen.jpg";
 
 export default function Zubehör() {
     /* TODO responsiveness bilder */
