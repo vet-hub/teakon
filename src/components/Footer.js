@@ -26,14 +26,14 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 <div>
                     <span className="footer-title">Teeart</span>
                     {allTeearten.map((teeart)=>{return(
-                        <a className="hover:cursor-pointer" key={teeart.name} onClick={addTeasCriteria}>{teeart.name}</a>
+                        <a className="link link-hover" key={teeart.name} onClick={addTeasCriteria}>{teeart.name}</a>
                     )
                     })}
                 </div>
                 <div>
                     <span className="footer-title">Anbaugebiet</span>
                     {allAnbaugebiete.map((anbaugebiet)=>{return(
-                        <a className="hover:cursor-pointer" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
+                        <a className="link link-hover" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
                     )
                     })}
 
