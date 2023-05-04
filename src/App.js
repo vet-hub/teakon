@@ -1,5 +1,4 @@
 import './App.css';
-
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
@@ -55,8 +54,10 @@ function App() {
 
   return (
     <> 
+
       { allTeas && doSearch &&
-        <div className="App flex flex-col justify-center  container mx-auto bg-white-300 rounded-xl shadow border p-8 m-10">
+        <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 rounded-xl shadow border p-5 m-5">
+
           <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
           <Routes>
               <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray} />} />

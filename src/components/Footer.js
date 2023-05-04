@@ -20,7 +20,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
     return (
         <>
 
-            <footer className="footer p-10 bg-base-200 text-base-content rounded-xl ">
+            <footer className="footer p-10 bg-gray-300 text-base-content rounded-xl ">
                 <div>
                 <div className="flex-1 px-2 lg:flex-none">
                     <Link to="/"><img src={MyLogo}></img></Link>

@@ -7,7 +7,7 @@ function SelectedCriterias({chosenCriterias,setChosenCriterias}){
         setChosenCriterias(chosenCriteriasTemp);
     }
         return(
-        <div className="flex flex-wrap shadow border rounded-xl my-5 w-3/4 px-5 ">
+        <div className="flex flex-wrap shadow border border-black rounded-xl my-5 w-3/4 px-5 ">
         {chosenCriterias.map(entry=>{
             return(
                 <div key={entry.name} className="shadow border rounded-xl my-1 py-1 px-2 flex content-center grow-0 ">

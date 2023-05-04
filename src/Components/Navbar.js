@@ -69,12 +69,12 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
 
     return (
         
-        <div className="navbar p-7 bg-base-200 rounded-box">
+        <div className="navbar bg-gray-300 p-3 rounded-box">
             {/* ---------------- Logo section -------------- */}
-
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
             </div> 
+
         <div className="flex justify-end flex-1 px-2">
         <div className="flex items-stretch">
             {/* ----------------- Searchbar ---------------- */}
