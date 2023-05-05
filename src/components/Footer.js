@@ -19,6 +19,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
     };
     return (
         <>
+        {/* hallo test */}
             <footer className="footer p-10 bg-gray-300 text-base-content rounded-xl">
                 <div>
                     <div className="flex-1 px-2 lg:flex-none">
