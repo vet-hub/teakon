@@ -50,7 +50,9 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
     const { kriteria } = useParams();
     const navigateTo = useNavigate();
     const [resultTeas, setResultTeas] = useState(allTeas)
-
+    const navigateToDetails=(e)=>{
+        navigateTo(`/teesorte/${e.target.id}`)
+    }
 
     let foundTeas =[...allTeas];
     const searchFunktion=()=>{
@@ -201,17 +203,17 @@ if (kriteria === "suche") {
                 {resultTeas.map(tea => {
                     return (
                         // DIV onClick={() => navigateTo("/teesorte")}
-                        <div id={tea.teeid} key={tea.teeid} className="flex md:flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" onClick={() => navigateTo("/teesorte")}>
-                            <a href="#" onClick={() => navigateTo("/teesorte")}>
+                        <div id={tea.teeid} key={tea.teeid} className="flex md:flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" onClick={navigateToDetails}>
+                            <a id={tea.teeid} href="#" onClick={navigateToDetails}>
                                 <img src={imagesHandler[tea.teeimage[0]]} alt={tea.teename[0]} className='w-20 h-20 my-2 rounded-lg md:w-full md:h-80 md:my-4 md:rounded-lg' />
                             </a>
                             <div className="pl-5 pt-2  md:p-5 md:flex md:flex-col">
-                                <a href="#" onClick={() => navigateTo("/teesorte")}>
+                                <a id={tea.teeid} href="#" onClick={navigateToDetails}>
                                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tea.teename[0]}</h5>
                                 </a>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tea.anbaugebietename[0]}</p>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tea.teebeschreibung[0]}</p>
-                                <button onClick={() => navigateTo("/teesorte")} className="hidden md:block md:bg-transparent md:hover:bg-blue-500 md:text-blue-700 font-semibold md:hover:text-white md:py-3 md:px-7 md:mt-4 md:border md:border-blue-500 md:hover:border-transparent md:rounded-full ">anzeigen</button>
+                                <button id={tea.teeid} onClick={navigateToDetails} className="hidden md:block md:bg-transparent md:hover:bg-blue-500 md:text-blue-700 font-semibold md:hover:text-white md:py-3 md:px-7 md:mt-4 md:border md:border-blue-500 md:hover:border-transparent md:rounded-full ">anzeigen</button>
                             </div>
                         </div>
                     )
