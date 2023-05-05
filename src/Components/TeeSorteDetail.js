@@ -2,8 +2,75 @@ import wrldmap from '../img/61752.jpg';
 import testbild from '../img/drew-jemmett-qEcWgrTG578-unsplash.jpg'
 import Accordion from './accordion.js'
 import { useParams } from 'react-router-dom';
+import darjeelingtee from "../img/teesorten/01_darjeelingtee.jpg";
+import assamtee from "../img/teesorten/02_assamtee.jpg";
+import ceylontee from "../img/teesorten/03_ceylontee.jpg";
+import keemuntee from "../img/teesorten/04_keemuntee.jpg";
+import lapsangsuchongtee from "../img/teesorten/05_lapsangsuchongtee.jpg";
+import senchatee from "../img/teesorten/06_senchatee.jpg";
+import matchatee from "../img/teesorten/07_matchatee.jpg";
+import dragonwelltee from "../img/teesorten/08_dragonwelltee.jpg";
+import gyokurotee from "../img/teesorten/09_gyokurotee.jpg";
+import junshanyinzhentee from "../img/teesorten/10_junshanyinzhentee.jpg";
+import huoshanhuangyatee from "../img/teesorten/11_huoshanhuangyatee.jpg";
+import mengdinghuangyatee from "../img/teesorten/12_mengdinghuangyatee.jpg";
+import baihaoyinzhentee from "../img/teesorten/13_baihaoyinzhentee.jpg";
+import baimudantee from "../img/teesorten/14_baimudantee.jpg";
+import shoumeitee from "../img/teesorten/15_shoumeitee.jpg";
+import darjeelinwhitetee from "../img/teesorten/16_darjeelinwhitetee.jpg";
+import ceylonwhitetee from "../img/teesorten/17_ceylonwhitetee.jpg";
+import tieguanyintee from "../img/teesorten/18_tieguanyintee.jpg";
+import wuyiyanchatee from "../img/teesorten/19_wuyiyanchatee.jpg";
+import dahongpaotee from "../img/teesorten/20_dahongpaotee.jpg";
+import orientalbeautytee from "../img/teesorten/21_orientalbeautytee.jpg";
+import jinxuantee from "../img/teesorten/22_jinxuantee.jpg";
+import hagebuttentee from "../img/teesorten/23_hagebuttentee.jpg";
+import hibiskustee from "../img/teesorten/24_hibiskustee.jpg";
+import holunderbeerentee from "../img/teesorten/25_holunderbeerentee.jpg";
+import heidelbeerentee from "../img/teesorten/26_heidelbeerentee.jpg";
+import erdbeertee from "../img/teesorten/27_erdbeertee.jpg";
+import kamillentee from "../img/teesorten/28_kamillentee.jpg";
+import pfefferminztee from "../img/teesorten/29_pfefferminztee.jpg";
+import ingwertee from "../img/teesorten/30_ingwertee.jpg";
+import zitronnenmelissentee from "../img/teesorten/31_zitronnenmelissentee.jpg";
+import brennnesseltee from "../img/teesorten/32_brennnesseltee.jpeg"
+
 /* TODO Bilder */
 export default function TeeSorteDetail({allTeas}) {
+    const imagesHandler={
+        "01_darjeelingtee.jpg":darjeelingtee,
+        "02_assamtee.jpg":assamtee,
+        "03_ceylontee.jpg":ceylontee,
+        "04_keemuntee.jpg":keemuntee,
+        "05_lapsangsuchongtee.jpg":lapsangsuchongtee,
+        "06_senchatee.jpg":senchatee,
+        "07_matchatee.jpg":matchatee,
+        "08_dragonwelltee.jpg":dragonwelltee,
+        "09_gyokurotee.jpg":gyokurotee,
+        "10_junshanyinzhentee.jpg":junshanyinzhentee,
+        "11_huoshanhuangyatee.jpg":huoshanhuangyatee,
+        "12_mengdinghuangyatee.jpg":mengdinghuangyatee,
+        "13_baihaoyinzhentee.jpg":baihaoyinzhentee,
+        "14_baimudantee.jpg":baimudantee,
+        "15_shoumeitee.jpg":shoumeitee,
+        "16_darjeelinwhitetee.jpg":darjeelinwhitetee,
+        "17_ceylonwhitetee.jpg":ceylonwhitetee,
+        "18_tieguanyintee.jpg":tieguanyintee,
+        "19_wuyiyanchatee.jpg":wuyiyanchatee,
+        "20_dahongpaotee.jpg":dahongpaotee,
+        "21_orientalbeautytee.jpg":orientalbeautytee,
+        "22_jinxuantee.jpg":jinxuantee,
+        "23_hagebuttentee.jpg":hagebuttentee,
+        "24_hibiskustee.jpg":hibiskustee,
+        "25_holunderbeerentee.jpg":holunderbeerentee,
+        "26_heidelbeerentee.jpg":heidelbeerentee,
+        "27_erdbeertee.jpg":erdbeertee,
+        "28_kamillentee.jpg":kamillentee,
+        "29_pfefferminztee.jpg":pfefferminztee,
+        "30_ingwertee.jpg":ingwertee,
+        "31_zitronnenmelissentee.jpg":zitronnenmelissentee,
+        "32_brennnesseltee.jpeg":brennnesseltee
+    }
     const {id}=useParams();
     const tee = allTeas.find(tea=>tea.teeid=== Number(id))
     return (
@@ -13,7 +80,7 @@ export default function TeeSorteDetail({allTeas}) {
                 <div className='flex justify-between sm:px-0 sm:justify-center'>
                     {/* -------------------------BILD-01--------------------------------- */}
                     <div class="flex items-center ">
-                        <img src={testbild} alt='test' className='w-80 h-80 mx-4 ml-0 my-4 rounded-lg  ' />
+                        <img src={tee.teeimage[0]} alt={tee.teename[0]} className='w-80 h-80 mx-4 ml-0 my-4 rounded-lg  ' />
                     </div>
                     {/* -------------------------TEXTFELD-01--------------------------------- */}
                     <div class="flex flex-col justify-end mb-5">
