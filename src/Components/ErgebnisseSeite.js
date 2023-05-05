@@ -49,10 +49,10 @@ import brennnesseltee from "../img/teesorten/32_brennnesseltee.jpeg"
 export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, allTeas, allTeearten }) {
     const { kriteria } = useParams();
     const navigateTo = useNavigate();
-    const [resultTeas, setResultTeas] = useState(allTeas)
+    const [resultTeas, setResultTeas] = useState(allTeas);
     const navigateToDetails=(e)=>{
         navigateTo(`/teesorte/${e.target.id}`)
-    }
+    };
 
     let foundTeas =[...allTeas];
     const searchFunktion=()=>{

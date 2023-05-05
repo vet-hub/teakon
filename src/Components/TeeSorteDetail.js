@@ -1,28 +1,20 @@
 import wrldmap from '../img/61752.jpg';
 import testbild from '../img/drew-jemmett-qEcWgrTG578-unsplash.jpg'
 import { useParams } from 'react-router-dom';
-
+/* TODO Bilder */
 export default function TeeSorteDetail({allTeas}) {
     const {id}=useParams();
     const tee = allTeas.find(tea=>tea.teeid=== Number(id))
-    console.log("details: ",tee)
     return (
         <>
             <div className='container'>
                 <h1 className='text-5xl text-white bg-grey-600 text-center font-bold my-6'>{tee.teename[0]}</h1>
-
-
                 <div className='flex justify-between sm:px-0 sm:justify-center'>
                     {/* -------------------------BILD-01--------------------------------- */}
-
-
                     <div class="flex items-center ">
                         <img src={testbild} alt='test' className='w-80 h-80 mx-4 ml-0 my-4 rounded-lg  ' />
                     </div>
-
                     {/* -------------------------TEXTFELD-01--------------------------------- */}
-
-
                     <div class="flex flex-col justify-end mb-5">
                         <p className=' text-gray-500 my-3'>Aroma:</p>
                         <ul>
@@ -44,11 +36,7 @@ export default function TeeSorteDetail({allTeas}) {
                     <div class="flex items-center">
                         <img src={wrldmap} alt={tee.teename[0]} className='w-96 h-80 ml-300 mx-4 ml-100 my-4 m-30 rounded-lg' />
                     </div>
-
                 </div>
-
-                {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
-                {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 <div className='flex flex-col'>
                     {/* -------------------------TEXTFELD-01--------------------------------- */}
@@ -100,8 +88,6 @@ export default function TeeSorteDetail({allTeas}) {
                     </div>
                 </div >
             </div>
-
-
         </>
     )
 };
