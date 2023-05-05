@@ -5,21 +5,23 @@ import {useNavigate} from "react-router"
 export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     /* TODO responsiveness */
     const navigateTo = useNavigate();
+    /* Suche nach einzelne Teeart starten */
     const addTeasCriteria=(e)=>{
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}]);
         navigateTo("/ergebnisse/suche");
     };
+    /* Suche nach einzelnes Anbaugebiet starten */
     const addOriginCriteria=(e)=>{
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"origin"}]);
         navigateTo("/ergebnisse/suche");
     };
+    /* Suche nach einzelnes Aroma starten */
     const addAromaCriteria=(e)=>{
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"flavour"}]);
         navigateTo("/ergebnisse/suche");
     };
     return (
         <>
-
             <footer className="footer p-10 bg-gray-300 text-base-content rounded-xl ">
                 <div>
                 <div className="flex-1 px-2 lg:flex-none">
@@ -31,29 +33,21 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     <span className="footer-title">Teeart</span>
                     {allTeearten.map((teeart)=>{return(
                         <a className="link link-hover" key={teeart.name} onClick={addTeasCriteria}>{teeart.name}</a>
-                    )
-                    })}
+                    )})}
                 </div>
-                
                 <div>
                     <span className="footer-title">Anbaugebiet</span>
                     {allAnbaugebiete.map((anbaugebiet)=>{return(
                         <a className="link link-hover" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
-                    )
-                    })}
-
+                    )})}
                 </div>
-                
                 <div>
                     <span className="footer-title">Geschmack</span>
                     {allAromen.map((aroma)=>{return(
                         <a className="link link-hover" key={aroma.name} onClick={addAromaCriteria}>{aroma.name}</a>
-                    )
-                    })}
+                    )})}
                 </div>
-                
             </footer>
-
         </>
     )
 };
