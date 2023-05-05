@@ -75,7 +75,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
 
     return (
         
-        <div className="navbar bg-gray-300 p-3 rounded-box">
+        <div className="navbar bg-gray-300 dark:bg-gray-800 p-3 rounded-box">
             {/* ---------------- Logo section -------------- */}
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
