@@ -5,22 +5,24 @@ import {useNavigate} from "react-router"
 export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     /* TODO responsiveness */
     const navigateTo = useNavigate();
+    /* Suche nach einzelne Teeart starten */
     const addTeasCriteria=(e)=>{
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}]);
         navigateTo("/ergebnisse/suche");
     };
+    /* Suche nach einzelnes Anbaugebiet starten */
     const addOriginCriteria=(e)=>{
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"origin"}]);
         navigateTo("/ergebnisse/suche");
     };
+    /* Suche nach einzelnes Aroma starten */
     const addAromaCriteria=(e)=>{
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"flavour"}]);
         navigateTo("/ergebnisse/suche");
     };
     return (
         <>
-        {/* hallo test */}
-            <footer className="footer p-10 bg-gray-300 text-base-content rounded-xl">
+            <footer className="footer p-10 bg-gray-300 text-base-content rounded-xl ">
                 <div>
                     <div className="flex-1 px-2 lg:flex-none">
                         <Link to="/"><img src={MyLogo}></img></Link>
@@ -45,7 +47,6 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                         })}
                     </div>
                 </div>
-                
                 <div>
                     <span className="footer-title">Geschmack</span>
                     <div className="grid grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[370px]:grid-cols-3">
