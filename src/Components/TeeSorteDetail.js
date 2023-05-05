@@ -115,18 +115,18 @@ export default function TeeSorteDetail({allTeas,doSearch}) {
                     <div class="flex flex-col justify-end mb-5">
                         <p className=' text-gray-500 my-3'>Aroma:</p>
                         <ul>
-                        {tee.aromenname.map(aroma=>{return(
-                        <li>{aroma}</li>)})}
+                        {tee.aromenname.map((aroma,i)=>{return(
+                        <li key={i}>{aroma}</li>)})}
                         </ul>
                         <p className=' text-gray-500 my-3'>Koffeingehalt:</p>
                         <ul>
-                        {tee.attributename.map(attribute=>{return(
-                        <li>{attribute}</li>)})}
+                        {tee.attributename.map((attribute,i)=>{return(
+                        <li key={i}>{attribute}</li>)})}
                         </ul>
                         <p className=' text-gray-500 my-3'>Teeart:</p>
                         <ul>
-                        {tee.tee_artenname.map(teeart=>{return(
-                        <li>{teeart}</li>)})}
+                        {tee.tee_artenname.map((teeart,i)=>{return(
+                        <li key={i}>{teeart}</li>)})}
                         </ul>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
@@ -148,8 +148,8 @@ export default function TeeSorteDetail({allTeas,doSearch}) {
                         <div className="card-body">
                             <h2 className="card-title">Nährstoffe:</h2>
                             <ul>
-                                {tee.naerhstoffename.map(naehrstoff=>{return(
-                                    <li>{naehrstoff}</li>
+                                {tee.naerhstoffename.map((naehrstoff,i)=>{return(
+                                    <li key={i}>{naehrstoff}</li>
                                 )})}
                             </ul>
                         </div>
@@ -166,8 +166,8 @@ export default function TeeSorteDetail({allTeas,doSearch}) {
                         <div className="card-body">
                             <h2 className="card-title">Nebenwirkungen:</h2>
                             <ul>
-                                {tee.nebenwirkungenname.map(nebenwirkung=>{return(
-                                    <li>{nebenwirkung}</li>
+                                {tee.nebenwirkungenname.map((nebenwirkung,i)=>{return(
+                                    <li key={i}>{nebenwirkung}</li>
                                 )})}
                             </ul>
                         </div>
@@ -177,8 +177,8 @@ export default function TeeSorteDetail({allTeas,doSearch}) {
                         <div className="card-body">
                             <h2 className="card-title">Benefits:</h2>
                             <ul>
-                                {tee.benefitsname.map(benefit=>{return(
-                                    <li>{benefit}</li>
+                                {tee.benefitsname.map((benefit,i)=>{return(
+                                    <li key={i}>{benefit}</li>
                                 )})}
                             </ul>
                         </div>
