@@ -180,7 +180,7 @@ if (kriteria === "suche") {
                 (allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name) >= 0) && (
                     <div className="mt-6 mb-6">
                         <div className="card card-side bg-base-100 shadow-xl mb-4">
-                            <figure><img className="object-scale-down h-48 w-96" src={teeArtImmages[kriteria]} alt={allTeearten[allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name)].name} /></figure>
+                            <figure><img className="object-scale-down h-48 w-96" src={imagesHandler[kriteria]} alt={allTeearten[allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name)].name} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{chosenCriterias[0].name}</h2>
                                 <p>{allTeearten[allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name)].beschreibung}</p>
