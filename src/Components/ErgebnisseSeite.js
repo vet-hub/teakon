@@ -159,7 +159,8 @@ if (kriteria === "suche") {
             
                         default:
                             searchFunktion();
-                            if (!foundTeas.length){navigateTo("/*",{replace:true})}
+                            if (!foundTeas.length){navigateTo("/*",{replace:true})};
+                            window.scrollTo(0,0);
                             break;
                         } 
                     }

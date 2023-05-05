@@ -10,6 +10,7 @@ import TeeSorteDetail from "./components/TeeSorteDetail";
 import Zubehör from "./components/Zubehör";
 import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
 
   return (
     <> 
-
+      <ScrollToTop/>
       { allTeas && doSearch &&
         <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 rounded-xl shadow border p-5 m-5">
 
