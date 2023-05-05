@@ -63,7 +63,7 @@ function App() {
               <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray} />} />
               <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeas={allTeas} allTeearten={doSearch.teeArtenArray}/>} />
               <Route path='/teeart' element={<TeeArtDetail/>} />
-              <Route path='/teesorte/:id' element={<TeeSorteDetail allTeas={allTeas} />} />
+              <Route path='/teesorte/:id' element={<TeeSorteDetail allTeas={allTeas} doSearch={doSearch} />} />
               <Route path='/zubehör' element={<Zubehör/>} />
               <Route path='*' element={<ErrorPage/>} />        
           </Routes>
