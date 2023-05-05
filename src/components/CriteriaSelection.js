@@ -35,7 +35,6 @@ export default function CriteriaSelection ({chosenCriterias, setChosenCriterias,
                     <h3 className="italic criteriaName font-bold text-3xl self-center text-black ">Wirkung</h3>
                 </div>
             </div>
-            {/*TODO checkbox und Selectedcriteria erst versteckt deutlichere interaktivität */}
             {selectedCategory && <CheckboxContainer selectedCategory={selectedCategory} chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />}
             {chosenCriterias.length>0 && <><p className="text-black mt-5">Ausgewählte Kriterien:</p>
             <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} /></>}
