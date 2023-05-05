@@ -33,10 +33,24 @@ import kamillentee from "../img/teesorten/28_kamillentee.jpg";
 import pfefferminztee from "../img/teesorten/29_pfefferminztee.jpg";
 import ingwertee from "../img/teesorten/30_ingwertee.jpg";
 import zitronnenmelissentee from "../img/teesorten/31_zitronnenmelissentee.jpg";
-import brennnesseltee from "../img/teesorten/32_brennnesseltee.jpeg"
+import brennnesseltee from "../img/teesorten/32_brennnesseltee.jpeg";
+import china from "../img/laender/china.jpg";
+import indien from "../img/laender/indien.jpg";
+import japan from "../img/laender/japan.jpg";
+import kenya from "../img/laender/kenya.jpg";
+import kolumbien from "../img/laender/kolumbien.jpg";
+import mosambik from "../img/laender/mosambik.jpg";
+import nepal from "../img/laender/nepal.jpg";
+import ostafrika from "../img/laender/ostafrika.jpg";
+import ruanda from "../img/laender/ruanda.jpg";
+import srilanka from "../img/laender/srilanka.jpg";
+import taiwan from "../img/laender/taiwan.jpg";
+import tanzania from "../img/laender/tanzania.jpg";
+import vietnam from "../img/laender/vietnam.jpg";
+import world from "../img/laender/world.jpg";
 
 /* TODO Bilder */
-export default function TeeSorteDetail({allTeas}) {
+export default function TeeSorteDetail({allTeas,doSearch}) {
     const imagesHandler={
         "01_darjeelingtee.jpg":darjeelingtee,
         "02_assamtee.jpg":assamtee,
@@ -69,18 +83,33 @@ export default function TeeSorteDetail({allTeas}) {
         "29_pfefferminztee.jpg":pfefferminztee,
         "30_ingwertee.jpg":ingwertee,
         "31_zitronnenmelissentee.jpg":zitronnenmelissentee,
-        "32_brennnesseltee.jpeg":brennnesseltee
+        "32_brennnesseltee.jpeg":brennnesseltee,
+        "china.jpg":china,
+        "indien.jpg":indien,
+        "japan.jpg":japan,
+        "kenya.jpg":kenya,
+        "kolumbien.jpg":kolumbien,
+        "mosambik.jpg":mosambik,
+        "nepal.jpg":nepal,
+        "ostafrika.jpg":ostafrika,
+        "ruanda.jpg":ruanda,
+        "srilanka.jpg":srilanka,
+        "taiwan.jpg":taiwan,
+        "tanzania.jpg":tanzania,
+        "vietnam.jpg":vietnam,
+        "world.jpg":world
     }
     const {id}=useParams();
     const tee = allTeas.find(tea=>tea.teeid=== Number(id))
-    return (
+    const kartenName=doSearch.anbaugebieteArray.find(anbaugebiet=>anbaugebiet.id===tee.anbaugebieteid[0]).karte;
+    return (/* TODO zurück zur start seite? */
         <>
             <div className='container'>
                 <h1 className='text-5xl text-white bg-grey-600 text-center font-bold my-6'>{tee.teename[0]}</h1>
                 <div className='flex justify-between sm:px-0 sm:justify-center'>
                     {/* -------------------------BILD-01--------------------------------- */}
                     <div class="flex items-center ">
-                        <img src={tee.teeimage[0]} alt={tee.teename[0]} className='w-80 h-80 mx-4 ml-0 my-4 rounded-lg  ' />
+                        <img src={imagesHandler[tee.teeimage[0]]} alt={tee.teename[0]} className='w-80 h-80 mx-4 ml-0 my-4 rounded-lg  ' />
                     </div>
                     {/* -------------------------TEXTFELD-01--------------------------------- */}
                     <div class="flex flex-col justify-end mb-5">
@@ -102,7 +131,7 @@ export default function TeeSorteDetail({allTeas}) {
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
                     <div class="flex items-center">
-                        <img src={wrldmap} alt={tee.teename[0]} className='w-96 h-80 ml-300 mx-4 ml-100 my-4 m-30 rounded-lg' />
+                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='w-96 h-80 ml-300 mx-4 ml-100 my-4 m-30 rounded-lg' />
                     </div>
                 </div>
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
