@@ -25,7 +25,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     <div className="flex-1 px-2 lg:flex-none">
                         <Link to="/"><img src={MyLogo}></img></Link>
                     </div> 
-                    <p>Teakon-Masala GmbH.<br />Providing reliable infos since 2023</p>
+                    <p className="invisible md:visible">Teakon-Masala GmbH.<br />Providing reliable infos since 2023</p>
                 </div>
                 <div>
                     <span className="footer-title">Teeart</span>
@@ -37,10 +37,10 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     </div>
                 </div>              
                 <div>
-                    <span className="footer-title pl-4">Anbaugebiet</span>
+                    <span className="footer-title md:pl-4">Anbaugebiet</span>
                     <div className="grid grid-flow-row grid-cols-1 gap-1 min-[320px]:grid-cols-2">
                         {allAnbaugebiete.map((anbaugebiet)=>{return(
-                            <a className="link link-hover pl-4" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
+                            <a className="link link-hover pr-4 md:pl-4" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
                         )
                         })}
                     </div>
