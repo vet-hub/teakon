@@ -56,7 +56,7 @@ export default function CheckboxContainer ({selectedCategory,chosenCriterias, se
             {subCriteriaArray.map(entry=>{return(        
                 <div key={entry.name} >
                     <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
-                    <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500">{entry.name}</label>
+                    <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500 dark:text-white">{entry.name}</label>
                 </div>
             )})}
         </fieldset>
