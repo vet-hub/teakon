@@ -1,5 +1,6 @@
 import wrldmap from '../img/61752.jpg';
 import testbild from '../img/drew-jemmett-qEcWgrTG578-unsplash.jpg'
+import Accordion from './accordion.js'
 import { useParams } from 'react-router-dom';
 /* TODO Bilder */
 export default function TeeSorteDetail({allTeas}) {
@@ -40,14 +41,14 @@ export default function TeeSorteDetail({allTeas}) {
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 <div className='flex flex-col'>
                     {/* -------------------------TEXTFELD-01--------------------------------- */}
-                    <div className="bg-lime-600 card  my-4 text-primary-content">
+                    <div className="bg-[#4B6C58] card  my-4 text-primary-content">
                         <div className="card-body">
                             <h2 className="card-title">Beschreibung:</h2>
                             <p>{tee.teebeschreibung[0]}</p>
                         </div>
                     </div>
                     {/* -------------------------TEXTFELD-02--------------------------------- */}
-                    <div className="my-4 flex align-center justify-center bg-green-600 card   text-primary-content">
+                    <div className="my-4 flex align-center justify-center bg-[#649165] card   text-primary-content">
                         <div className="card-body">
                             <h2 className="card-title">Nährstoffe:</h2>
                             <ul>
@@ -58,14 +59,14 @@ export default function TeeSorteDetail({allTeas}) {
                         </div>
                     </div>
                     {/* -------------------------TEXTFELD-03--------------------------------- */}
-                    <div className=" bg-emerald-500 card  my-4 text-primary-content row-span-3">
+                    <div className=" bg-[#8ab66c] card  my-4 text-primary-content row-span-3">
                         <div className="card-body">
                             <h2 className="card-title">Zubereitung:</h2>
                             <p>{tee.teezubereitung[0]}</p>
                         </div>
                     </div>
                     {/* -------------------------TEXTFELD-04--------------------------------- */}
-                    <div className=" bg-teal-500 card my-4 text-primary-content">
+                    <div className=" bg-[#bcd96e] card my-4 text-gray-500">
                         <div className="card-body">
                             <h2 className="card-title">Nebenwirkungen:</h2>
                             <ul>
@@ -76,7 +77,7 @@ export default function TeeSorteDetail({allTeas}) {
                         </div>
                     </div>
                     {/* -------------------------TEXTFELD-05--------------------------------- */}
-                    <div className="  bg-purple-500 card mt-4 mb-4 text-primary-content">
+                    <div className="  bg-[#fafa6e] card mt-4 mb-4 text-black">
                         <div className="card-body">
                             <h2 className="card-title">Benefits:</h2>
                             <ul>
@@ -86,6 +87,7 @@ export default function TeeSorteDetail({allTeas}) {
                             </ul>
                         </div>
                     </div>
+                    <Accordion/>
                 </div >
             </div>
         </>
