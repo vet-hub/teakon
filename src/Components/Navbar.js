@@ -11,11 +11,11 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
     const inputHandler=(e)=>{
         setUserInput(e.target.value)
     }
-
     const resolveSearchBar=(e)=>{
         e.preventDefault();
         let userInputTemp=userInput.toLocaleLowerCase();
         const foundCriterias=[];
+        /* Suche nach Teearten-Kriterien in der Searchbar */
         allTeearten.map((teeart)=>{
             if (userInputTemp.indexOf(teeart.name.toLocaleLowerCase())>=0){
                 const criteriaObj={name:teeart.name,checked:true,category:"teas"};
@@ -23,6 +23,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(teeart.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(teeart.name.toLocaleLowerCase())+teeart.name.length)
             }
         })
+        /* Suche nach Anbaugebiets-Kriterien in der Searchbar */
         allAnbaugebiete.map((origin)=>{
             if (userInputTemp.indexOf(origin.name.toLocaleLowerCase())>=0){
                 const criteriaObj={name:origin.name,checked:true,category:"origin"};
@@ -30,6 +31,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(origin.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(origin.name.toLocaleLowerCase())+origin.name.length)
             }
         })
+        /* Suche nach Wirkungs-Kriterien in der Searchbar */
         allBenefits.map((benefit)=>{
             if (userInputTemp.indexOf(benefit.name.toLocaleLowerCase())>=0){
                 const criteriaObj={name:benefit.name,checked:true,category:"effect"};
@@ -37,6 +39,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(benefit.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(benefit.name.toLocaleLowerCase())+benefit.name.length)
             }
         })
+        /* Suche nach Aromen-Kriterien in der Searchbar */
         allAromen.map((aroma)=>{
             if (userInputTemp.indexOf(aroma.name.toLocaleLowerCase())>=0){
                 const criteriaObj={name:aroma.name,checked:true,category:"flavour"};
@@ -44,6 +47,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(aroma.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(aroma.name.toLocaleLowerCase())+aroma.name.length)
             }
         })
+        /* Suche nach Koffein-Kriterien in der Searchbar */
         allCoffein.map((coffein)=>{
             if (userInputTemp.indexOf(coffein.name.toLocaleLowerCase())>=0){
                 const criteriaObj={name:coffein.name,checked:true,category:"coffein"};
@@ -51,9 +55,11 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 userInputTemp=userInputTemp.slice(0,userInputTemp.indexOf(coffein.name.toLocaleLowerCase()))+userInputTemp.slice(userInputTemp.indexOf(coffein.name.toLocaleLowerCase())+coffein.name.length)
             }
         })
+        /* Entfernen von Sonderzeichen und Leerzeichen(an den Enden) */
         const regex= /[^\w\säöüÄÖÜß]/g ;
         userInputTemp=userInputTemp.replaceAll(regex,"");
         userInputTemp=userInputTemp.trim();
+        /* Verbliebene Buchstaben als Namen-Kriterium verwenden */
         if(userInputTemp.length>0){
             const criteriaObj={name:userInputTemp,category:"name"};
             foundCriterias.push(criteriaObj);
@@ -61,7 +67,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
         setChosenCriterias(foundCriterias);
         navigateTo("/ergebnisse/suche")
     }
-
+    /* Aus Dropdown Menü gewählte Teeart als Kriterium wählen und zur Suche gehen */
     const addCategory=(e)=>{
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}])
                 navigateTo("/ergebnisse/suche")
@@ -69,7 +75,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
 
     return (
         
-        <div className="navbar bg-gray-300 p-3 rounded-box">
+        <div className="navbar bg-gray-300 dark:bg-gray-800 p-3 rounded-box">
             {/* ---------------- Logo section -------------- */}
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>

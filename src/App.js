@@ -10,6 +10,7 @@ import TeeSorteDetail from "./components/TeeSorteDetail";
 import Zubehör from "./components/Zubehör";
 import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -54,16 +55,15 @@ function App() {
 
   return (
     <> 
-
+      <ScrollToTop/>
       { allTeas && doSearch &&
-        <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 rounded-xl shadow border p-5 m-5">
-
+        <div className="App flex flex-col justify-center  container mx-auto bg-gray-200 dark:bg-gray-700 rounded-xl shadow border p-5 m-5">
           <Navbar chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
           <Routes>
               <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray} />} />
               <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeas={allTeas} allTeearten={doSearch.teeArtenArray}/>} />
               <Route path='/teeart' element={<TeeArtDetail/>} />
-              <Route path='/teesorte' element={<TeeSorteDetail/>} />
+              <Route path='/teesorte/:id' element={<TeeSorteDetail allTeas={allTeas} />} />
               <Route path='/zubehör' element={<Zubehör/>} />
               <Route path='*' element={<ErrorPage/>} />        
           </Routes>
