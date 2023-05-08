@@ -198,7 +198,7 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
             {/* für Suchergebniss  */}
             {kriteria === "suche" && <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />}
             {/* anzeige aller gefundener Tees */}
-            <div className='md:flex md:flex-wrap md:justify-center md:items-center gap-x-6 gap-y-6'>
+            <div className='md:flex md:flex-wrap md:justify-center md:items-center gap-x-6 gap-y-6 md:mb-6'>
                 {resultTeas.map(tea => {
                     return (
                         // DIV onClick={() => navigateTo("/teesorte")}
@@ -208,7 +208,7 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
                                 <h5 id={tea.teeid} className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:mb-2 md:text-2xl">{tea.teename[0]}</h5>
                                 <p id={tea.teeid} className="font-thin text-gray-700 dark:text-gray-400 md:mb-1">{tea.anbaugebietename[0]}</p>
                                 <p id={tea.teeid} className="text-sm text-gray-700 dark:text-gray-400 md:text-xl md:mb-3 md:font-normal">{`${tea.teebeschreibung[0].substring(0, 76)}`}...</p>
-                                <button id={tea.teeid} /* onClick={navigateToDetails} */ className="hidden font-semibold md:block md:bg-transparent md:hover:bg-blue-500 md:text-white  md:hover:text-white md:py-3 md:px-3 md:border md:border-blue-500 md:hover:border-transparent md:rounded-full">anzeigen</button>
+                                <button id={tea.teeid} /* onClick={navigateToDetails} */ className="hidden font-semibold md:block md:bg-transparent md:hover:bg-blue-500 md:dark:text-white text-blue-500 md:hover:text-white md:py-3 md:px-3 md:border md:border-blue-500 md:hover:border-transparent md:rounded-full">anzeigen</button>
                             </div>
                         </div>
                     )

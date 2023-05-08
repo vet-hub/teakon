@@ -86,8 +86,7 @@ const bgSelector={
     const isSmallScreen = window.innerWidth < 500;
     return (   
         <>
-        {isSmallScreen ? ( <div className={`navbar bg-base-100 rounded-box pb-0 dark:bg-gray-800 ${(chosenCriterias.length === 1 &&
-            (allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name) >= 0))?bgSelector[chosenCriterias[0].name] :"bg-gray-300  "}`}>
+        {isSmallScreen ? ( <div className="navbar bg-base-100 rounded-box pb-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -125,9 +124,9 @@ const bgSelector={
                     {/* ------------------ zubehör ----------------- */}
                     <Link className="btn btn-ghost rounded-btn" to="/zubehör">Zubehör</Link>
                     {/* ---------------- Dropdown menü ------------- */}
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end ">
                         <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
-                        <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                        <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4 text-black dark:text-white">
                             {allTeearten.map((teeart)=>{return(
                                 <li key={teeart.name}><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
                             )
