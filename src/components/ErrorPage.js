@@ -10,7 +10,7 @@ export default function ErrorPage() {
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">404</h1>
-                    <p className="mb-5">PAGE NOT FOUND</p>
+                    <p className="mb-5">Seite nicht gefunden</p>
                     <button onClick={() => navigate("/")} className="btn btn-primary">Startseite</button>
                 </div>
             </div>
