@@ -50,90 +50,105 @@ import vietnam from "../img/laender/vietnam.jpg";
 import world from "../img/laender/world.jpg";
 
 /* TODO Bilder */
-export default function TeeSorteDetail({allTeas,doSearch}) {
-    const imagesHandler={
-        "01_darjeelingtee.jpg":darjeelingtee,
-        "02_assamtee.jpg":assamtee,
-        "03_ceylontee.jpg":ceylontee,
-        "04_keemuntee.jpg":keemuntee,
-        "05_lapsangsuchongtee.jpg":lapsangsuchongtee,
-        "06_senchatee.jpg":senchatee,
-        "07_matchatee.jpg":matchatee,
-        "08_dragonwelltee.jpg":dragonwelltee,
-        "09_gyokurotee.jpg":gyokurotee,
-        "10_junshanyinzhentee.jpg":junshanyinzhentee,
-        "11_huoshanhuangyatee.jpg":huoshanhuangyatee,
-        "12_mengdinghuangyatee.jpg":mengdinghuangyatee,
-        "13_baihaoyinzhentee.jpg":baihaoyinzhentee,
-        "14_baimudantee.jpg":baimudantee,
-        "15_shoumeitee.jpg":shoumeitee,
-        "16_darjeelinwhitetee.jpg":darjeelinwhitetee,
-        "17_ceylonwhitetee.jpg":ceylonwhitetee,
-        "18_tieguanyintee.jpg":tieguanyintee,
-        "19_wuyiyanchatee.jpg":wuyiyanchatee,
-        "20_dahongpaotee.jpg":dahongpaotee,
-        "21_orientalbeautytee.jpg":orientalbeautytee,
-        "22_jinxuantee.jpg":jinxuantee,
-        "23_hagebuttentee.jpg":hagebuttentee,
-        "24_hibiskustee.jpg":hibiskustee,
-        "25_holunderbeerentee.jpg":holunderbeerentee,
-        "26_heidelbeerentee.jpg":heidelbeerentee,
-        "27_erdbeertee.jpg":erdbeertee,
-        "28_kamillentee.jpg":kamillentee,
-        "29_pfefferminztee.jpg":pfefferminztee,
-        "30_ingwertee.jpg":ingwertee,
-        "31_zitronnenmelissentee.jpg":zitronnenmelissentee,
-        "32_brennnesseltee.jpeg":brennnesseltee,
-        "china.jpg":china,
-        "indien.jpg":indien,
-        "japan.jpg":japan,
-        "kenya.jpg":kenya,
-        "kolumbien.jpg":kolumbien,
-        "mosambik.jpg":mosambik,
-        "nepal.jpg":nepal,
-        "ostafrika.jpg":ostafrika,
-        "ruanda.jpg":ruanda,
-        "srilanka.jpg":srilanka,
-        "taiwan.jpg":taiwan,
-        "tanzania.jpg":tanzania,
-        "vietnam.jpg":vietnam,
-        "world.jpg":world
+export default function TeeSorteDetail({ allTeas, doSearch }) {
+    const imagesHandler = {
+        "01_darjeelingtee.jpg": darjeelingtee,
+        "02_assamtee.jpg": assamtee,
+        "03_ceylontee.jpg": ceylontee,
+        "04_keemuntee.jpg": keemuntee,
+        "05_lapsangsuchongtee.jpg": lapsangsuchongtee,
+        "06_senchatee.jpg": senchatee,
+        "07_matchatee.jpg": matchatee,
+        "08_dragonwelltee.jpg": dragonwelltee,
+        "09_gyokurotee.jpg": gyokurotee,
+        "10_junshanyinzhentee.jpg": junshanyinzhentee,
+        "11_huoshanhuangyatee.jpg": huoshanhuangyatee,
+        "12_mengdinghuangyatee.jpg": mengdinghuangyatee,
+        "13_baihaoyinzhentee.jpg": baihaoyinzhentee,
+        "14_baimudantee.jpg": baimudantee,
+        "15_shoumeitee.jpg": shoumeitee,
+        "16_darjeelinwhitetee.jpg": darjeelinwhitetee,
+        "17_ceylonwhitetee.jpg": ceylonwhitetee,
+        "18_tieguanyintee.jpg": tieguanyintee,
+        "19_wuyiyanchatee.jpg": wuyiyanchatee,
+        "20_dahongpaotee.jpg": dahongpaotee,
+        "21_orientalbeautytee.jpg": orientalbeautytee,
+        "22_jinxuantee.jpg": jinxuantee,
+        "23_hagebuttentee.jpg": hagebuttentee,
+        "24_hibiskustee.jpg": hibiskustee,
+        "25_holunderbeerentee.jpg": holunderbeerentee,
+        "26_heidelbeerentee.jpg": heidelbeerentee,
+        "27_erdbeertee.jpg": erdbeertee,
+        "28_kamillentee.jpg": kamillentee,
+        "29_pfefferminztee.jpg": pfefferminztee,
+        "30_ingwertee.jpg": ingwertee,
+        "31_zitronnenmelissentee.jpg": zitronnenmelissentee,
+        "32_brennnesseltee.jpeg": brennnesseltee,
+        "china.jpg": china,
+        "indien.jpg": indien,
+        "japan.jpg": japan,
+        "kenya.jpg": kenya,
+        "kolumbien.jpg": kolumbien,
+        "mosambik.jpg": mosambik,
+        "nepal.jpg": nepal,
+        "ostafrika.jpg": ostafrika,
+        "ruanda.jpg": ruanda,
+        "srilanka.jpg": srilanka,
+        "taiwan.jpg": taiwan,
+        "tanzania.jpg": tanzania,
+        "vietnam.jpg": vietnam,
+        "world.jpg": world
     }
-    const {id}=useParams();
-    const tee = allTeas.find(tea=>tea.teeid=== Number(id))
-    const kartenName=doSearch.anbaugebieteArray.find(anbaugebiet=>anbaugebiet.id===tee.anbaugebieteid[0]).karte;
-    return (/* TODO zurück zur start seite? */
+    const { id } = useParams();
+    const tee = allTeas.find(tea => tea.teeid === Number(id))
+    const kartenName = doSearch.anbaugebieteArray.find(anbaugebiet => anbaugebiet.id === tee.anbaugebieteid[0]).karte;
+    return (
         <>
             <div className='container'>
                 <h1 className='text-5xl text-white bg-grey-600 text-center font-bold my-6'>{tee.teename[0]}</h1>
-                <div className='flex justify-between sm:px-0 sm:justify-center'>
+
+
+                <div className=' md:flex md:justify-between md:px-0'>
                     {/* -------------------------BILD-01--------------------------------- */}
-                    <div class="flex items-center ">
+
+
+                    <div class=" ">
                         <img src={imagesHandler[tee.teeimage[0]]} alt={tee.teename[0]} className='w-80 h-80 mx-4 ml-0 my-4 rounded-lg  ' />
                     </div>
-                    {/* -------------------------TEXTFELD-01--------------------------------- */}
-                    <div class="flex flex-col justify-end mb-5">
-                        <p className=' text-gray-500 my-3'>Aroma:</p>
+                    {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
+                    {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
+                    <div class="">
+                        <h3 className=' text-gray-500 my-3 text-xl'>Aroma:</h3>
                         <ul>
-                        {tee.aromenname.map((aroma,i)=>{return(
-                        <li key={i}>{aroma}</li>)})}
+                            {tee.aromenname.map((aroma, i) => {
+                                return (
+                                    <li className="text-gray-500" key={i}>{aroma}</li>)
+                            })}
                         </ul>
-                        <p className=' text-gray-500 my-3'>Koffeingehalt:</p>
+                        <h3 className=' text-gray-500 my-3 text-xl'>Koffeingehalt:</h3>
                         <ul>
-                        {tee.attributename.map((attribute,i)=>{return(
-                        <li key={i}>{attribute}</li>)})}
+                            {tee.attributename.map((attribute, i) => {
+                                return (
+                                    <li className="text-gray-500" key={i}>{attribute}</li>)
+                            })}
                         </ul>
-                        <p className=' text-gray-500 my-3'>Teeart:</p>
+                        <h3 className=' text-gray-500 my-3 text-xl'>Teeart:</h3>
                         <ul>
-                        {tee.tee_artenname.map((teeart,i)=>{return(
-                        <li key={i}>{teeart}</li>)})}
+                            {tee.tee_artenname.map((teeart, i) => {
+                                return (
+                                    <li className="text-gray-500" key={i}>{teeart}</li>)
+                            })}
                         </ul>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
-                    <div class="flex items-center">
-                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='w-96 h-80 ml-300 mx-4 ml-100 my-4 m-30 rounded-lg' />
+                    <div class="">
+                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='md:w-96 md:h-80 md:ml-300 md:mx-4 md:ml-100 md:my-4 md:m-30 rounded-lg' />
                     </div>
+
                 </div>
+
+                {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
+                {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 <div className='flex flex-col'>
                     {/* -------------------------TEXTFELD-01--------------------------------- */}
@@ -148,9 +163,11 @@ export default function TeeSorteDetail({allTeas,doSearch}) {
                         <div className="card-body">
                             <h2 className="card-title">Nährstoffe:</h2>
                             <ul>
-                                {tee.naerhstoffename.map((naehrstoff,i)=>{return(
-                                    <li key={i}>{naehrstoff}</li>
-                                )})}
+                                {tee.naerhstoffename.map((naehrstoff, i) => {
+                                    return (
+                                        <li key={i}>{naehrstoff}</li>
+                                    )
+                                })}
                             </ul>
                         </div>
                     </div>
@@ -166,9 +183,11 @@ export default function TeeSorteDetail({allTeas,doSearch}) {
                         <div className="card-body">
                             <h2 className="card-title">Nebenwirkungen:</h2>
                             <ul>
-                                {tee.nebenwirkungenname.map((nebenwirkung,i)=>{return(
-                                    <li key={i}>{nebenwirkung}</li>
-                                )})}
+                                {tee.nebenwirkungenname.map((nebenwirkung, i) => {
+                                    return (
+                                        <li key={i}>{nebenwirkung}</li>
+                                    )
+                                })}
                             </ul>
                         </div>
                     </div>
@@ -177,15 +196,19 @@ export default function TeeSorteDetail({allTeas,doSearch}) {
                         <div className="card-body">
                             <h2 className="card-title">Benefits:</h2>
                             <ul>
-                                {tee.benefitsname.map((benefit,i)=>{return(
-                                    <li key={i}>{benefit}</li>
-                                )})}
+                                {tee.benefitsname.map((benefit, i) => {
+                                    return (
+                                        <li key={i}>{benefit}</li>
+                                    )
+                                })}
                             </ul>
                         </div>
                     </div>
-                    <Accordion/>
+                    <Accordion />
                 </div >
-            </div>
+            </div >
+
+
         </>
     )
 };
