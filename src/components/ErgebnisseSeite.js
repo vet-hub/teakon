@@ -171,7 +171,7 @@ if (kriteria === "suche") {
                             /* kein "break" um Einzelkriterien, die keine Teeart sind, nicht abzufangen */
                         default:
                             searchFunktion();
-                            if (!foundTeas.length){navigateTo("/*",{replace:true})};
+                            if (!foundTeas.length){navigateTo("/kein-tee",{replace:true})};
                             window.scrollTo(0,0);
                             break;
                         } 
