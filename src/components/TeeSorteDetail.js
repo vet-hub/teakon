@@ -1,6 +1,6 @@
 import wrldmap from '../img/61752.jpg';
 import testbild from '../img/drew-jemmett-qEcWgrTG578-unsplash.jpg'
-import Accordion from './accordion.js'
+import MobileAccordion from './MobileAccordion';
 import { useParams } from 'react-router-dom';
 import darjeelingtee from "../img/teesorten/01_darjeelingtee.jpg";
 import assamtee from "../img/teesorten/02_assamtee.jpg";
@@ -105,44 +105,44 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
     return (
         <>
             <div className='container'>
-                <h1 className='text-5xl text-white bg-grey-600 text-center font-bold my-6'>{tee.teename[0]}</h1>
+                <h1 className='text-3xl md:text-5xl text-white bg-grey-600 text-center font-bold my-6'>{tee.teename[0]}</h1>
 
 
-                <div className=' md:flex md:justify-between md:px-0'>
+                <div className='md:justify-center lg:justify-start md:flex md:flex-wrap lg:flex-nowrap lg:flex-row  md:px-0'>
                     {/* -------------------------BILD-01--------------------------------- */}
 
 
                     <div class=" ">
-                        <img src={imagesHandler[tee.teeimage[0]]} alt={tee.teename[0]} className='w-80 h-80 mx-4 ml-0 my-4 rounded-lg  ' />
+                        <img src={imagesHandler[tee.teeimage[0]]} alt={tee.teename[0]} className='w-80 h-80   rounded-lg md:my-2 ' />
                     </div>
                     {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
                     {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
-                    <div class="">
-                        <h3 className=' text-gray-500 my-3 text-xl'>Aroma:</h3>
+                    <div class="lg:flex-col lg:flex pt-3 pl-2 md:pl-8 md:pt-8 lg:p-14">
+                        <h3 className='font-bold text-gray-500 dark:text-white mb-1 text-xl'>Aroma:</h3>
                         <ul>
                             {tee.aromenname.map((aroma, i) => {
                                 return (
-                                    <li className="text-gray-500" key={i}>{aroma}</li>)
+                                    <li className="text-gray-500 dark:text-white mb-1" key={i}>{aroma}</li>)
                             })}
                         </ul>
-                        <h3 className=' text-gray-500 my-3 text-xl'>Koffeingehalt:</h3>
+                        <h3 className='font-bold text-gray-500 dark:text-white mb-1 text-xl'>Koffeingehalt:</h3>
                         <ul>
                             {tee.attributename.map((attribute, i) => {
                                 return (
-                                    <li className="text-gray-500" key={i}>{attribute}</li>)
+                                    <li className="text-gray-500 dark:text-white" key={i}>{attribute}</li>)
                             })}
                         </ul>
-                        <h3 className=' text-gray-500 my-3 text-xl'>Teeart:</h3>
+                        <h3 className='font-bold text-gray-500 dark:text-white my-1 text-xl'>Teeart:</h3>
                         <ul>
                             {tee.tee_artenname.map((teeart, i) => {
                                 return (
-                                    <li className="text-gray-500" key={i}>{teeart}</li>)
+                                    <li className="text-gray-500 dark:text-white" key={i}>{teeart}</li>)
                             })}
                         </ul>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
                     <div class="">
-                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='md:w-96 md:h-80 md:ml-300 md:mx-4 md:ml-100 md:my-4 md:m-30 rounded-lg' />
+                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='md:w-full  md:h-80  my-4   rounded-lg' />
                     </div>
 
                 </div>
@@ -204,7 +204,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                             </ul>
                         </div>
                     </div>
-                    <Accordion />
+                    {/* <MobileAccordion /> */}
                 </div >
             </div >
 

@@ -179,9 +179,9 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
     }, [chosenCriterias])
     return (
         <>
-            <p className='text-5xl text-gray-900 bg-grey-600 text-center font-bold my-6'>Die Welt des Tee</p>
+            <p className='text-3xl md:text-5xl   text-gray-900 dark:text-white dark:bg-grey-600 text-center font-bold mt-6'>Die Welt des Tee</p>
             {/* für "Alle Tees" */}
-            {kriteria === "alle" && <p className='text-xl text-gray-900 bg-grey-600 text-center font-bold my-6'>Alle Tees</p>}
+            {kriteria === "alle" && <p className='text-2xl md:text-4xl text-gray-900 dark:text-white bg-grey-600 text-center font-bold my-6'>Alle Tees</p>}
             {/* für einzelne Teeart */}
 
             {chosenCriterias.length === 1 &&
@@ -198,17 +198,17 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
             {/* für Suchergebniss  */}
             {kriteria === "suche" && <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />}
             {/* anzeige aller gefundener Tees */}
-            <div className='md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-6  md:gap-y-6 md:mt-10 md:mb-7'>
+            <div className='md:flex md:flex-wrap md:justify-center md:items-center gap-x-6 gap-y-6'>
                 {resultTeas.map(tea => {
                     return (
                         // DIV onClick={() => navigateTo("/teesorte")}
-                        <div id={tea.teeid} key={tea.teeid} className="flex max-w-md  md:flex-col  bg-white border  border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700" onClick={navigateToDetails}>
-                            <img id={tea.teeid} src={imagesHandler[tea.teeimage[0]]} alt={tea.teename[0]} className='min-h-9/10 object-contain justify-center items-center w-2/5 ml-1 my-2 rounded-xl md:my-4 md:ml-0 md:w-full md:h-1/3 md:rounded-3xl' />
+                        <div id={tea.teeid} key={tea.teeid} className="flex max-w-xs md:flex-col  bg-white border  border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700" onClick={navigateToDetails}>
+                            <img id={tea.teeid} src={imagesHandler[tea.teeimage[0]]} alt={tea.teename[0]} className='min-h-9/10 object-contain justify-center items-center w-2/5 ml-1 my-2 md:my-0 rounded-xl md:ml-0 md:w-full md:h-1/4 lg:w-full  md:rounded-3xl' />
                             <div id={tea.teeid} className="px-2 py-2 w-3/5 md:w-full md:p-5 md:flex md:flex-col md:h-2/3">
                                 <h5 id={tea.teeid} className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:mb-2 md:text-2xl">{tea.teename[0]}</h5>
-                                <p id={tea.teeid} className="text-gray-700 dark:text-gray-400 md:mb-3 md:font-normal">{tea.anbaugebietename[0]}</p>
-                                <p id={tea.teeid} className="text-sm text-gray-700 dark:text-gray-400 md:text-xl md:mb-3 md:font-normal">{tea.teebeschreibung[0]}</p>
-                                <button id={tea.teeid} /* onClick={navigateToDetails} */ className="hidden font-semibold md:block md:bg-transparent md:hover:bg-blue-500 md:text-blue-700  md:hover:text-white md:py-3 md:px-7 md:mt-4 md:border md:border-blue-500 md:hover:border-transparent md:rounded-full">anzeigen</button>
+                                <p id={tea.teeid} className="font-thin text-gray-700 dark:text-gray-400 md:mb-1">{tea.anbaugebietename[0]}</p>
+                                <p id={tea.teeid} className="text-sm text-gray-700 dark:text-gray-400 md:text-xl md:mb-3 md:font-normal">{`${tea.teebeschreibung[0].substring(0, 76)}`}...</p>
+                                <button id={tea.teeid} /* onClick={navigateToDetails} */ className="hidden font-semibold md:block md:bg-transparent md:hover:bg-blue-500 md:text-white  md:hover:text-white md:py-3 md:px-3 md:border md:border-blue-500 md:hover:border-transparent md:rounded-full">anzeigen</button>
                             </div>
                         </div>
                     )
