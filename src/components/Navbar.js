@@ -83,8 +83,8 @@ const bgSelector={
 }
     return (
         
-        <div className={`navbar p-3 rounded-box ${(chosenCriterias.length === 1 &&
-            (allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name) >= 0))?bgSelector[chosenCriterias[0].name] :"bg-gray-300 dark:bg-gray-800 "}`}>
+        <div className={`navbar p-3 rounded-box dark:bg-gray-800 ${(chosenCriterias.length === 1 &&
+            (allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name) >= 0))?bgSelector[chosenCriterias[0].name] :"bg-gray-300  "}`}>
             {/* ---------------- Logo section -------------- */}
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
