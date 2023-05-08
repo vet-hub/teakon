@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import LandingPage from "./components/LandingPage";
 import ErgebnisseSeite from "./components/ErgebnisseSeite";
-import TeeArtDetail from "./components/TeeArtDetail";
 import TeeSorteDetail from "./components/TeeSorteDetail";
 import Zubehör from "./components/Zubehör";
 import ErrorPage from './components/ErrorPage';

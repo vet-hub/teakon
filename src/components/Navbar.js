@@ -4,7 +4,7 @@ import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
 
-export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
+export default function Navbar({chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
     const navigateTo = useNavigate()
     /* TODO responsiveness (burgermenu) */
@@ -72,10 +72,19 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"teas"}])
                 navigateTo("/ergebnisse/suche")
     }
-
+const bgSelector={
+    "Schwarzer Tee":"bg-[#630606] text-white",
+    "Grüner Tee":"bg-[#C7E9B0]",
+    "Gelber Tee":"bg-[#F7D060]",
+    "Weißer Tee":"bg-[#FFFBEB]",
+    "Oolong Tee":"bg-[#FEBE8C]",
+    "Früchtetee":"bg-[#DF2E38]",
+    "Kräutertee":"bg-[#539165]"
+}
     return (
         
-        <div className="navbar bg-gray-300 dark:bg-gray-800 p-3 rounded-box">
+        <div className={`navbar p-3 rounded-box ${(chosenCriterias.length === 1 &&
+            (allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name) >= 0))?bgSelector[chosenCriterias[0].name] :"bg-gray-300 dark:bg-gray-800 "}`}>
             {/* ---------------- Logo section -------------- */}
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
@@ -85,7 +94,7 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
         <div className="flex items-stretch">
             {/* ----------------- Searchbar ---------------- */}
             <form className="form-control" onSubmit={resolveSearchBar}>
-                <input type="search" placeholder="Suche" className="input input-bordered" onChange={inputHandler}  />
+                <input type="search" placeholder="Suche" className="input input-bordered text-black" onChange={inputHandler}  />
             </form>
             {/* ------------------ zubehör ----------------- */}
             <Link className="btn btn-ghost rounded-btn" to="/zubehör">Zubehör</Link>
