@@ -51,14 +51,33 @@ export default function CheckboxContainer ({selectedCategory,chosenCriterias, se
             }
         setSubCriteriaArray(subCriteriaArrayTemp);
         }
+        const isSmallScreen = window.innerWidth < 500;
     return (
-        <fieldset className="checkboxContainer flex flex-col flex-wrap shadow border border-black overflow-auto rounded-xl mt-10 my-5 w-3/4 px-5 py-2 max-h-32 ">
-            {subCriteriaArray.map(entry=>{return(        
-                <div key={entry.name} >
-                    <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
-                    <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500 dark:text-white">{entry.name}</label>
+        <div className=" flex justify-center w-5/6">
+            {isSmallScreen ? (
+                <div tabIndex={0} className="collapse collapse-arrow border mt-5 border-base-100 bg-base-100 rounded-box">
+                <div className="collapse-title text-l font-medium">
+                    auswählen
                 </div>
-            )})}
-        </fieldset>
+                <div className="collapse-content">
+                <p>{subCriteriaArray.map(entry=>{return(        
+                    <div key={entry.name} >
+                        <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
+                        <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500 dark:text-white">{entry.name}</label>
+                    </div>
+                )})}</p>
+                </div>
+                </div>
+            ) : (
+            <fieldset className="checkboxContainer flex flex-col flex-wrap shadow border border-black overflow-auto rounded-xl mt-10 my-5 w-3/4 px-5 py-2 max-h-32 ">
+                {subCriteriaArray.map(entry=>{return(        
+                    <div key={entry.name} >
+                        <input type="checkbox" id={entry.name} className="hover:cursor-pointer" value={entry.name} checked={entry.checked} onChange={handleCheck}/>
+                        <label htmlFor={entry.name} className="m-2 hover:cursor-pointer text-gray-500 dark:text-white">{entry.name}</label>
+                    </div>
+                )})}
+            </fieldset>
+            ) }
+        </div>
     )
 };
