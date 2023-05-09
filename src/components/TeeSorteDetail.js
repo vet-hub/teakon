@@ -204,7 +204,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                             </ul>
                         </div>
                     </div>
-                    {/* <MobileAccordion /> */}
+                    {/* <MobileAccordion tee={tee} /> */}
                 </div >
             </div >
 
