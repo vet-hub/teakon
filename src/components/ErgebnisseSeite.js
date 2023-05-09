@@ -196,7 +196,7 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
                         </div>
                     </div>)}
             {/* für Suchergebniss  */}
-            {kriteria === "suche" && <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />}
+            {kriteria === "suche" && <div className="flex justify-center"><SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} /></div>}
             {/* anzeige aller gefundener Tees */}
             <div className='flex flex-col items-center  md:flex-row md:flex-wrap md:justify-center md:items-center gap-x-6 gap-y-6 md:mb-6'>
                 {resultTeas.map(tea => {
