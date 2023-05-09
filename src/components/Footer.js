@@ -37,9 +37,9 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
     
     return (
         
-            <footer className="footer pl-4 pt-3 lg:pl-2 lg:pt-10 bg-gray-300 gap-0 dark:bg-gray-800 text-base-content rounded-xl pb-5 min-[330px]:flex justify-center">
+            <footer className="footer pl-4 pt-3 lg:pl-2 lg:pt-10 bg-gray-300 gap-0 dark:bg-gray-800 text-base-content rounded-xl pb-5 sm:flex justify-center">
 
-                <div className="pb-1 w-1/1 min-[330px]:w-1/2 sm:w-1/4">
+                <div className="pb-1 w-1/1  sm:w-1/4">
                     {screenWidth < 500 ? (<div>
                         <Link to="/"><img className="w-48" src={MyLogo}></img></Link>
                     </div> 
