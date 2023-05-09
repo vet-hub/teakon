@@ -105,10 +105,10 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
     return (
         <>
             <div className='container'>
-                <h1 className='text-3xl md:text-5xl text-white bg-grey-600 text-center font-bold my-6'>{tee.teename[0]}</h1>
+                <h1 className='text-3xl md:text-5xl text-white bg-grey-600 text-center font-bold my-6 tracking-widest'>{tee.teename[0]}</h1>
 
 
-                <div className='md:justify-center lg:justify-start md:flex md:flex-wrap lg:flex-nowrap lg:flex-row  md:px-0'>
+                <div className=' lg:justify-between md:flex md:flex-wrap lg:flex-nowrap lg:flex-row  md:px-0'>
                     {/* -------------------------BILD-01--------------------------------- */}
 
 
@@ -204,7 +204,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                             </ul>
                         </div>
                     </div>
-                    {/* <MobileAccordion /> */}
+                    <MobileAccordion />
                 </div >
             </div >
 
