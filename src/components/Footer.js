@@ -36,10 +36,10 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
     };
     
     return (
-        <>
-            <footer className="footer pl-4 pt-3 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl pb-5">
+        
+            <footer className="footer pl-4 pt-3 lg:pl-2 lg:pt-10 bg-gray-300 gap-0 dark:bg-gray-800 text-base-content rounded-xl pb-5 sm:flex justify-center">
 
-                <div>
+                <div className="pb-1 w-1/1  sm:w-1/4">
                     {screenWidth < 500 ? (<div>
                         <Link to="/"><img className="w-48" src={MyLogo}></img></Link>
                     </div> 
@@ -48,41 +48,43 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                         <div className="flex-1 px-2 lg:flex-none">
                             <Link to="/"><img src={MyLogo}></img></Link>
                         </div> 
-                        <p className="px-2 text-center invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
+                        <p className="px-2 text-center hidden md:flex">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
 
                     </> 
                         )
                     }
                     
                 </div>
-                <div>
-                    <span className="footer-title underline">Teeart</span>
-                    <div className="grid grid-flow-row grid-cols-1 gap-1">
+                <div className="w-1/1 sm:w-3/4 flex flex-wrap flex-col sm:flex-row sm:flex-nowrap sm:content-center justify-evenly ">
+                <div tabIndex={0} className="p-0 collapse md:collapse-open">
+                    <span className="footer-title underline collapse-title min-h-0 p-0 ">Teeart</span>
+                    <div className="collapse-content  p-0 grid grid-flow-row grid-cols-1 gap-1">
                         {allTeearten.map((teeart)=>{return(
                             <a className="link link-hover" key={teeart.name} onClick={addTeasCriteria}>{teeart.name}</a>
                         )
                         })}
                     </div>
                 </div>              
-                <div>
-                    <span className="footer-title underline md:pl-4">Anbaugebiet</span>
-                    <div className="grid grid-flow-row grid-cols-1 gap-1 min-[320px]:grid-cols-2">
+                <div tabIndex={1} className="collapse md:collapse-open p-0">
+                    <span className="footer-title underline collapse-title min-h-0 p-0 md:pl-4">Anbaugebiet</span>
+                    <div className="grid grid-flow-row grid-cols-1 gap-1 collapse-content p-0 min-[320px]:grid-cols-2">
                         {allAnbaugebiete.map((anbaugebiet)=>{return(
                             <a className="link link-hover pr-4 md:pl-4" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
                         )
                         })}
                     </div>
                 </div>
-                <div>
-                    <span className="footer-title underline mr-6">Geschmack</span>
-                    <div className="grid grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[1024px]:grid-cols-3">
+                <div tabIndex={2} className="collapse p-0 md:collapse-open ">
+                    <span className="footer-title underline collapse-title min-h-0 p-0 ">Geschmack</span>
+                    <div className="collapse-content  p-0 grid gap-x-2 md:gap-1 grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[1024px]:grid-cols-3">
                         {allAromen.map((aroma)=>{return(
-                            <a className="link link-hover pl-1 min-[330px]:pr-3" key={aroma.name} onClick={addAromaCriteria}>{aroma.name}</a>
+                            <a className="link link-hover pl-1 min-[330px]:pr-2 " key={aroma.name} onClick={addAromaCriteria}>{aroma.name}</a>
                         )
                         })}
                     </div>
                 </div>
+                </div>
             </footer>
-        </>
+        
     )
 };
