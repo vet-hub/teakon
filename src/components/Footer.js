@@ -55,7 +55,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     }
                     
                 </div>
-                <div className="w-1/2 sm:w-3/4 flex flex-wrap flex-col sm:flex-row sm:flex-nowrap sm:content-center justify-evenly ">
+                <div className="w-1/1 sm:w-3/4 flex flex-wrap flex-col sm:flex-row sm:flex-nowrap sm:content-center justify-evenly ">
                 <div tabIndex={0} className="p-0 collapse md:collapse-open">
                     <span className="footer-title underline collapse-title min-h-0 p-0 ">Teeart</span>
                     <div className="collapse-content  p-0 grid grid-flow-row grid-cols-1 gap-1">
