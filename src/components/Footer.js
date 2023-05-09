@@ -33,7 +33,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                         <div className="flex-1 px-2 lg:flex-none">
                             <Link to="/"><img src={MyLogo}></img></Link>
                         </div> 
-                        <p className="invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
+                        <p className="px-2 text-center invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
                     </> 
                         )
                     }
