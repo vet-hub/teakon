@@ -1,12 +1,25 @@
 import { Link } from "react-router-dom"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
 
 export default function Navbar({chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     const navigateTo = useNavigate()
+
+    // Rerender windwos.innerwidth 
+    useEffect(() => {
+        function handleResize() {
+            setScreenWidth(window.innerWidth);
+        }
+        window.addEventListener("resize", handleResize);
+        return() => {
+            window.removeEventListener("resize", handleResize);
+        }
+    }, [])
+
     /* TODO responsiveness (burgermenu) */
     const inputHandler=(e)=>{
         setUserInput(e.target.value)
@@ -83,10 +96,10 @@ const bgSelector={
     "Kräutertee":"bg-[#539165]"
 }
     
-    const isSmallScreen = window.innerWidth < 500;
+    
     return (   
         <>
-        {isSmallScreen ? ( <div className="navbar bg-base-100 rounded-box pb-0">
+        {screenWidth < 500 ? ( <div className="navbar bg-base-100 rounded-box pb-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">

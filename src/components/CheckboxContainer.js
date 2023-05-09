@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 
 export default function CheckboxContainer ({selectedCategory,chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [subCriteriaArray,setSubCriteriaArray]=useState([])
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     const subCriteriaArrayTemp=[]
     let fetchedSubCriteriaArray=[]
     useEffect(() => {
@@ -51,10 +52,22 @@ export default function CheckboxContainer ({selectedCategory,chosenCriterias, se
             }
         setSubCriteriaArray(subCriteriaArrayTemp);
         }
-        const isSmallScreen = window.innerWidth < 500;
+
+        // Rerender windwos.innerwidth 
+        useEffect(() => {
+        function handleResize() {
+            setScreenWidth(window.innerWidth);
+        }
+        window.addEventListener("resize", handleResize);
+        return() => {
+            window.removeEventListener("resize", handleResize);
+        }
+        }, [])
+
+
     return (
         <div className=" flex justify-center w-5/6">
-            {isSmallScreen ? (
+            {screenWidth < 500 ? (
                 <div tabIndex={0} className="collapse collapse-arrow border mt-5 border-base-100 bg-base-100 rounded-box">
                 <div className="collapse-title text-l font-medium">
                     auswählen

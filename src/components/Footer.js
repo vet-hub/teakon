@@ -1,8 +1,22 @@
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 import { Link } from "react-router-dom";
 import {useNavigate} from "react-router"
+import { useEffect, useState } from "react";
 
 export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+
+    // Rerender windwos.innerwidth 
+    useEffect(() => {
+        function handleResize() {
+            setScreenWidth(window.innerWidth);
+        }
+        window.addEventListener("resize", handleResize);
+        return() => {
+            window.removeEventListener("resize", handleResize);
+        }
+        }, [])
+
     /* TODO responsiveness */
     const navigateTo = useNavigate();
     /* Suche nach einzelne Teeart starten */
@@ -20,12 +34,12 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"flavour"}]);
         navigateTo("/ergebnisse/suche");
     };
-    const isSmallScreen = window.innerWidth < 500;
+    
     return (
         <>
-            <footer className="footer pl-10 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl ">
+            <footer className="footer pl-4 pt-3 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl pb-5">
                 <div>
-                    {isSmallScreen ? (<div>
+                    {screenWidth < 500 ? (<div>
                         <Link to="/"><img className="w-48" src={MyLogo}></img></Link>
                     </div> 
                     ) : (
@@ -33,7 +47,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                         <div className="flex-1 px-2 lg:flex-none">
                             <Link to="/"><img src={MyLogo}></img></Link>
                         </div> 
-                        <p className="invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
+                        <p className="invisible md:visible ">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
                     </> 
                         )
                     }
@@ -58,8 +72,8 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     </div>
                 </div>
                 <div>
-                    <span className="footer-title underline">Geschmack</span>
-                    <div className="grid grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[370px]:grid-cols-3">
+                    <span className="footer-title underline mr-6">Geschmack</span>
+                    <div className="grid grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[1024px]:grid-cols-3">
                         {allAromen.map((aroma)=>{return(
                             <a className="link link-hover pl-1 min-[330px]:pr-3" key={aroma.name} onClick={addAromaCriteria}>{aroma.name}</a>
                         )
