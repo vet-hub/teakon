@@ -6,7 +6,7 @@ import Infosection from './Infosection';
 export default function LandingPage({chosenCriterias,setChosenCriterias,searchFunktion,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     return(
         <div>
-            <Infosection />
+            <Infosection setChosenCriterias={setChosenCriterias} />
             <CriteriaSelection chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} searchFunktion={searchFunktion} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />
         </div>
     )

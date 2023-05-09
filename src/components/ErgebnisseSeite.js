@@ -156,7 +156,7 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
     }
 
     useEffect(() => {
-        setResultTeas(allTeas)
+        setResultTeas(allTeas);
         if (kriteria === "suche") {
             switch (chosenCriterias.length) {
                 case 0:/* Weiterleitung zu "Alle Tees" wenn keine Suchkriterien gegeben sind */
@@ -181,14 +181,14 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
         <>
             <p className='text-3xl md:text-5xl   text-gray-900 dark:text-white dark:bg-grey-600 text-center font-bold mt-6'>Die Welt des Tee</p>
             {/* für "Alle Tees" */}
-            {kriteria === "alle" && <p className='text-2xl md:text-4xl text-gray-900 dark:text-white bg-grey-600 text-center font-bold my-6'>Alle Tees</p>}
+            {kriteria === "alle" && <p className='text-2xl md:text-4xl text-gray-900 dark:text-white bg-grey-600 text-center font-bold my-3 md:my-6'>Alle Tees</p>}
             {/* für einzelne Teeart */}
 
             {chosenCriterias.length === 1 &&
                 (allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name) >= 0) && (
                     <div className="mt-6 mb-6">
-                        <div className="card card-side bg-base-100 shadow-xl mb-4">
-                            <figure><img className="object-scale-down h-48 w-96" src={imagesHandler[kriteria]} alt={allTeearten[allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name)].name} /></figure>
+                        <div className=" card card-side bg-base-100 shadow-xl mb-4">
+                            <figure className="flex justify-start"><img className=" justify-start object-scale-down h-48 w-96" src={imagesHandler[kriteria]} alt={allTeearten[allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name)].name} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{chosenCriterias[0].name}</h2>
                                 <p>{allTeearten[allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name)].beschreibung}</p>
@@ -196,9 +196,9 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
                         </div>
                     </div>)}
             {/* für Suchergebniss  */}
-            {kriteria === "suche" && <SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} />}
+            {kriteria === "suche" && <div className="flex justify-center"><SelectedCriterias chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} /></div>}
             {/* anzeige aller gefundener Tees */}
-            <div className='md:flex md:flex-wrap md:justify-center md:items-center gap-x-6 gap-y-6 md:mb-6'>
+            <div className='flex flex-col items-center  md:flex-row md:flex-wrap md:justify-center md:items-center gap-x-6 gap-y-6 md:mb-6'>
                 {resultTeas.map(tea => {
                     return (
                         // DIV onClick={() => navigateTo("/teesorte")}

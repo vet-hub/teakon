@@ -105,19 +105,19 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
     return (
         <>
             <div className='container'>
-                <h1 className='text-3xl md:text-5xl text-white bg-grey-600 text-center font-bold my-6'>{tee.teename[0]}</h1>
+                <h1 className='text-3xl md:text-5xl text-white bg-grey-600 text-center font-bold my-6 tracking-widest'>{tee.teename[0]}</h1>
 
 
-                <div className='md:justify-center lg:justify-start md:flex md:flex-wrap lg:flex-nowrap lg:flex-row  md:px-0'>
+                <div className=' lg:justify-between md:flex md:flex-wrap lg:flex-nowrap lg:flex-row  md:px-0'>
                     {/* -------------------------BILD-01--------------------------------- */}
 
 
-                    <div class=" ">
-                        <img src={imagesHandler[tee.teeimage[0]]} alt={tee.teename[0]} className='w-80 h-80   rounded-lg md:my-2 ' />
+                    <div className=" ">
+                        <img src={imagesHandler[tee.teeimage[0]]} alt={tee.teename[0]} className='w-80    rounded-lg md:my-2 ' />
                     </div>
                     {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
                     {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
-                    <div class="lg:flex-col lg:flex pt-3 pl-2 md:pl-8 md:pt-8 lg:p-14">
+                    <div className="lg:flex-col lg:flex pt-3 pl-2 md:pl-8 md:pt-8 lg:p-14">
                         <h3 className='font-bold text-gray-500 dark:text-white mb-1 text-xl'>Aroma:</h3>
                         <ul>
                             {tee.aromenname.map((aroma, i) => {
@@ -141,8 +141,10 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                         </ul>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
-                    <div class="">
-                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='md:w-full  md:h-80  my-4   rounded-lg' />
+                    <div className="md:h-80">
+                        <h3 className='pl-2 font-bold text-gray-500 dark:text-white my-1 text-xl'>Anbaugebiet:</h3>
+                        <label className="pl-2 text-gray-500 dark:text-white">{tee.anbaugebietename[0]}</label>
+                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='w-80 md:w-full  md:h-60  my-4   rounded-lg' />
                     </div>
 
                 </div>
@@ -204,7 +206,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                             </ul>
                         </div>
                     </div>
-                    {/* <MobileAccordion /> */}
+                    {/* <MobileAccordion tee={tee} /> */}
                 </div >
             </div >
 

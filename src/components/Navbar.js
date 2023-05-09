@@ -132,7 +132,7 @@ const bgSelector={
                 <div className="flex items-stretch">
                     {/* ----------------- Searchbar ---------------- */}
                     <form className="form-control" onSubmit={resolveSearchBar}>
-                        <input type="search" placeholder="Suche" className="input input-bordered" onChange={inputHandler}  />
+                        <input type="search" placeholder="Suche" className="input input-bordered text-black" onChange={inputHandler}  />
                     </form>
                     {/* ------------------ zubehör ----------------- */}
                     <Link className="btn btn-ghost rounded-btn" to="/zubehör">Zubehör</Link>

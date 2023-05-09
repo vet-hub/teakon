@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 
-export default function MobileAccordion({allTeas}){
-    const { id } = useParams();
-    const tee = allTeas.find(tea => tea.teeid === Number(id))
+export default function MobileAccordion({tee}){
     return (
         <>
             <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
