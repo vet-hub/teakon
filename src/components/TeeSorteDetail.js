@@ -152,7 +152,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
                 {/* -------------------------TEXTFELDER-CARDS-------------------------------- */}
-                <div className='flex flex-col'>
+                <div className=' flex-col hidden md:block'>
                     {/* -------------------------TEXTFELD-01--------------------------------- */}
                     <div className="bg-[#4B6C58] card  my-4 text-primary-content">
                         <div className="card-body">
@@ -206,8 +206,8 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                             </ul>
                         </div>
                     </div>
-                    {/* <MobileAccordion tee={tee} /> */}
                 </div >
+                <MobileAccordion tee={tee} />
             </div >
 
 
