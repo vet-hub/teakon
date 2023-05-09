@@ -5,6 +5,7 @@ export default function MobileAccordion({ tee }) {
         <div className="my-4 md:hidden">
             {/* Beschreibung */}
             <div tabIndex={0} className="text-primary-content bg-[#4B6C58] my-2 collapse collapse-arrow border border-base-300  rounded-box">
+                <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-medium">
                     Beschreibung:
                 </div>
@@ -14,6 +15,7 @@ export default function MobileAccordion({ tee }) {
             </div>
             {/* Nährstoffe */}
             <div tabIndex={0} className="text-primary-content my-2 collapse collapse-arrow border border-base-300 bg-[#649165] rounded-box">
+                <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-medium">
                     Nährstoffe:
                 </div>
@@ -27,6 +29,7 @@ export default function MobileAccordion({ tee }) {
             </div>
             {/* Zubereitung */}
             <div tabIndex={0} className="text-primary-content my-2 collapse collapse-arrow border border-base-300 bg-[#8ab66c] rounded-box">
+                <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-medium">
                     Zubereitung:
                 </div>
@@ -36,6 +39,7 @@ export default function MobileAccordion({ tee }) {
             </div>
             {/* Nebenwirkungen */}
             <div tabIndex={0} className="text-gray-500 my-2 collapse collapse-arrow border border-base-300 bg-[#bcd96e] rounded-box">
+                <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-medium">
                     Nebenwirkungen:
                 </div>
@@ -51,6 +55,7 @@ export default function MobileAccordion({ tee }) {
             </div>
             {/* Benefits */}
             <div tabIndex={0} className="text-black my-2 collapse collapse-arrow border border-base-300 bg-[#fafa6e] rounded-box">
+                <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-medium">
                     Benefits:
                 </div>
