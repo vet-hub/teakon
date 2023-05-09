@@ -156,7 +156,7 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
     }
 
     useEffect(() => {
-        setResultTeas(allTeas)
+        setResultTeas(allTeas);
         if (kriteria === "suche") {
             switch (chosenCriterias.length) {
                 case 0:/* Weiterleitung zu "Alle Tees" wenn keine Suchkriterien gegeben sind */

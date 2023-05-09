@@ -23,7 +23,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
     const isSmallScreen = window.innerWidth < 500;
     return (
         <>
-            <footer className="footer pl-10 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl ">
+            <footer className="pb-5 footer pl-10 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl ">
                 <div>
                     {isSmallScreen ? (<div>
                         <Link to="/"><img className="w-48" src={MyLogo}></img></Link>
@@ -33,7 +33,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                         <div className="flex-1 px-2 lg:flex-none">
                             <Link to="/"><img src={MyLogo}></img></Link>
                         </div> 
-                        <p className="invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
+                        <p className="px-2 text-center invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
                     </> 
                         )
                     }
