@@ -23,7 +23,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
     const isSmallScreen = window.innerWidth < 500;
     return (
         <>
-            <footer className="footer pl-10 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl ">
+            <footer className="pb-5 footer pl-10 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl ">
                 <div>
                     {isSmallScreen ? (<div>
                         <Link to="/"><img className="w-48" src={MyLogo}></img></Link>
