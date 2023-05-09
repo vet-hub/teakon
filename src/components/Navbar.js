@@ -4,7 +4,7 @@ import {useNavigate} from "react-router"
 import MyLogo from "../img/teekonmasala_logo-removebg-preview.png";
 
 
-export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
+export default function Navbar({chosenCriterias, setChosenCriterias,allTeearten,allAnbaugebiete,allBenefits,allAromen,allCoffein}) {
     const [userInput,setUserInput] = useState("")
     const navigateTo = useNavigate()
     /* TODO responsiveness (burgermenu) */
@@ -73,36 +73,71 @@ export default function Navbar({setChosenCriterias,allTeearten,allAnbaugebiete,a
                 navigateTo("/ergebnisse/suche")
     }
 
-    return (
-        
-        <div className="navbar bg-gray-300 dark:bg-gray-800 p-3 rounded-box">
+const bgSelector={
+    "Schwarzer Tee":"bg-[#630606] text-white",
+    "Grüner Tee":"bg-[#C7E9B0]",
+    "Gelber Tee":"bg-[#F7D060]",
+    "Weißer Tee":"bg-[#FFFBEB]",
+    "Oolong Tee":"bg-[#FEBE8C]",
+    "Früchtetee":"bg-[#DF2E38]",
+    "Kräutertee":"bg-[#539165]"
+}
+    
+    const isSmallScreen = window.innerWidth < 500;
+    return (   
+        <>
+        {isSmallScreen ? ( <div className="navbar bg-base-100 rounded-box pb-0">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    {allTeearten.map((teeart)=>{return(
+                                    <li key={teeart.name}><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
+                                )
+                    }   )  }
+                    </ul>
+                </div>
+            </div>
+            <div className="navbar-center">
+                <Link to="/"><img className="w-36" src={MyLogo}></img></Link>
+            </div>
+            <div className="navbar-end">
+            </div>
+        </div>
+        ) : (
+        <div className={`navbar p-3 rounded-box dark:bg-gray-800 ${(chosenCriterias.length === 1 &&
+            (allTeearten.findIndex(teeart => teeart.name === chosenCriterias[0].name) >= 0))?bgSelector[chosenCriterias[0].name] :"bg-gray-300  "}`}>
+
             {/* ---------------- Logo section -------------- */}
             <div className="flex-1 px-2 lg:flex-none">
                 <Link to="/"><img src={MyLogo}></img></Link>
             </div> 
 
-        <div className="flex justify-end flex-1 px-2">
-        <div className="flex items-stretch">
-            {/* ----------------- Searchbar ---------------- */}
-            <form className="form-control" onSubmit={resolveSearchBar}>
-                <input type="search" placeholder="Suche" className="input input-bordered" onChange={inputHandler}  />
-            </form>
-            {/* ------------------ zubehör ----------------- */}
-            <Link className="btn btn-ghost rounded-btn" to="/zubehör">Zubehör</Link>
-            {/* ---------------- Dropdown menü ------------- */}
-            <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
-                <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                    {allTeearten.map((teeart)=>{return(
-                        <li key={teeart.name}><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
-                    )
-                    })}
-                </ul>
-
+            <div className="flex justify-end flex-1 px-2">
+                <div className="flex items-stretch">
+                    {/* ----------------- Searchbar ---------------- */}
+                    <form className="form-control" onSubmit={resolveSearchBar}>
+                        <input type="search" placeholder="Suche" className="input input-bordered" onChange={inputHandler}  />
+                    </form>
+                    {/* ------------------ zubehör ----------------- */}
+                    <Link className="btn btn-ghost rounded-btn" to="/zubehör">Zubehör</Link>
+                    {/* ---------------- Dropdown menü ------------- */}
+                    <div className="dropdown dropdown-end ">
+                        <label tabIndex={0} className="btn btn-ghost rounded-btn">Tee</label>
+                        <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4 text-black dark:text-white">
+                            {allTeearten.map((teeart)=>{return(
+                                <li key={teeart.name}><div key={teeart.name} onClick={addCategory}>{teeart.name}</div></li>
+                            )
+                            })}
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-        </div>
-        </div>
-        </div>
+        </div>)
+        }
+        </>    
+        
     )
 }

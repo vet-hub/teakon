@@ -6,8 +6,8 @@ export default function Infosection() {
     const navigate = useNavigate();
     return (
         <>
-            <div className="hero min-h-screen">
-                <img src={infoPic} alt='paul-vincent-unsplash' className='w-full h-3/4 rounded-box opacity-75'></img>
+            <div className="hero min-h-3/4">
+                <img src={infoPic} alt='paul-vincent-unsplash' className='w-full h-full rounded-box opacity-75'></img>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w">
                         <h1 className="italic sm:mb-5 text-3xl lg:text-5xl xl:text-7xl font-bold shadow-sm text-black ">TEEKON MASALA</h1>

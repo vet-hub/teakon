@@ -20,17 +20,27 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
         setChosenCriterias([{name:e.target.innerHTML, checked: true, category:"flavour"}]);
         navigateTo("/ergebnisse/suche");
     };
+    const isSmallScreen = window.innerWidth < 500;
     return (
         <>
-            <footer className="footer p-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl ">
+            <footer className="footer pl-10 lg:pl-2 lg:pt-10 bg-gray-300 dark:bg-gray-800 text-base-content rounded-xl ">
                 <div>
-                    <div className="flex-1 px-2 lg:flex-none">
-                        <Link to="/"><img src={MyLogo}></img></Link>
+                    {isSmallScreen ? (<div>
+                        <Link to="/"><img className="w-48" src={MyLogo}></img></Link>
                     </div> 
-                    <p className="invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
+                    ) : (
+                    <>
+                        <div className="flex-1 px-2 lg:flex-none">
+                            <Link to="/"><img src={MyLogo}></img></Link>
+                        </div> 
+                        <p className="invisible md:visible">Teekon-Masala GmbH.<br />Zuverlässige Teeinformationen seit 2023</p>
+                    </> 
+                        )
+                    }
+                    
                 </div>
                 <div>
-                    <span className="footer-title">Teeart</span>
+                    <span className="footer-title underline">Teeart</span>
                     <div className="grid grid-flow-row grid-cols-1 gap-1">
                         {allTeearten.map((teeart)=>{return(
                             <a className="link link-hover" key={teeart.name} onClick={addTeasCriteria}>{teeart.name}</a>
@@ -39,7 +49,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     </div>
                 </div>              
                 <div>
-                    <span className="footer-title md:pl-4">Anbaugebiet</span>
+                    <span className="footer-title underline md:pl-4">Anbaugebiet</span>
                     <div className="grid grid-flow-row grid-cols-1 gap-1 min-[320px]:grid-cols-2">
                         {allAnbaugebiete.map((anbaugebiet)=>{return(
                             <a className="link link-hover pr-4 md:pl-4" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
@@ -48,7 +58,7 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     </div>
                 </div>
                 <div>
-                    <span className="footer-title">Geschmack</span>
+                    <span className="footer-title underline">Geschmack</span>
                     <div className="grid grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[370px]:grid-cols-3">
                         {allAromen.map((aroma)=>{return(
                             <a className="link link-hover pl-1 min-[330px]:pr-3" key={aroma.name} onClick={addAromaCriteria}>{aroma.name}</a>
