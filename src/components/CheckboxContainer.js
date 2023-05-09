@@ -67,7 +67,7 @@ export default function CheckboxContainer ({selectedCategory,chosenCriterias, se
 
     return (
         <div className=" flex justify-center w-5/6">
-            {screenWidth < 500 ? (
+            {screenWidth < 800 ? (
                 <div tabIndex={0} className="collapse collapse-arrow border mt-5 border-base-100 bg-base-100 rounded-box">
                 <div className="collapse-title text-l font-medium">
                     auswählen
