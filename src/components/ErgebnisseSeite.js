@@ -207,7 +207,7 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
                             <div id={tea.teeid} className="px-2 py-2 w-3/5 md:w-full md:p-5 md:flex md:flex-col md:h-2/3">
                                 <h2 id={tea.teeid} className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:mb-1 md:text-2xl">{tea.teename[0]}</h2>
                                 <h5 id={tea.teeid} className="font-thin text-gray-700 dark:text-gray-400 md:mb-1">{tea.anbaugebietename[0]}</h5>
-                                <p id={tea.teeid} className="text-sm text-gray-700 dark:text-gray-400 md:text-md md:mb-3 ">{`${tea.teebeschreibung[0].substring(0,65)}`}...</p>
+                                <p id={tea.teeid} className="text-sm text-gray-700 dark:text-gray-400 md:text-md md:mb-3 ">{`${tea.teebeschreibung[0].substring(0, 65)}`}...</p>
                                 <button id={tea.teeid} /* onClick={navigateToDetails} */ className="hidden font-semibold md:block md:bg-transparent md:hover:bg-blue-500 md:dark:text-white text-blue-500 md:hover:text-white md:py-3 md:px-3 md:border md:border-blue-500 md:hover:border-transparent md:rounded-full">anzeigen</button>
                             </div>
                         </div>

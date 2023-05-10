@@ -117,7 +117,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                     </div>
                     {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
                     {/* -------------------------TEXTFELD-MITTE--------------------------------- */}
-                    <div className="lg:flex-col lg:flex pt-3 pl-2 md:pl-8 md:pt-8 lg:p-14">
+                    <div className="lg:flex-col lg:flex pt-3 pl-2 md:pl-8 md:pt-4 lg:pb-10 lg:pl-10">
                         <h3 className='font-bold text-gray-500 dark:text-white mb-1 text-xl'>Aroma:</h3>
                         <ul>
                             {tee.aromenname.map((aroma, i) => {
@@ -139,11 +139,11 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                                     <li className="text-gray-500 dark:text-white" key={i}>{teeart}</li>)
                             })}
                         </ul>
+                        <h3 className='font-bold text-gray-500 dark:text-white my-1 text-xl'>Anbaugebiet:</h3>
+                        <label className=" text-gray-500 dark:text-white">{tee.anbaugebietename[0]}</label>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
                     <div className="md:h-80">
-                        <h3 className='pl-2 font-bold text-gray-500 dark:text-white my-1 text-xl'>Anbaugebiet:</h3>
-                        <label className="pl-2 text-gray-500 dark:text-white">{tee.anbaugebietename[0]}</label>
                         <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='w-80 md:w-full  md:h-60  my-4   rounded-lg' />
                     </div>
 
@@ -181,7 +181,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                         </div>
                     </div>
                     {/* -------------------------TEXTFELD-04--------------------------------- */}
-                    <div className=" bg-[#bcd96e] card my-4 text-gray-500">
+                    <div className=" bg-[#bcd96e] card my-4 text-black">
                         <div className="card-body">
                             <h2 className="card-title">Nebenwirkungen:</h2>
                             <ul>

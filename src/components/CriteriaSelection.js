@@ -21,23 +21,23 @@ return(
     <div className="mainCriterias text-center md:flex md:justify-evenly md:flex-wrap w-full md:gap-2 ">
         
         <div className="min-h-8 mt-3 md:criteriaSelector md:opacity-80 shadow border visible border-black rounded-xl md:flex md:justify-center md:w-1/6 md:mb-5 md:aspect-square md:hover:cursor-pointer bg-teas-bg md:bg-cover"  onClick={setToTeas } >
-            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-white ">Teeart</h3>
+            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-gray-800 md:dark:text-white ">Teeart</h3>
         </div>
 
         <div className="min-h-8 mt-3 md:criteriaSelector md:opacity-80 shadow border visible border-black rounded-xl md:flex md:justify-center md:w-1/6 md:mb-5 md:aspect-square md:hover:cursor-pointer bg-origin-bg md:bg-cover" onClick={setToOrigin}>
-            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-white ">Anbaugebiet</h3>
+            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-gray-800 md:dark:text-white ">Anbaugebiet</h3>
         </div>
 
         <div className="min-h-8 mt-3 md:criteriaSelector md:opacity-80 shadow border visible border-black rounded-xl md:flex md:justify-center md:w-1/6 md:mb-5 md:aspect-square md:hover:cursor-pointer bg-coffein-bg md:bg-cover" onClick={setToCoffein}>
-            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-gray-500 ">Koffeingehalt</h3>
+            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-gray-800 ">Koffeingehalt</h3>
         </div>
 
         <div className="min-h-8 mt-3 md:criteriaSelector md:opacity-80 shadow border visible border-black rounded-xl md:flex md:justify-center md:w-1/6 md:mb-5 md:aspect-square md:hover:cursor-pointer bg-flavour-bg md:bg-cover" onClick={setToFlavour}>
-            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-gray-500 ">Geschmack</h3>
+            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-gray-800 md:text-gray-500 ">Geschmack</h3>
         </div>
 
         <div className="min-h-8 mt-3 md:criteriaSelector md:opacity-80 shadow border visible border-black rounded-xl md:flex md:justify-center md:w-1/6 md:mb-5 md:aspect-square md:hover:cursor-pointer bg-effect-bg md:bg-cover" onClick={setToEffect}>
-            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-white ">Wirkung</h3>
+            <h3 className="italic criteriaName my-1 font-bold min-[1280px]:text-3xl self-center text-gray-800 md:dark:text-white ">Wirkung</h3>
     </div> 
         </div>
             {selectedCategory && <CheckboxContainer selectedCategory={selectedCategory} chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={allTeearten} allAnbaugebiete={allAnbaugebiete} allBenefits={allBenefits} allAromen={allAromen} allCoffein={allCoffein} />}

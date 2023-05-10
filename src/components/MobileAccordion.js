@@ -38,7 +38,7 @@ export default function MobileAccordion({ tee }) {
                 </div>
             </div>
             {/* Nebenwirkungen */}
-            <div tabIndex={0} className="text-gray-500 my-2 collapse collapse-arrow border border-base-300 bg-[#bcd96e] rounded-box">
+            <div tabIndex={0} className="text-black my-2 collapse collapse-arrow border border-base-300 bg-[#bcd96e] rounded-box">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-medium">
                     Nebenwirkungen:
