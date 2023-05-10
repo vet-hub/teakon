@@ -143,8 +143,8 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                         <p className=" text-gray-500 dark:text-white">{tee.anbaugebietename[0]}</p>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
-                    <div className="md:h-80">
-                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='w-80 md:w-full  md:h-60  my-4   rounded-lg' />
+                    <div className="">
+                        <img src={imagesHandler[kartenName]} alt={tee.anbaugebietename[0]} className='w-80 md:w-full  md:h-80  my-4   rounded-lg' />
                     </div>
 
                 </div>
