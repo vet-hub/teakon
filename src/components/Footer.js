@@ -56,9 +56,10 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     
                 </div>
                 <div className="w-1/1 sm:w-3/4 flex flex-wrap flex-col sm:flex-row sm:flex-nowrap sm:content-center justify-evenly ">
-                <div tabIndex={0} className="p-0 collapse md:collapse-open">
-                    <span className="footer-title underline collapse-title min-h-0 p-0 ">Teeart</span>
-                    <div className="collapse-content  p-0 grid grid-flow-row grid-cols-1 gap-1">
+                <div tabIndex={0} className="p-0 collapse md:collapse-open ">
+                <input type="checkbox" className="peer " />
+                    <span className="footer-title underline collapse-title min-h-0 p-0 place-self-center">Teeart</span>
+                    <div className="collapse-content  p-0 grid grid-flow-row grid-cols-1 gap-1 ">
                         {allTeearten.map((teeart)=>{return(
                             <a className="link link-hover" key={teeart.name} onClick={addTeasCriteria}>{teeart.name}</a>
                         )
@@ -66,7 +67,8 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     </div>
                 </div>              
                 <div tabIndex={1} className="collapse md:collapse-open p-0">
-                    <span className="footer-title underline collapse-title min-h-0 p-0 md:pl-4">Anbaugebiet</span>
+                <input type="checkbox" className="peer " />
+                    <span className="footer-title underline collapse-title min-h-0 p-0 md:pl-4 place-self-center">Anbaugebiet</span>
                     <div className="grid grid-flow-row grid-cols-1 gap-1 collapse-content p-0 min-[320px]:grid-cols-2">
                         {allAnbaugebiete.map((anbaugebiet)=>{return(
                             <a className="link link-hover pr-4 md:pl-4" key={anbaugebiet.name} onClick={addOriginCriteria}>{anbaugebiet.name}</a>
@@ -75,8 +77,9 @@ export default function Footer({setChosenCriterias,allTeearten,allAnbaugebiete,a
                     </div>
                 </div>
                 <div tabIndex={2} className="collapse p-0 md:collapse-open ">
-                    <span className="footer-title underline collapse-title min-h-0 p-0 ">Geschmack</span>
-                    <div className="collapse-content  p-0 grid gap-x-2 md:gap-1 grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[1024px]:grid-cols-3">
+                <input type="checkbox" className="peer " />
+                    <span className="footer-title underline collapse-title min-h-0 p-0 place-self-center ">Geschmack</span>
+                    <div className="collapse-content  p-0 grid gap-x-2 md:gap-1 grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[1024px]:grid-cols-3 ">
                         {allAromen.map((aroma)=>{return(
                             <a className="link link-hover pl-1 min-[330px]:pr-2 " key={aroma.name} onClick={addAromaCriteria}>{aroma.name}</a>
                         )
