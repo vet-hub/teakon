@@ -69,7 +69,7 @@ export default function ErgebnisseSeite({ chosenCriterias, setChosenCriterias, a
         /* Kriterien für Suche nach Koffein */
         const coffeinSearch = chosenCriteriasTemp.filter(criteria => criteria.category === "coffein");
         /* Suche nach Name */
-        if (nameSearch.length > 0) {
+        if (nameSearch.length > 0) {/*TODO suche nach namen, die "name" enthalten */
             foundTeas = foundTeas.filter(tea => tea.teename[0].toLowerCase() === nameSearch[0].name);
         } else /* wenn kein tee namentlich gesucht wird */
         /* Suche nach Teeart (ODER-Suche) */ {
