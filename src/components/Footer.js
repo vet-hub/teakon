@@ -78,7 +78,7 @@ export default function Footer({ setChosenCriterias, allTeearten, allAnbaugebiet
                         })}
                     </div>
                 </div>
-                <div tabIndex={2} className="collapse p-0 sm:collapse-open ">
+                <div tabIndex={2} className="collapse p-0 md:collapse-open ">
                     <input type="checkbox" className="peer " />
                     <span className="footer-title underline collapse-title min-h-0 p-0 place-self-center ">Geschmack</span>
                     <div className="collapse-content  p-0 grid gap-x-2 md:gap-1 grid-flow-row grid-cols-1 min-[330px]:grid-cols-2 min-[1024px]:grid-cols-3 ">
