@@ -2,6 +2,15 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    theme: {
+      fontFamily: {
+        'title': ['Catamaran', 'sans-serif'],
+        'subTitle': ['Trirong', 'serif'],
+        'paragraph': ['Inder', 'sans-serif']
+      }
+    },
+    variants: {},
+
     extend: {
       backgroundImage: {
         'teas-bg': "url(./img/bg/teas-bg-image.jpg)",
@@ -10,6 +19,7 @@ module.exports = {
         'effect-bg': "url(./img/bg/effects-bg-image.jpg)",
         'coffein-bg': "url(./img/bg/coffein-bg-image.jpg)"
       }
+
     },
   },
 
