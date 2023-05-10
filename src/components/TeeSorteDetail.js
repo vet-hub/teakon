@@ -140,7 +140,7 @@ export default function TeeSorteDetail({ allTeas, doSearch }) {
                             })}
                         </ul>
                         <h3 className='font-bold text-gray-500 dark:text-white my-1 text-xl'>Anbaugebiet:</h3>
-                        <label className=" text-gray-500 dark:text-white">{tee.anbaugebietename[0]}</label>
+                        <p className=" text-gray-500 dark:text-white">{tee.anbaugebietename[0]}</p>
                     </div>
                     {/* -------------------------BILD-02-------------------------------- */}
                     <div className="md:h-80">
