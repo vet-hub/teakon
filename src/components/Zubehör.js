@@ -8,8 +8,6 @@ import Wasserkocher from "../img/zubehör/Wasserkocher.jpg";
 import Stoevchen from "../img/zubehör/Stövchen.jpg";
 
 export default function Zubehör() {
-    /* TODO responsiveness bilder */
-    /* TODO responsiveness bilder */
     return (
 
         <div className="mt-6 mb-6">
