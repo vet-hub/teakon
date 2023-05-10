@@ -15,7 +15,7 @@ export default function Infosection({ setChosenCriterias }) {
                     </div>
                 </div>
             </div>
-            <p className="mt-5  mb-0 p-0 lg:mb-3 lg:mt-3 text-center xl:text-2xl font-bold text-black dark:text-gray-300">Willkommen auf unserer Teewebseite! Hier findest du alles, was du über Tee wissen musst - von der Herkunft bis hin zu den verschiedenen Arten und Sorten. Wir haben sogar eine Beschreibung für jeden Tee, damit du weißt, was dich erwartet. Also schnapp dir eine Tasse und lass uns zusammen diese köstliche Welt erkunden!</p>
+            <p className="mt-5  mb-0 p-0 lg:mb-3 lg:mt-3 text-center xl:text-2xl font-bold text-black dark:text-gray-300">Willkommen auf unserer Teewebseite!<br className=""/> Hier findest du alles, was du über Tee wissen musst - von der Herkunft bis hin zu den verschiedenen Arten und Sorten. Wir haben sogar eine Beschreibung für jeden Tee, damit du weißt, was dich erwartet. Also schnapp dir eine Tasse und lass uns zusammen diese köstliche Welt erkunden!</p>
         </>
     )
 };
