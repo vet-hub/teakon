@@ -1,15 +1,15 @@
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Router } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 import Navbar from './components/Navbar';
 import LandingPage from "./components/LandingPage";
 import ErgebnisseSeite from "./components/ErgebnisseSeite";
-import TeeArtDetail from "./components/TeeArtDetail";
 import TeeSorteDetail from "./components/TeeSorteDetail";
 import Zubehör from "./components/Zubehör";
 import ErrorPage from './components/ErrorPage';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import NoTeaPage from "./components/NoTeaPage"
 import ScrollToTop from './components/ScrollToTop';
 
 
@@ -62,9 +62,9 @@ function App() {
           <Routes>
               <Route path='/' element={<LandingPage chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias}  allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray} />} />
               <Route path='/ergebnisse/:kriteria' element={<ErgebnisseSeite chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeas={allTeas} allTeearten={doSearch.teeArtenArray}/>} />
-              <Route path='/teeart' element={<TeeArtDetail/>} />
               <Route path='/teesorte/:id' element={<TeeSorteDetail allTeas={allTeas} doSearch={doSearch} />} />
               <Route path='/zubehör' element={<Zubehör/>} />
+              <Route path='/kein-tee' element={<NoTeaPage setChosenCriterias={setChosenCriterias} />} />
               <Route path='*' element={<ErrorPage/>} />        
           </Routes>
           <Footer chosenCriterias={chosenCriterias} setChosenCriterias={setChosenCriterias} allTeearten={doSearch.teeArtenArray} allAnbaugebiete={doSearch.anbaugebieteArray} allBenefits={doSearch.benefitsArray} allAromen={doSearch.aromenArray} allCoffein={doSearch.attributeArray}/>
